@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="/home/andy/zynq/09_vdma_test_to_flash/vdma_test_to_flash.sdk/vdma_test/Debug" key="bootgen_files_selection"/>
+	<item value="/home/andy/zynq/tpg_test/tpg_test.sdk" key="com.xilinx.sdk.hw.ui.hwspec.last"/>
+	<item value="/home/andy/zynq/09_vdma_test_to_flash/vdma_test_to_flash.sdk/fsbl/Debug" key="zynq_flash_files_selection"/>
+	<item value="/home/andy/zynq/vdma_ov5640_test/vdma_ov5640_test.sdk" key="hwspec_file_selection"/>
+	<item value="/home/andy/zynq/vdma_ov5640_test/vdma_ov5640_test.sdk" key="last_stored_selection"/>
+</section>
