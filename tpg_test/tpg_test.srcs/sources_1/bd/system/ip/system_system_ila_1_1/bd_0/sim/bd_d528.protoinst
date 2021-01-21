@@ -1,0 +1,25 @@
+{
+	"version": "1.0",
+	"modules": {
+		"bd_d528": {
+			"proto_instances": {
+				"/g_inst/slot_0_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "slot_0_axis_tdata"},
+						"TDEST": { "actual": "slot_0_axis_tdest"},
+						"TID": { "actual": "slot_0_axis_tid"},
+						"TKEEP": { "actual": "slot_0_axis_tkeep"},
+						"TLAST": { "actual": "slot_0_axis_tlast"},
+						"TREADY": { "actual": "slot_0_axis_tready"},
+						"TSTRB": { "actual": "slot_0_axis_tstrb"},
+						"TUSER": { "actual": "slot_0_axis_tuser"},
+						"TVALID": { "actual": "slot_0_axis_tvalid"}
+					}
+				}
+			}
+		}
+	}
+}

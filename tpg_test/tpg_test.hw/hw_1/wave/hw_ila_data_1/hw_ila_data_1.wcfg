@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/andy/zynq/tpg_test/tpg_test.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2048001fs"></ZoomEndTime>
+      <Cursor1Time time="737000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="255"></NameColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/probe0_1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/probe0_1</obj_property>
+      <obj_property name="ObjectShortName">probe0_1</obj_property>
+      <obj_property name="label">v_axi4s_vid_out_0_vid_active_video</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="system_i/system_ila_0/inst/probe1_1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/probe1_1[23:0]</obj_property>
+      <obj_property name="ObjectShortName">probe1_1[23:0]</obj_property>
+      <obj_property name="label">v_axi4s_vid_out_0_vid_data</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/probe2_1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/probe2_1</obj_property>
+      <obj_property name="ObjectShortName">probe2_1</obj_property>
+      <obj_property name="label">v_axi4s_vid_out_0_vid_hsync</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/probe3_1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/probe3_1</obj_property>
+      <obj_property name="ObjectShortName">probe3_1</obj_property>
+      <obj_property name="label">v_axi4s_vid_out_0_vid_vsync</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_active_video_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_active_video_1</obj_property>
+      <obj_property name="ObjectShortName">SLOT_0_VIDEO_TIMING_active_video_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_hblank_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_hblank_1</obj_property>
+      <obj_property name="ObjectShortName">SLOT_0_VIDEO_TIMING_hblank_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_hsync_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_hsync_1</obj_property>
+      <obj_property name="ObjectShortName">SLOT_0_VIDEO_TIMING_hsync_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_vblank_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_vblank_1</obj_property>
+      <obj_property name="ObjectShortName">SLOT_0_VIDEO_TIMING_vblank_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_vsync_1">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/SLOT_0_VIDEO_TIMING_vsync_1</obj_property>
+      <obj_property name="ObjectShortName">SLOT_0_VIDEO_TIMING_vsync_1</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="system_i/system_ila_0/inst/probe4_1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">system_i/system_ila_0/inst/probe4_1</obj_property>
+      <obj_property name="ObjectShortName">probe4_1</obj_property>
+      <obj_property name="label">v_axi4s_vid_out_0_locked</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group20">
+      <obj_property name="label">slot_1 : axis_subset_converter_0_M_AXIS : Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Detail_Data">Interface_(i1:s1)_(axis_subset_converter_0_M_AXIS)_tooltip</obj_property>
+      <obj_property name="Render_Data">Interface_(i1:s1)_(axis_subset_converter_0_M_AXIS)</obj_property>
+      <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+      <obj_property name="CustomSignalColor">OliveDrab</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="group" fp_name="group21">
+         <obj_property name="label">slot_1 : axis_subset_converter_0_M_AXIS : T Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">T_Channel_(i1:s1)_(axis_subset_converter_0_M_AXIS)_tooltip</obj_property>
+         <obj_property name="Render_Data">T_Channel_(i1:s1)_(axis_subset_converter_0_M_AXIS)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">Purple</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject type="logic" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tvalid">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tvalid</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tready">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tready</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tready</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TREADY</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tlast">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tlast</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tlast</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TLAST</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tid">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tid</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tdata">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tdata[23:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tdata[23:0]</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TDATA</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tkeep">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tkeep[2:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tkeep[2:0]</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TKEEP</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="system_i/system_ila_0/inst/net_slot_1_axis_tuser">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">system_i/system_ila_0/inst/net_slot_1_axis_tuser</obj_property>
+            <obj_property name="ObjectShortName">net_slot_1_axis_tuser</obj_property>
+            <obj_property name="label">slot_1 : v_tpg_0_m_axis_video : TUSER</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

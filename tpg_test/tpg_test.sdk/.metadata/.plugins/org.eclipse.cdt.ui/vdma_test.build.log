@@ -1,0 +1,7 @@
+00:08:07 **** Clean-only build of configuration Debug for project vdma_test ****
+make clean 
+rm -rf ./src/i2c/PS_i2c.o  ./src/dynclk/dynclk.o  ./src/display_ctrl/display_ctrl.o  ./src/display_demo.o ./src/platform.o ./src/i2c/PS_i2c.d  ./src/dynclk/dynclk.d  ./src/display_ctrl/display_ctrl.d  ./src/display_demo.d ./src/platform.d vdma_test.elf.size  vdma_test.elf
+ 
+
+00:08:07 Build Finished (took 316ms)
+
