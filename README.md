@@ -3,13 +3,21 @@
 my plan:
 
 1. tpg->vid_out on AX7021, done
-       vtc--^
+
+          vtc--^
+
 2. tgp->vdma->ddr->vdma->vid_out on AX7021, done
-			vtc--^
-3. cmos rgb565->vid_in->vdma->ddr->vdma->vid_out on AX7021, todo
-				vtc--^
+
+			               vtc--^
+
+3. cmos rgb565->vid_in->vdma->ddr->vdma->vid_out on AX7021, done
+
+                                         vtc--^
+
 4. cmos rgb565->vid_in->swich->vdma->ddr->vdma->vid_out on AX7021, todo
-	 	tpg-----^		vtc--^
+
+                    tpg-----^                   vtc--^
+
 5. cmos rgb565->vid_in->swich->vdma->ddr->resize/crop/pan/etc..->vdma->vid_out on AX7021, todo
 
 6. cmos rgb565->vid_in->isp(here?)->swich->vdma->?->ddr->resize/crop/pan/etc..->vdma->vid_out on AX7021, todo
