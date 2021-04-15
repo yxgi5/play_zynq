@@ -1,0 +1,80 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port hdmi_i2c -pg 1 -y 910 -defaultsOSRD
+preplace port DDR -pg 1 -y 870 -defaultsOSRD
+preplace port hdmi_de -pg 1 -y 200 -defaultsOSRD
+preplace port cmos_vsync -pg 1 -y 830 -defaultsOSRD
+preplace port cmos_rst_n -pg 1 -y 810 -defaultsOSRD
+preplace port cmos_href -pg 1 -y 850 -defaultsOSRD
+preplace port hdmi_clk -pg 1 -y 460 -defaultsOSRD
+preplace port cmos_i2c -pg 1 -y 930 -defaultsOSRD
+preplace port cmos_pclk -pg 1 -y 810 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 890 -defaultsOSRD
+preplace port hdmi_hs -pg 1 -y 240 -defaultsOSRD
+preplace port hdmi_vs -pg 1 -y 260 -defaultsOSRD
+preplace portBus hdmi_nreset -pg 1 -y 740 -defaultsOSRD
+preplace portBus hdmi_d -pg 1 -y 220 -defaultsOSRD
+preplace portBus cmos_data -pg 1 -y 870 -defaultsOSRD
+preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 6 -y 280 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 2 -y 610 -defaultsOSRD
+preplace inst v_tc_0 -pg 1 -lvl 5 -y 240 -defaultsOSRD
+preplace inst axi_vdma_0 -pg 1 -lvl 4 -y 670 -defaultsOSRD
+preplace inst ddr3_hdmi_ov5640_0 -pg 1 -lvl 2 -y 820 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 5 -y 620 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 750 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 6 -y 730 -defaultsOSRD
+preplace inst util_vector_logic_1 -pg 1 -lvl 5 -y 450 -defaultsOSRD
+preplace inst v_vid_in_axi4s_0 -pg 1 -lvl 3 -y 830 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 4 -y 870 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 6 -y 70 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 3 -y 510 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 6 -y 550 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 6 -y 930 -defaultsOSRD
+preplace netloc axis_subset_converter_1_M_AXIS 1 4 2 1490J 100 1930
+preplace netloc processing_system7_0_DDR 1 6 1 NJ
+preplace netloc ps7_0_axi_periph_M02_AXI 1 3 3 N 520 NJ 520 NJ
+preplace netloc v_axi4s_vid_out_0_vid_data 1 6 1 NJ
+preplace netloc axis_subset_converter_0_M_AXIS 1 3 1 1100
+preplace netloc clk_wiz_0_locked 1 4 3 1560 510 1920 640 2390
+preplace netloc cmos_pclk_0_1 1 0 2 NJ 810 NJ
+preplace netloc v_axi4s_vid_out_0_vid_hsync 1 6 1 NJ
+preplace netloc ddr3_hdmi_ov5640_0_data_active 1 2 1 700
+preplace netloc axi_vdma_0_M_AXI_MM2S 1 4 1 1510
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 5 770 1060 NJ 1060 NJ 1060 NJ 1060 2390
+preplace netloc axi_smc_M00_AXI 1 5 1 1870
+preplace netloc util_vector_logic_0_Res 1 1 1 320J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 7 20 690 330 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 2380
+preplace netloc ddr3_hdmi_ov5640_0_pclk 1 2 1 N
+preplace netloc processing_system7_0_IIC_0 1 6 1 NJ
+preplace netloc ps7_0_axi_periph_M03_AXI 1 3 2 1070J 510 1480
+preplace netloc v_axi4s_vid_out_0_vid_active_video 1 6 1 NJ
+preplace netloc processing_system7_0_IIC_1 1 6 1 NJ
+preplace netloc ps7_0_axi_periph_M01_AXI 1 3 3 1090 540 1500J 710 NJ
+preplace netloc ddr3_hdmi_ov5640_0_capture_data 1 2 1 720
+preplace netloc axi_gpio_0_gpio_io_o 1 6 1 NJ
+preplace netloc v_axi4s_vid_out_0_vtg_ce 1 4 3 1570 380 1910J 440 2390
+preplace netloc processing_system7_0_FIXED_IO 1 6 1 NJ
+preplace netloc ddr3_hdmi_ov5640_0_vsync 1 2 1 760
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 2 4 740 990 1090 800 1520 720 1930
+preplace netloc clk_wiz_0_clk_out1 1 4 3 1550 390 1930 460 2390
+preplace netloc ddr3_hdmi_ov5640_0_cmos_rst_n 1 2 5 710J 1000 1100J 940 NJ 940 1880J 810 NJ
+preplace netloc cmos_href_0_1 1 0 2 NJ 850 NJ
+preplace netloc util_vector_logic_1_Res 1 5 1 1900
+preplace netloc cmos_data_0_1 1 0 2 NJ 870 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 6 340 510 730 330 1080 530 1540 530 1890 1050 2370
+preplace netloc v_tc_0_vtiming_out 1 5 1 N
+preplace netloc ps7_0_axi_periph_M00_AXI 1 3 1 1100
+preplace netloc axi_vdma_0_M_AXI_S2MM 1 4 1 1530
+preplace netloc v_axi4s_vid_out_0_vid_vsync 1 6 1 NJ
+preplace netloc cmos_vsync_0_1 1 0 2 NJ 830 NJ
+preplace netloc ddr3_hdmi_ov5640_0_cmos_clk_en 1 2 1 750
+levelinfo -pg 1 0 170 520 920 1290 1720 2150 2410 -top 0 -bot 1080
+"
+}
+{
+   "da_axi4_cnt":"8",
+   "da_clkrst_cnt":"7",
+   "da_ps7_cnt":"1"
+}
