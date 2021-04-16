@@ -33,32 +33,52 @@ Base on ov5640_vdma_hdmi project， add a tpg config as 1024x768, swich axi4-str
 
 input clock =24Mhz, PCLK = 72Mhz
 
+
 0x3037[3:0]='d3,
+
 24MHz/3 = 8MHz
 
+
 0x3037[7]='b0,
+
 0x3036[6:0]='d90,
+
 0x3037[7] ? 0x3036[7:1]*2 : 0x3036[6:0]
+
 8MHz * 90 = 720MHz
 
+
 0x3035[7:4]='d1,
+
 keeps 720MHz
 
+
 0x3037[4]='b1
+
 720MHz /2 = 360MHz
 
+
 0x3034[3:0]=0xA
+
 360MHz /2.5 = 144MHz
 
+
 0x3108[5:4]=0
+
 keeps 144MHz
 
+
 0x300e[7:5]='d2
+
 0x3035[3:0]=1
+
 144MHz /2=72MHz
 
+
 0x460c[1]='b1
+
 0x3824[4:0]='d2
+
 keeps 72MHz
 
 #### 然后分析PCLK和分辨率帧率
