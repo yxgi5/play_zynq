@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# 
+# Start of session at: Fri May 22 19:03:13 2020
+# Process ID: 8076
+# Current directory: D:/ZYNQ_Mizar-7020/04_SDK_Demo/20_ov5640_hdmi/ov5640_hdmi/ov5640_hdmi.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: D:/ZYNQ_Mizar-7020/04_SDK_Demo/20_ov5640_hdmi/ov5640_hdmi/ov5640_hdmi.sdk/webtalk/webtalk.log
+# Journal file: D:/ZYNQ_Mizar-7020/04_SDK_Demo/20_ov5640_hdmi/ov5640_hdmi/ov5640_hdmi.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
