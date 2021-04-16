@@ -119,6 +119,7 @@ keep others
 ...
 
 ref to https://github.com/xenpac/sun4i_csi/blob/master/device/ov5640.c
+
 scale off
 0x5001=0x83
 0x3814=0x11
