@@ -3,25 +3,33 @@
 ## 1. tpg_hdmi, done
 
 simply generates test patterns and directly output to himi-tx convertion chip on AX7021. tpg config as 1080p(osd moving box), vtc config as 1080p60.
+
 在AX7021开发板，产生测试图样，直接输出到hdmi。tpg配置为1080p彩条叠加移动box，vtc配置为重建1080p60时序。
+
 ![](doc/tpg_hdmi.png)
 
 ## 2. tpg_vdma_hdmi, done
 
 On AX7021 board， generates 1080p test patterns and buffered to ddr by vdma, then output to hdmi.
+
 在AX7021开发板，产生1080p测试图样，通过vdma缓存到ddr，然后输出到hdmi。
+
 ![](doc/tpg_vdma_hdmi.png)
 
 ## 3. ov5640_vdma_hdmi, done
 
 On AX7021 board, a single OV5640 cmos sensor config as RGB565 DVP at resolusion of 1024x768， buffered by vdma， regerates 1024x768@60fps timing then output to hdmi.
+
 在AX7021开发板，接入单个OV5640摄像头，配置为1024x768的RGB565输入，然后通过vdma缓存之后重建1024x768@60fps时序输出到hdmi。
+
 ![](doc/ov5640_vdma_hdmi.png)
 
 ## 4. ov5640_tpg_vdma_hdmi， done
 
-Base on ov5640_vdma_hdmi project， add a tpg config as 1024x768, swich axi4-stream path by a 2-1 axis_swich
+Base on ov5640_vdma_hdmi project， add a tpg config as 1024x768, swich axi4-stream path by a 2-1 axis_swich.
+
 在ov5640_vdma_hdmi基础上，添加一个1024x768的tpg源，通过axis_swich切换通路。
+
 ![](doc/ov5640_tpg_vdma_hdmi.png)
 
 ## 5. ov5640 config study
@@ -84,6 +92,7 @@ keeps 72MHz
 #### 然后分析PCLK和分辨率帧率
 
 physical pixel size(active array size)：2592x1944
+
 ![](doc/image_windowing.jpg)
 
 
@@ -117,7 +126,9 @@ Y_ADDR_END=1947
 data out size是1024x768
 
 这里demo的有效分辨率1024x768, 总的timing size是2570x980，由于2pclk对应一个pixel
+
 ![](doc/RGB565_timing.jpg)
+
 所以timing window是1285x980
 
 摄像头配置帧率是fps=72000000/（2570x980）=28.59，还不到30fps
