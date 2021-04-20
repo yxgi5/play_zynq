@@ -133,6 +133,7 @@ data out size是1024x768
 
 摄像头配置帧率是fps=72000000/（2570x980）=28.59，还不到30fps
 
+
 #### 配置一个 1024x768 的 RAW DVP-10 输入
 
 raw_ov5640_colorbar_vdma_hdmi
