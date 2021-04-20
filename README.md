@@ -178,6 +178,7 @@ data out size 1920x1080
 
 
 timing window 2500x1280
+
 0x380c=0x09
 
 0x380d=0xc4
@@ -188,6 +189,7 @@ timing window 2500x1280
 
 
 pclk=92MHz for raw
+
 0x3036=0x73
 
 keep others
