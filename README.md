@@ -122,6 +122,31 @@ data out size是1024x768
 
 摄像头配置帧率是fps=72000000/（2570x980）=28.59，还不到30fps
 
+#### 配置一个 1024x768 的 RAW DVP-10 输入
+
+raw_ov5640_colorbar_vdma_hdmi
+
+这个工程是1024x768@50fps raw
+
+![](doc/raw_ov5640_colorbar_vdma_hdmi.png)
+
+在针对raw数据使用demosaic或者cfa这样的ip进行插值之后，发现RGB分量顺序的GB分量是反的
+
+经查ug1037，Table 4-9，LSB分量是G，然后是B，R，依次到最高分量
+
+结论，按手册，其实axis都符合这样的定义。这个和 native stream 不太一样，需要注意。
+
+那么推理是在经过 vid_out 转换成 native stream 之后调整分量，不需要在[3DW-1: 2DW] [2DW-1: DW]之间交换。
+
+![](doc/axis_RGB.png)
+
+其次，分量的位宽
+
+这里进去就同过vid_in_axis丢弃低两位，这样axis通路所有分量都是8位宽，省事。
+
+如果非要比如设置10bit分量位宽，那么需要在axis通路留意分量位宽。另外是vid_out_axis设置正确的native分量位宽。否则显示异常。
+
+
 
 #### 配置一个 1080p30 的 RAW DVP-10 输入
 
@@ -186,7 +211,7 @@ scale off
 
 0x370c=0x00
 
-
+raw_ov5640_colorbar_vdma_hdmi的sdk代码中已经有配置序列了。
 
 
 

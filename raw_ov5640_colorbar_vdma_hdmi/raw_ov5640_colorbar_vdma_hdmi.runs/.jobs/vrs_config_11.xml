@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="design_1_axi_vdma_0_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axi_vdma_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axi_smc_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axi_smc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_util_vector_logic_1_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_util_vector_logic_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axi_gpio_0_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axi_gpio_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_subset_converter_0_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axis_subset_converter_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_subset_converter_1_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axis_subset_converter_1_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_switch_0_0_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axis_switch_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_axis_switch_0_2_synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/design_1_axis_switch_0_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="design_1_axi_vdma_0_0_synth_1"/>
+		<Parent Id="design_1_axi_smc_0_synth_1"/>
+		<Parent Id="design_1_util_vector_logic_1_0_synth_1"/>
+		<Parent Id="design_1_axi_gpio_0_0_synth_1"/>
+		<Parent Id="design_1_axis_subset_converter_0_0_synth_1"/>
+		<Parent Id="design_1_axis_subset_converter_1_0_synth_1"/>
+		<Parent Id="design_1_axis_switch_0_0_synth_1"/>
+		<Parent Id="design_1_axis_switch_0_2_synth_1"/>
+	</Run>
+	<Run Id="impl_1" LaunchDir="/home/andy/zynq/play_zynq/raw_ov5640_colorbar_vdma_hdmi/raw_ov5640_colorbar_vdma_hdmi.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+		<Parent Id="synth_1"/>
+		<Parent Id="design_1_axi_vdma_0_0_synth_1"/>
+		<Parent Id="design_1_axi_smc_0_synth_1"/>
+		<Parent Id="design_1_util_vector_logic_1_0_synth_1"/>
+		<Parent Id="design_1_axi_gpio_0_0_synth_1"/>
+		<Parent Id="design_1_axis_subset_converter_0_0_synth_1"/>
+		<Parent Id="design_1_axis_subset_converter_1_0_synth_1"/>
+		<Parent Id="design_1_axis_switch_0_0_synth_1"/>
+		<Parent Id="design_1_axis_switch_0_2_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+
