@@ -215,9 +215,9 @@ raw_ov5640_colorbar_vdma_hdmi的sdk代码中已经有配置序列了。
 
 
 
+## 6. VPSS CSC subsampling resampling
 
-
-
+## 7. Scale Crop
 
 
 
@@ -226,6 +226,9 @@ cmos->vid_in->swich->vdma->ddr->resize/crop/pan/etc..->vdma->vid_out on AX7021, 
 
 cmos->vid_in->isp(here?)->swich->vdma->?->ddr->resize/crop/pan/etc..->vdma->vid_out on AX7021, todo
 
+
 linux config isp and ....
 
 microblaze implements on Microphase board(Artix-7)
+
+edid
