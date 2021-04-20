@@ -153,7 +153,7 @@ raw_ov5640_colorbar_vdma_hdmi
 
 其次，分量的位宽
 
-这里进去就同过vid_in_axis丢弃低两位，这样axis通路所有分量都是8位宽，省事。
+这里进去就通过vid_in_axis丢弃低两位，这样axis通路所有分量都是8位宽，省事。
 
 如果非要比如设置10bit分量位宽，那么需要在axis通路留意分量位宽。另外是vid_out_axis设置正确的native分量位宽。否则显示异常。
 
