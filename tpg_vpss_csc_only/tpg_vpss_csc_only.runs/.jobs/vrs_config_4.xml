@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="system_axi_smc_0_synth_1" LaunchDir="/home/andreas/zynq/play_zynq/tpg_vpss_csc_only/tpg_vpss_csc_only.runs/system_axi_smc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_axi_vdma_0_0_synth_1" LaunchDir="/home/andreas/zynq/play_zynq/tpg_vpss_csc_only/tpg_vpss_csc_only.runs/system_axi_vdma_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="system_v_proc_ss_0_0_synth_1" LaunchDir="/home/andreas/zynq/play_zynq/tpg_vpss_csc_only/tpg_vpss_csc_only.runs/system_v_proc_ss_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+
