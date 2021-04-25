@@ -1,0 +1,741 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Apr 24 21:18:06 2021
+# Process ID: 382353
+# Current directory: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1
+# Command line: vivado -log bd_2d50_hcr_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_2d50_hcr_0.tcl
+# Log file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/bd_2d50_hcr_0.vds
+# Journal file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source bd_2d50_hcr_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/andy/zynq/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1342.645 ; gain = 35.523 ; free physical = 2632 ; free virtual = 5628
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /opt/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado/2018.3/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'andy' on host 'archlinux' (Linux_x86_64 version 5.11.15-arch1-2) on Sat Apr 24 21:18:34 CST 2021
+INFO: [HLS 200-10] On os "Arch Linux"
+INFO: [HLS 200-10] In directory '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1'
+INFO: [HLS 200-10] Creating and opening project '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/bd_2d50_hcr_0'.
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler_config.h' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.h' to the project
+INFO: [HLS 200-10] Creating and opening solution '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/bd_2d50_hcr_0/prj'.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-2'
+INFO: [SYN 201-201] Setting up clock 'ap_clk' with a period of 7.5ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 408.449 ; gain = 0.848 ; free physical = 1749 ; free virtual = 4782
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:32 ; elapsed = 00:00:40 . Memory (MB): peak = 408.449 ; gain = 0.848 ; free physical = 1749 ; free virtual = 4782
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:234) in function 'hls::Scalar<1, ap_uint<8> >::operator=(ap_uint<8>)' completely with a factor of 1.
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >.1' into 'hls::AXIGetBitFields<24, ap_uint<8> >' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:71).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:476).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:477).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:35 ; elapsed = 00:00:44 . Memory (MB): peak = 536.094 ; gain = 128.492 ; free physical = 1546 ; free virtual = 4593
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:566: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:37 ; elapsed = 00:00:46 . Memory (MB): peak = 536.094 ; gain = 128.492 ; free physical = 1454 ; free virtual = 4499
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:530) in function 'MultiPixStream2AXIvideo' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:459) in function 'AXIvideo2MultiPixStream' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-5.1' in function 'v_hcresampler_core' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:180) in function 'MultiPixStream2AXIvideo' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:548) in function 'MultiPixStream2AXIvideo' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:550) in function 'MultiPixStream2AXIvideo' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:472) in function 'AXIvideo2MultiPixStream' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:474) in function 'AXIvideo2MultiPixStream' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.1' in function 'v_hcresampler_core' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.2' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.3' in function 'v_hcresampler_core' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.3.1' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.4' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.5' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.5.1' in function 'v_hcresampler_core' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.5.1.1' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.5.1.2' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.5.2' in function 'v_hcresampler_core' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.6' in function 'v_hcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.6.1' in function 'v_hcresampler_core' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5.1.6.2' in function 'v_hcresampler_core' completely with a factor of 4.
+INFO: [XFORM 203-102] Partitioning array 'filt' automatically.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'srcYUV.V.val.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'outYUV.V.val.V' .
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:512) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tmp.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mapComp.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:555) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:432) in dimension 1 completely.
+INFO: [XFORM 203-712] Applying dataflow to function 'v_hcresampler' , detected/extracted 3 process function(s): 
+	 'AXIvideo2MultiPixStream'
+	 'v_hcresampler_core'
+	 'MultiPixStream2AXIvideo'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 32767 to 4100 for loop 'Loop-1-0' in function 'v_hcresampler_core'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 2 for loop 'Loop-1-0' in function 'v_hcresampler_core'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 32767 to 4095 for loop 'Loop-1' in function 'v_hcresampler_core'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'v_hcresampler_core'... converting 8 basic blocks.
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i16P.i2' into 'v_hcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:132->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76).
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i16P.i2' into 'v_hcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:131->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:40 ; elapsed = 00:00:49 . Memory (MB): peak = 600.094 ; gain = 192.492 ; free physical = 1245 ; free virtual = 4294
+WARNING: [XFORM 203-631] Renaming function 'MultiPixStream2AXIvideo' to 'MultiPixStream2AXIvi' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:180:53)
+WARNING: [XFORM 203-631] Renaming function 'AXIvideo2MultiPixStream' to 'AXIvideo2MultiPixStr' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:49:9)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:41 ; elapsed = 00:00:51 . Memory (MB): peak = 600.094 ; gain = 192.492 ; free physical = 1277 ; free virtual = 4315
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'v_hcresampler' ...
+WARNING: [SYN 201-103] Legalizing function name 'reg<unsigned short>' to 'reg_unsigned_short_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_unsigned_short_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 51.14 seconds; current allocated memory: 223.751 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 223.796 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_start'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_eol'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 224.193 MB.
+INFO: [HLS 200-434] Only 3 loops out of a total 4 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.33 seconds; current allocated memory: 224.544 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_hcresampler_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 2.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 6.
+WARNING: [SCHED 204-21] Estimated clock period (8.608ns) exceeds the target (target clock period: 7.5ns, clock uncertainty: 0.9375ns, effective delay budget: 6.5625ns).
+WARNING: [SCHED 204-21] The critical path in module 'v_hcresampler_core' consists of the following:
+	'mul' operation of DSP[238] ('ret_V_0_3_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:376->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) [236]  (2.82 ns)
+	'add' operation of DSP[238] ('filt_res0_6_0_3_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:376->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) [238]  (2.73 ns)
+	'icmp' operation ('icmp', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:386->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) [247]  (1.07 ns)
+	'or' operation ('tmp_4_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:386->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) [250]  (0 ns)
+	'select' operation ('filt_res0_8_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:386->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) [251]  (0.813 ns)
+	'select' operation ('filt_res0_4_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:387->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) [261]  (1.17 ns)
+	'store' operation (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:387->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76) of variable 'filt_res0_4_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:387->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/src/v_hcresampler.cpp:76 on local variable 'filt_res0_i_i' [304]  (0 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.19 seconds; current allocated memory: 225.543 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 3.97 seconds; current allocated memory: 226.707 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.74 seconds; current allocated memory: 226.851 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1 seconds; current allocated memory: 227.092 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_hcresampler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.19 seconds; current allocated memory: 227.286 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.43 seconds; current allocated memory: 227.717 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_unsigned_short_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_unsigned_short_s'.
+INFO: [HLS 200-111]  Elapsed time: 1.03 seconds; current allocated memory: 227.824 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'AXIvideo2MultiPixStr'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 229.055 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_hcresampler_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_hcresampler_mux_42_16_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_hcresampler_core'.
+INFO: [HLS 200-111]  Elapsed time: 2.53 seconds; current allocated memory: 231.902 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'MultiPixStream2AXIvi'.
+INFO: [HLS 200-111]  Elapsed time: 3.62 seconds; current allocated memory: 232.247 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_hcresampler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/s_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_width' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_height' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_input_video_format' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_output_video_format' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_0_0' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_0_1' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_0_2' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_0_3' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_1_0' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_1_1' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_1_2' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/HwReg_coefs_1_3' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_hcresampler/m_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'v_hcresampler' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'HwReg_width', 'HwReg_height', 'HwReg_input_video_format', 'HwReg_output_video_format', 'HwReg_coefs_0_0', 'HwReg_coefs_0_1', 'HwReg_coefs_0_2', 'HwReg_coefs_0_3', 'HwReg_coefs_1_0', 'HwReg_coefs_1_1', 'HwReg_coefs_1_2' and 'HwReg_coefs_1_3' to AXI-Lite port CTRL.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_hcresampler'.
+INFO: [HLS 200-111]  Elapsed time: 1.3 seconds; current allocated memory: 233.747 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_hcr_0_v_hcresampler_core_filt0_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_0_V_U(bd_2d50_hcr_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_1_V_U(bd_2d50_hcr_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_2_V_U(bd_2d50_hcr_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'outYUV_V_val_0_V_U(bd_2d50_hcr_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'outYUV_V_val_1_V_U(bd_2d50_hcr_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'outYUV_V_val_2_V_U(bd_2d50_hcr_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_v_hcresampler_core_U0_U(bd_2d50_hcr_0_start_for_v_hcresampler_core_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_MultiPixStream2AXIvi_U0_U(bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:05 ; elapsed = 00:01:20 . Memory (MB): peak = 600.094 ; gain = 192.492 ; free physical = 1162 ; free virtual = 4203
+INFO: [SYSC 207-301] Generating SystemC RTL for v_hcresampler with prefix bd_2d50_hcr_0_.
+INFO: [VHDL 208-304] Generating VHDL RTL for v_hcresampler with prefix bd_2d50_hcr_0_.
+INFO: [VLOG 209-307] Generating Verilog RTL for v_hcresampler with prefix bd_2d50_hcr_0_.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:20:23 2021...
+INFO: [HLS 200-112] Total elapsed time: 109.21 seconds; peak allocated memory: 233.747 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Sat Apr 24 21:20:23 2021...
+compile_c: Time (s): cpu = 00:01:31 ; elapsed = 00:01:53 . Memory (MB): peak = 1353.676 ; gain = 3.031 ; free physical = 1661 ; free virtual = 4726
+Command: synth_design -top bd_2d50_hcr_0 -part xc7z020clg484-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 385423 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1452.129 ; gain = 86.645 ; free physical = 1294 ; free virtual = 4375
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/synth/bd_2d50_hcr_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi.v:285]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi' (1#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_AXIvideo2MultiPixStr' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_AXIvideo2MultiPixStr.v:10]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_AXIvideo2MultiPixStr.v:91]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_reg_unsigned_short_s' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_reg_unsigned_short_s.v:10]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_reg_unsigned_short_s.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_reg_unsigned_short_s' (2#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_reg_unsigned_short_s.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_AXIvideo2MultiPixStr' (3#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_AXIvideo2MultiPixStr.v:10]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_core_filt0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_core_filt0.v:55]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_core_filt0_ram' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_core_filt0.v:9]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_core_filt0.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_core_filt0_ram' (4#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_core_filt0.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_core_filt0' (5#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_core_filt0.v:55]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mux_42_16_1_1' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mux_42_16_1_1.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mux_42_16_1_1' (6#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mux_42_16_1_1.v:11]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1_DSP48_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1_DSP48_0' (7#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1' (8#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_13ns_24_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1_DSP48_1' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1_DSP48_1' (9#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1' (10#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_24s_25_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1_DSP48_2' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1_DSP48_2' (11#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1' (12#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_25s_26_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1_DSP48_3' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1_DSP48_3' (13#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1' (14#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_v_hcresampler_mac_muladd_16s_8ns_26s_26_1_1.v:33]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_MultiPixStream2AXIvi' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:10]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:79]
+WARNING: [Synth 8-6014] Unused sequential element m_axis_video_V_dest_V_1_sel_rd_reg was removed.  [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:388]
+WARNING: [Synth 8-6014] Unused sequential element m_axis_video_V_id_V_1_sel_rd_reg was removed.  [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:414]
+WARNING: [Synth 8-6014] Unused sequential element m_axis_video_V_keep_V_1_sel_rd_reg was removed.  [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:440]
+WARNING: [Synth 8-6014] Unused sequential element m_axis_video_V_strb_V_1_sel_rd_reg was removed.  [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:502]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_MultiPixStream2AXIvi' (16#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_MultiPixStream2AXIvi.v:10]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_fifo_w8_d2_A' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_fifo_w8_d2_A.v:45]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_fifo_w8_d2_A_shiftReg' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_fifo_w8_d2_A.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_fifo_w8_d2_A_shiftReg' (17#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_fifo_w8_d2_A.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_fifo_w8_d2_A' (18#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_fifo_w8_d2_A.v:45]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_start_for_v_hcresampler_core_U0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_v_hcresampler_core_U0.v:45]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_start_for_v_hcresampler_core_U0_shiftReg' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_v_hcresampler_core_U0.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_start_for_v_hcresampler_core_U0_shiftReg' (19#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_v_hcresampler_core_U0.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_start_for_v_hcresampler_core_U0' (20#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_v_hcresampler_core_U0.v:45]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0.v:45]
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0_shiftReg' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0_shiftReg' (21#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0' (22#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/hdl/verilog/bd_2d50_hcr_0_start_for_MultiPixStream2AXIvi_U0.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_hcr_0' (24#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/synth/bd_2d50_hcr_0.v:57]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core_filt0 has unconnected port reset
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TKEEP[2]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TKEEP[1]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TKEEP[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TSTRB[2]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TSTRB[1]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TSTRB[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TID[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TDEST[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[10]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[9]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[8]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[7]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[31]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[30]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[29]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[28]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[27]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[26]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[25]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[24]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[23]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[22]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[21]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[20]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[19]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[18]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[17]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[16]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port ARADDR[10]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port ARADDR[9]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port ARADDR[8]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port ARADDR[7]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1506.879 ; gain = 141.395 ; free physical = 1101 ; free virtual = 4168
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1506.879 ; gain = 141.395 ; free physical = 1015 ; free virtual = 4083
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1506.879 ; gain = 141.395 ; free physical = 1015 ; free virtual = 4083
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/bd_2d50_hcr_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/bd_2d50_hcr_0_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/bd_2d50_hcr_0.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_28/bd_2d50_hcr_0.xdc] for cell 'inst'
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1893.996 ; gain = 0.000 ; free physical = 2546 ; free virtual = 5594
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1893.996 ; gain = 0.000 ; free physical = 2668 ; free virtual = 5716
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1893.996 ; gain = 0.000 ; free physical = 2692 ; free virtual = 5740
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1893.996 ; gain = 528.512 ; free physical = 2682 ; free virtual = 5725
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1893.996 ; gain = 528.512 ; free physical = 2682 ; free virtual = 5725
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/dont_touch.xdc, line 6).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1893.996 ; gain = 528.512 ; free physical = 2682 ; free virtual = 5725
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi'
+INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "tmp_6_i_i_fu_683_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "exitcond1_i_i_fu_634_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tmp_2_i_i_fu_678_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_20_i_i_fu_775_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_19_i_i_fu_769_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1893.996 ; gain = 528.512 ; free physical = 2567 ; free virtual = 5606
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5544] ROM "exitcond1_i_i_fu_634_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tmp_2_i_i_fu_678_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_6_i_i_fu_683_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_19_i_i_fu_769_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_20_i_i_fu_775_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_height[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_MultiPixStream2AXIvi has unconnected port HwReg_width[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_height[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_core has unconnected port HwReg_width[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TKEEP[2]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TKEEP[1]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TKEEP[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TSTRB[2]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TSTRB[1]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TSTRB[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TID[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port s_axis_video_TDEST[0]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_height[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[15]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[14]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[13]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_AXIvideo2MultiPixStr has unconnected port HwReg_width[12]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[10]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[9]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[8]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port AWADDR[7]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[31]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[30]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[29]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[28]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[27]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[26]
+WARNING: [Synth 8-3331] design bd_2d50_hcr_0_v_hcresampler_CTRL_s_axi has unconnected port WDATA[25]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\v_hcresampler_core_U0/ap_done_reg_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\AXIvideo2MultiPixStr_U0/ap_done_reg_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\MultiPixStream2AXIvi_U0/ap_done_reg_reg )
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[16]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[17]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[17]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[18]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[18]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[19]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[19]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[20]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[20]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[21]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[21]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[22]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[22]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[23]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[24]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[24]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[25]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[25]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[26]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[26]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[27]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[27]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[28]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[28]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[29]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[29]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[30]'
+INFO: [Synth 8-3886] merging instance 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[30]' (FDE) to 'inst/v_hcresampler_CTRL_s_axi_U/rdata_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\v_hcresampler_CTRL_s_axi_U/rdata_reg[31] )
+WARNING: [Synth 8-3332] Sequential element (v_hcresampler_CTRL_s_axi_U/FSM_onehot_wstate_reg[0]) is unused and will be removed from module bd_2d50_hcr_0_v_hcresampler.
+WARNING: [Synth 8-3332] Sequential element (v_hcresampler_CTRL_s_axi_U/FSM_onehot_rstate_reg[0]) is unused and will be removed from module bd_2d50_hcr_0_v_hcresampler.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:45 . Memory (MB): peak = 1893.996 ; gain = 528.512 ; free physical = 1982 ; free virtual = 5027
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:01:04 . Memory (MB): peak = 1893.996 ; gain = 528.512 ; free physical = 2057 ; free virtual = 5104
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:01:10 . Memory (MB): peak = 1924.926 ; gain = 559.441 ; free physical = 1802 ; free virtual = 4865
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:13 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1688 ; free virtual = 4752
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:14 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1952 ; free virtual = 5016
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:14 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1952 ; free virtual = 5016
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1942 ; free virtual = 5006
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1942 ; free virtual = 5006
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1938 ; free virtual = 5002
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1937 ; free virtual = 5001
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |    40|
+|2     |DSP48E1   |     2|
+|3     |DSP48E1_1 |     2|
+|4     |DSP48E1_2 |     2|
+|5     |DSP48E1_3 |     2|
+|6     |LUT1      |    39|
+|7     |LUT2      |    45|
+|8     |LUT3      |   402|
+|9     |LUT4      |   143|
+|10    |LUT5      |   194|
+|11    |LUT6      |   220|
+|12    |MUXF7     |     8|
+|13    |RAM16X1D  |    32|
+|14    |SRL16E    |     9|
+|15    |FDRE      |  1362|
+|16    |FDSE      |    23|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1932.934 ; gain = 567.449 ; free physical = 1937 ; free virtual = 5001
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 60 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 1932.934 ; gain = 180.332 ; free physical = 2001 ; free virtual = 5065
+Synthesis Optimization Complete : Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1932.941 ; gain = 567.449 ; free physical = 2009 ; free virtual = 5073
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 88 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1964.949 ; gain = 0.000 ; free physical = 1918 ; free virtual = 4979
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 32 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+108 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:04 ; elapsed = 00:01:19 . Memory (MB): peak = 1964.949 ; gain = 611.273 ; free physical = 1951 ; free virtual = 5018
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1964.949 ; gain = 0.000 ; free physical = 1950 ; free virtual = 5017
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/bd_2d50_hcr_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bd_2d50_hcr_0, cache-ID = c876a08c5fcf0871
+INFO: [Coretcl 2-1174] Renamed 35 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1988.961 ; gain = 0.000 ; free physical = 1746 ; free virtual = 4820
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_hcr_0_synth_1/bd_2d50_hcr_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file bd_2d50_hcr_0_utilization_synth.rpt -pb bd_2d50_hcr_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:21:47 2021...

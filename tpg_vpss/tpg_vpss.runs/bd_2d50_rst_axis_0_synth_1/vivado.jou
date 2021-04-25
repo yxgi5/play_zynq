@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Apr 24 21:14:45 2021
+# Process ID: 376188
+# Current directory: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_rst_axis_0_synth_1
+# Command line: vivado -log bd_2d50_rst_axis_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_2d50_rst_axis_0.tcl
+# Log file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_rst_axis_0_synth_1/bd_2d50_rst_axis_0.vds
+# Journal file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_rst_axis_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source bd_2d50_rst_axis_0.tcl -notrace

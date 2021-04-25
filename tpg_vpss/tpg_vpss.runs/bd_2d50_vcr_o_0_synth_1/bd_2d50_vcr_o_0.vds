@@ -1,0 +1,295 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Apr 24 21:20:49 2021
+# Process ID: 386417
+# Current directory: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vcr_o_0_synth_1
+# Command line: vivado -log bd_2d50_vcr_o_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_2d50_vcr_o_0.tcl
+# Log file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vcr_o_0_synth_1/bd_2d50_vcr_o_0.vds
+# Journal file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vcr_o_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source bd_2d50_vcr_o_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/andy/zynq/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1349.512 ; gain = 0.000 ; free physical = 1686 ; free virtual = 4730
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /opt/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado/2018.3/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'andy' on host 'archlinux' (Linux_x86_64 version 5.11.15-arch1-2) on Sat Apr 24 21:21:14 CST 2021
+INFO: [HLS 200-10] On os "Arch Linux"
+INFO: [HLS 200-10] In directory '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vcr_o_0_synth_1'
+INFO: [HLS 200-10] Creating and opening project '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vcr_o_0_synth_1/bd_2d50_vcr_o_0'.
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler_config.h' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.h' to the project
+INFO: [HLS 200-10] Creating and opening solution '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vcr_o_0_synth_1/bd_2d50_vcr_o_0/prj'.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-2'
+INFO: [SYN 201-201] Setting up clock 'ap_clk' with a period of 7.5ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 408.453 ; gain = 0.848 ; free physical = 2516 ; free virtual = 5620
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 408.453 ; gain = 0.848 ; free physical = 2516 ; free virtual = 5620
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >.1' into 'hls::AXIGetBitFields<24, ap_uint<8> >' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:71).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:513).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::getval' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:208).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::insert_top_row' into 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::insert_bottom' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:873).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::insert_bottom' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:223).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<4, 3840, ap_uint<8>, 0>::getval' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:278).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<4, 3840, ap_uint<8>, 0>::getval' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:247).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<4, 3840, ap_uint<8>, 0>::insert_top_row' into 'hls::LineBuffer<4, 3840, ap_uint<8>, 0>::insert_bottom' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:873).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<4, 3840, ap_uint<8>, 0>::insert_bottom' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:296).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 536.098 ; gain = 128.492 ; free physical = 2545 ; free virtual = 5632
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:212: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 600.098 ; gain = 192.492 ; free physical = 2516 ; free virtual = 5605
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:565) in function 'MultiPixStream2AXIvideo' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:496) in function 'AXIvideo2MultiPixStream' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-4.1' in function 'v_vcresampler_core' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:180) in function 'MultiPixStream2AXIvideo' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:583) in function 'MultiPixStream2AXIvideo' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:585) in function 'MultiPixStream2AXIvideo' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:509) in function 'AXIvideo2MultiPixStream' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:511) in function 'AXIvideo2MultiPixStream' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.1' in function 'v_vcresampler_core' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.2' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.3' in function 'v_vcresampler_core' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.3.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.4' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.5' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.6' in function 'v_vcresampler_core' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.6.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.7' in function 'v_vcresampler_core' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.7.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.7.2' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.7.3' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.8' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.9' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.10' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.11' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.12' in function 'v_vcresampler_core' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.12.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.13' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.13.1' in function 'v_vcresampler_core' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.13.2' in function 'v_vcresampler_core' completely with a factor of 4.
+INFO: [XFORM 203-102] Partitioning array 'PixBufVal.val.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'PixBufVal.val.V.1' automatically.
+INFO: [XFORM 203-102] Partitioning array 'filt' automatically.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'srcYUV.V.val.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'dstYUV.V.val.V' .
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:548) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tmp.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mapComp.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:590) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:469) in dimension 1 completely.
+INFO: [XFORM 203-712] Applying dataflow to function 'v_vcresampler' , detected/extracted 3 process function(s): 
+	 'AXIvideo2MultiPixStream'
+	 'v_vcresampler_core'
+	 'MultiPixStream2AXIvideo'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 32767 to 4095 for loop 'Loop-1-0' in function 'v_vcresampler_core'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 32767 to 4098 for loop 'Loop-1' in function 'v_vcresampler_core'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 2 for loop 'Loop-1' in function 'v_vcresampler_core'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'v_vcresampler_core'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'v_vcresampler_core'... converting 3 basic blocks.
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i16P.i2' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:150->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:93).
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i16P.i2' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:149->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:93).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 602.328 ; gain = 194.723 ; free physical = 2402 ; free virtual = 5501
+WARNING: [XFORM 203-631] Renaming function 'MultiPixStream2AXIvideo' to 'MultiPixStream2AXIvi' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:180:53)
+WARNING: [XFORM 203-631] Renaming function 'AXIvideo2MultiPixStream' to 'AXIvideo2MultiPixStr' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:49:9)
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_y.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_y.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_y.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_y.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_y.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_y.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[3].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[3].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[2].V.i'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 602.328 ; gain = 194.723 ; free physical = 2351 ; free virtual = 5441
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'v_vcresampler' ...
+WARNING: [SYN 201-103] Legalizing function name 'reg<unsigned short>' to 'reg_unsigned_short_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_unsigned_short_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 42.9 seconds; current allocated memory: 226.249 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 226.294 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_start'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_eol'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 226.670 MB.
+INFO: [HLS 200-434] Only 3 loops out of a total 4 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.58 seconds; current allocated memory: 227.028 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_vcresampler_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 2.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+WARNING: [SCHED 204-21] Estimated clock period (8.28ns) exceeds the target (target clock period: 7.5ns, clock uncertainty: 0.9375ns, effective delay budget: 6.5625ns).
+WARNING: [SCHED 204-21] The critical path in module 'v_vcresampler_core' consists of the following:
+	'mul' operation of DSP[195] ('ret_V_3_0_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:412->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:93) [194]  (2.82 ns)
+	'add' operation of DSP[195] ('filt_res_2_0_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:412->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:93) [195]  (2.73 ns)
+	'add' operation of DSP[200] ('filt_res_2_0_1_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:412->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_27/src/v_vcresampler.cpp:93) [200]  (2.73 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.87 seconds; current allocated memory: 227.822 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.89 seconds; current allocated memory: 228.704 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.19 seconds; current allocated memory: 228.848 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.86 seconds; current allocated memory: 229.122 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_vcresampler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.88 seconds; current allocated memory: 229.302 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.09 seconds; current allocated memory: 229.681 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_unsigned_short_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_unsigned_short_s'.
+INFO: [HLS 200-111]  Elapsed time: 0.92 seconds; current allocated memory: 229.806 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'AXIvideo2MultiPixStr'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 231.053 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_vcresampler_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'v_vcresampler_mac_muladd_16s_8ns_13ns_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vcresampler_mac_muladd_16s_8ns_24s_25_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vcresampler_mac_muladd_16s_8ns_25s_26_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vcresampler_mac_muladd_16s_8ns_26s_26_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vcresampler_mux_42_16_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_vcresampler_core'.
+INFO: [HLS 200-111]  Elapsed time: 2.36 seconds; current allocated memory: 233.585 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'MultiPixStream2AXIvi'.
+INFO: [HLS 200-111]  Elapsed time: 2.45 seconds; current allocated memory: 231.826 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_vcresampler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/s_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_width' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_height' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_input_video_format' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_output_video_format' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_0_0' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_0_1' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_0_2' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_0_3' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_1_0' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_1_1' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_1_2' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/HwReg_coefs_1_3' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vcresampler/m_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'v_vcresampler' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'HwReg_width', 'HwReg_height', 'HwReg_input_video_format', 'HwReg_output_video_format', 'HwReg_coefs_0_0', 'HwReg_coefs_0_1', 'HwReg_coefs_0_2', 'HwReg_coefs_0_3', 'HwReg_coefs_1_0', 'HwReg_coefs_1_1', 'HwReg_coefs_1_2' and 'HwReg_coefs_1_3' to AXI-Lite port CTRL.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_vcresampler'.
+INFO: [HLS 200-111]  Elapsed time: 1.01 seconds; current allocated memory: 233.329 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vcr_o_0_v_vcresampler_core_filt0_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vcr_o_0_v_vcresampler_core_linebuf_y_val_0_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vcr_o_0_v_vcresampler_core_linebuf_c_val_0_V_ram (RAM)' using block RAMs.
+WARNING: [RTMG 210-274] Memory 'bd_2d50_vcr_o_0_v_vcresampler_core_linebuf_c_val_3_V' is read-only, switch it to a ROM.
+INFO: [RTMG 210-279] Implementing memory 'bd_2d50_vcr_o_0_v_vcresampler_core_linebuf_c_val_3_V_rom' using block ROMs.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_0_V_U(bd_2d50_vcr_o_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_1_V_U(bd_2d50_vcr_o_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_2_V_U(bd_2d50_vcr_o_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dstYUV_V_val_0_V_U(bd_2d50_vcr_o_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dstYUV_V_val_1_V_U(bd_2d50_vcr_o_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dstYUV_V_val_2_V_U(bd_2d50_vcr_o_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_v_vcresampler_core_U0_U(bd_2d50_vcr_o_0_start_for_v_vcresampler_core_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_MultiPixStream2AXIvi_U0_U(bd_2d50_vcr_o_0_start_for_MultiPixStream2AXIvi_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:58 ; elapsed = 00:01:03 . Memory (MB): peak = 602.328 ; gain = 194.723 ; free physical = 2757 ; free virtual = 5843
+INFO: [SYSC 207-301] Generating SystemC RTL for v_vcresampler with prefix bd_2d50_vcr_o_0_.
+INFO: [VHDL 208-304] Generating VHDL RTL for v_vcresampler with prefix bd_2d50_vcr_o_0_.
+INFO: [VLOG 209-307] Generating Verilog RTL for v_vcresampler with prefix bd_2d50_vcr_o_0_.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:22:35 2021...
+INFO: [HLS 200-112] Total elapsed time: 80.71 seconds; peak allocated memory: 233.585 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Sat Apr 24 21:22:35 2021...
+compile_c: Time (s): cpu = 00:01:18 ; elapsed = 00:01:23 . Memory (MB): peak = 1353.543 ; gain = 3.031 ; free physical = 4363 ; free virtual = 7428
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP bd_2d50_vcr_o_0, cache-ID = f07f082b7caa2fb8.
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:22:37 2021...

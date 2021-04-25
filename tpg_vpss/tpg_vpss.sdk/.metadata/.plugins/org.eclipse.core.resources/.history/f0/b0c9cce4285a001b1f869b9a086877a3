@@ -1,0 +1,21 @@
+/*
+ * main.c
+ *
+ *  Created on: Jan 19, 2021
+ *      Author: andy
+ */
+
+
+#include <stdio.h>
+#include "sleep.h"
+#include "platform.h"
+#include "xparameters.h"
+#include "xil_printf.h"
+#include "xgpio.h"
+#include "xclk_wiz.h"
+#include "xv_tpg.h"
+#include "xvidc.h"
+#include "xvtc.h"
+#include "video_resolution.h"
+#include "vtiming_gen.h"
+#include "PS_i2c.h"

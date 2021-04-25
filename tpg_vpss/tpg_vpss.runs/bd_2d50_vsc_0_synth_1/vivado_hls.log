@@ -1,0 +1,672 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /opt/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado/2018.3/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'andy' on host 'archlinux' (Linux_x86_64 version 5.11.15-arch1-2) on Sat Apr 24 21:08:34 CST 2021
+INFO: [HLS 200-10] On os "Arch Linux"
+INFO: [HLS 200-10] In directory '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vsc_0_synth_1'
+INFO: [HLS 200-10] Creating and opening project '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vsc_0_synth_1/bd_2d50_vsc_0'.
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler_config.h' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.h' to the project
+INFO: [HLS 200-10] Creating and opening solution '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vsc_0_synth_1/bd_2d50_vsc_0/prj'.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-2'
+INFO: [SYN 201-201] Setting up clock 'ap_clk' with a period of 7.5ns.
+INFO: [XFORM 203-701] Set the default channel type in dataflow to FIFO.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 408.453 ; gain = 0.848 ; free physical = 525 ; free virtual = 3960
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 408.453 ; gain = 0.848 ; free physical = 525 ; free virtual = 3960
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >.1' into 'hls::AXIGetBitFields<24, ap_uint<8> >' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:71).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:814).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:815).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:816).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<2, 3840, ap_uint<8>, 0>::getval' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1059).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<2, 3840, ap_uint<8>, 0>::insert_top_row' into 'hls::LineBuffer<2, 3840, ap_uint<8>, 0>::insert_bottom' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:873).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<2, 3840, ap_uint<8>, 0>::insert_bottom' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1073).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::getval' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1125).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::getval' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1096).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::insert_top_row' into 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::insert_bottom' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:873).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 3840, ap_uint<8>, 0>::insert_bottom' into 'v_vcresampler_core' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1142).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<6, 3840, ap_uint<24>, 0>::getval' into 'vscale_core_polyphase' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:286).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<6, 3840, ap_uint<24>, 0>::insert_top_row' into 'hls::LineBuffer<6, 3840, ap_uint<24>, 0>::insert_bottom' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:873).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<6, 3840, ap_uint<24>, 0>::insert_bottom' into 'vscale_core_polyphase' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:314).
+INFO: [XFORM 203-603] Inlining function 'vscale_polyphase' into 'vscale_core_polyphase' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:35 ; elapsed = 00:00:41 . Memory (MB): peak = 536.098 ; gain = 128.492 ; free physical = 1032 ; free virtual = 4461
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 600.098 ; gain = 192.492 ; free physical = 906 ; free virtual = 4338
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width_for_procpix' in function 'vscale_core_polyphase' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-3.1' in function 'v_vcresampler_core' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:908) in function 'MultiPixStream2AXIvideo' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:790) in function 'AXIvideo2MultiPixStream' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.1' in function 'vscale_core_polyphase' completely with a factor of 6.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.1.1' in function 'vscale_core_polyphase' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.1.1.1' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.2' in function 'vscale_core_polyphase' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.2.1' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.3' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.4' in function 'vscale_core_polyphase' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.4.1' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.5' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.6' in function 'vscale_core_polyphase' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.6.1' in function 'vscale_core_polyphase' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.6.1.1' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7' in function 'vscale_core_polyphase' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7.1' in function 'vscale_core_polyphase' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7.1.1' in function 'vscale_core_polyphase' completely with a factor of 6.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.1' in function 'v_vcresampler_core' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.2' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.3' in function 'v_vcresampler_core' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.3.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.4' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.5' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.6' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.6.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7' in function 'v_vcresampler_core' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7.2' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.7.3' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.8' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.9' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.10' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.11' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.12' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.12.1' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3.1.13' in function 'v_vcresampler_core' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:180) in function 'MultiPixStream2AXIvideo' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:932) in function 'MultiPixStream2AXIvideo' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:934) in function 'MultiPixStream2AXIvideo' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:807) in function 'AXIvideo2MultiPixStream' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:809) in function 'AXIvideo2MultiPixStream' completely with a factor of 3.
+INFO: [XFORM 203-102] Partitioning array 'PixBufVal.val.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'PixBufVal.val.V.1' automatically.
+INFO: [XFORM 203-102] Partitioning array 'PixArrayVal.val.V' automatically.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'SrcYUV422.V.val.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'OutYUV.V.val.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'SrcYUV.V.val.V' .
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:863) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tmp.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:765) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'map'  in dimension 1 completely.
+INFO: [XFORM 203-712] Applying dataflow to function 'v_vscaler' , detected/extracted 5 process function(s): 
+	 'AXIvideo2MultiPixStream'
+	 'Block_._crit_edge1012_proc'
+	 'v_vcresampler_core'
+	 'vscale_core_polyphase'
+	 'MultiPixStream2AXIvideo'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 32767 to 4095 for loop 'Loop-0-0' in function 'v_vcresampler_core'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 32767 to 4097 for loop 'Loop-0' in function 'v_vcresampler_core'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'vscale_core_polyphase'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'vscale_core_polyphase'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'v_vcresampler_core'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'v_vcresampler_core'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'v_vcresampler_core'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:49:14) to (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:789:57) in function 'AXIvideo2MultiPixStream'... converting 4 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'v_vcresampler_core'...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:41 ; elapsed = 00:00:48 . Memory (MB): peak = 664.098 ; gain = 256.492 ; free physical = 967 ; free virtual = 4403
+WARNING: [XFORM 203-631] Renaming function 'vscale_core_polyphase' to 'vscale_core_polyphas' 
+WARNING: [XFORM 203-631] Renaming function 'MultiPixStream2AXIvideo' to 'MultiPixStream2AXIvi' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:180:53)
+WARNING: [XFORM 203-631] Renaming function 'Block_._crit_edge1012_proc' to 'Block_._crit_edge101' 
+WARNING: [XFORM 203-631] Renaming function 'AXIvideo2MultiPixStream' to 'AXIvideo2MultiPixStr' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:49:9)
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_y.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_y.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_y.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_y.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'linebuf_c.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'linebuf_c.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'LineBuf.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'LineBuf.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'LineBuf.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'LineBuf.val[4].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'LineBuf.val[3].V.i'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'LineBuf.val[5].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'LineBuf.val[2].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'LineBuf.val[1].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'LineBuf.val[0].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'LineBuf.val[4].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'LineBuf.val[3].V.i'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'LineBuf.val[5].V.i'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:46 ; elapsed = 00:00:54 . Memory (MB): peak = 664.098 ; gain = 256.492 ; free physical = 434 ; free virtual = 3874
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'v_vscaler' ...
+WARNING: [SYN 201-103] Legalizing function name 'reg<unsigned short>' to 'reg_unsigned_short_s'.
+WARNING: [SYN 201-103] Legalizing function name 'Block_._crit_edge101' to 'Block_crit_edge101'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'reg_unsigned_short_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 0	0	0	2	0	-nan	0	-nan	0	0	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 53.73 seconds; current allocated memory: 286.693 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 286.742 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 0	0	0	54	0	-nan	0	-nan	0	0	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_start'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_eol'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.33 seconds; current allocated memory: 287.144 MB.
+INFO: [HLS 200-434] Only 3 loops out of a total 4 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.04 seconds; current allocated memory: 287.565 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Block_crit_edge101' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 0	0	0	5	0	-nan	0	-nan	0	0	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.47 seconds; current allocated memory: 287.632 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 287.684 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_vcresampler_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SYN 201-351] The following objects are mapped to a ternary adder tree.
+   a  'select' operation ('pixbuf_c_val_V_1_0_2', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1102->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:132)
+   b  'select' operation ('pixbuf_c_val_V_2_0_3', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1102->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:132)
+   c  constant 1
+
+INFO: [SYN 201-351] The following objects are mapped to a ternary adder tree.
+   a  'add' operation ('tmp17_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1174->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:132)
+   b  'bitconcatenate' operation ('ret_V_4_i_i_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1174->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:132)
+   c  'select' operation ('pixbuf_c_val_V_0_0_3', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:1125->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:132)
+
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 7	0	7	94	15	2.1	3	2	3	10	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 1 with current asap = 0, alap = 1
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 1 with current asap = 0, alap = 1
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 1 with current asap = 0, alap = 1
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.55 seconds; current allocated memory: 288.188 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.45 seconds; current allocated memory: 288.808 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'vscale_core_polyphas' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_5_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[5]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[5].val[2].V') with incoming values : ('PixArray[5].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('tmp.val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:305->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_2_4_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_2_5_i = sum_0_2_4_i + rhs_V_0_0_5_i * lhs_V_0_2_5_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_4_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[4]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[4].val[2].V') with incoming values : ('PixArray[5].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[4].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_2_3_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_2_4_i = sum_0_2_3_cast_i + rhs_V_0_0_4_i * lhs_V_0_2_4_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_3_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[3]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[3].val[2].V') with incoming values : ('PixArray[4].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[3].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_2_2_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_2_3_i = sum_0_2_2_i + rhs_V_0_0_3_i * lhs_V_0_2_3_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_2_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[2]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[2].val[2].V') with incoming values : ('PixArray[3].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[2].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_2_1_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_2_2_i = sum_0_2_1_cast_i + rhs_V_0_0_2_i * lhs_V_0_2_2_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_1_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[1]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[1].val[2].V') with incoming values : ('PixArray[2].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[1].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_2_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_2_1_i = sum_0_2_cast_i + rhs_V_0_0_1_i * lhs_V_0_2_1_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_0_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[0]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[0].val[2].V') with incoming values : ('PixArray[1].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[0].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  constant 2048
+  DSP48 Expression: sum_0_2_i = 2048 + rhs_V_i * lhs_V_0_2_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_5_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[5]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[5].val[1].V') with incoming values : ('PixArray[5].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('tmp.val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:305->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_1_4_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_1_5_i = sum_0_1_4_i + rhs_V_0_0_5_i * lhs_V_0_1_5_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_4_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[4]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[4].val[1].V') with incoming values : ('PixArray[5].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[4].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_1_3_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_1_4_i = sum_0_1_3_cast_i + rhs_V_0_0_4_i * lhs_V_0_1_4_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_3_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[3]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[3].val[1].V') with incoming values : ('PixArray[4].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[3].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_1_2_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_1_3_i = sum_0_1_2_i + rhs_V_0_0_3_i * lhs_V_0_1_3_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_2_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[2]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[2].val[1].V') with incoming values : ('PixArray[3].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[2].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_1_1_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_1_2_i = sum_0_1_1_cast_i + rhs_V_0_0_2_i * lhs_V_0_1_2_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_1_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[1]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[1].val[1].V') with incoming values : ('PixArray[2].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[1].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_1_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_1_1_i = sum_0_1_cast_i + rhs_V_0_0_1_i * lhs_V_0_1_1_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_0_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[0]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[0].val[1].V') with incoming values : ('PixArray[1].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[0].val[1].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  constant 2048
+  DSP48 Expression: sum_0_1_i = 2048 + rhs_V_i * lhs_V_0_1_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_5_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[5]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[5].val[0].V') with incoming values : ('PixArray[5].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('tmp.val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:305->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_0_4_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_0_5_i = sum_0_0_4_i + rhs_V_0_0_5_i * lhs_V_0_0_5_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_4_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[4]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[4].val[0].V') with incoming values : ('PixArray[5].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[4].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_0_3_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_0_4_i = sum_0_0_3_cast_i + rhs_V_0_0_4_i * lhs_V_0_0_4_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_3_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[3]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[3].val[0].V') with incoming values : ('PixArray[4].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[3].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_0_2_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_0_3_i = sum_0_0_2_i + rhs_V_0_0_3_i * lhs_V_0_0_3_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_2_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[2]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[2].val[0].V') with incoming values : ('PixArray[3].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[2].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_0_0_1_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_0_2_i = sum_0_0_1_cast_i + rhs_V_0_0_2_i * lhs_V_0_0_2_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_1_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[1]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[1].val[0].V') with incoming values : ('PixArray[2].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[1].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  'add' operation ('sum_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+  DSP48 Expression: sum_0_0_1_i = sum_0_0_cast_i + rhs_V_0_0_1_i * lhs_V_0_0_1_i
+INFO: [SYN 201-351] The following objects are mapped to a DSP48.
+   a  'load' operation ('FiltCoeff_0_load', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) on array 'FiltCoeff[0]', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:185->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148
+   b  'phi' operation ('PixArray[0].val[0].V') with incoming values : ('PixArray[1].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[0].val[0].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148)
+   c  constant 2048
+  DSP48 Expression: sum_i = 2048 + rhs_V_i * lhs_V_i
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 18	0	8	213	22	2.8	4	2.4	3	13	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-61] Pipelining loop 'loop_width_for_procpix'.
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 2 with current asap = 0, alap = 2
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 2 with current asap = 0, alap = 2
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 1 with current asap = 0, alap = 1
+INFO: [SCHED 204-61]  rescheduled in stage scheduling from 0 to 1 with current asap = 0, alap = 1
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 6.
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+WARNING: [SCHED 204-21] Estimated clock period (8.28ns) exceeds the target (target clock period: 7.5ns, clock uncertainty: 0.9375ns, effective delay budget: 6.5625ns).
+WARNING: [SCHED 204-21] The critical path in module 'vscale_core_polyphas' consists of the following:
+	'phi' operation ('PixArray[0].val[2].V') with incoming values : ('PixArray[1].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) ('PixArray[0].val[2].V', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:292->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) [262]  (0 ns)
+	'mul' operation of DSP[349] ('ret_V_1_0_2_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) [348]  (2.82 ns)
+	'add' operation of DSP[349] ('sum_0_2_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) [349]  (2.73 ns)
+	'add' operation of DSP[354] ('sum_0_2_1_i', /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:368->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:341->/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_2/src/v_vscaler.cpp:148) [354]  (2.73 ns)
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.37 seconds; current allocated memory: 290.186 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+WARNING: [BIND 205-102] The specified resource core for memory 'FiltCoeff_0' will be ignored if a simpler one can be used.
+WARNING: [BIND 205-102] The specified resource core for memory 'FiltCoeff_1' will be ignored if a simpler one can be used.
+WARNING: [BIND 205-102] The specified resource core for memory 'FiltCoeff_2' will be ignored if a simpler one can be used.
+WARNING: [BIND 205-102] The specified resource core for memory 'FiltCoeff_3' will be ignored if a simpler one can be used.
+WARNING: [BIND 205-102] The specified resource core for memory 'FiltCoeff_4' will be ignored if a simpler one can be used.
+WARNING: [BIND 205-102] The specified resource core for memory 'FiltCoeff_5' will be ignored if a simpler one can be used.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 4.55 seconds; current allocated memory: 291.655 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 1	0	0	43	0	-nan	0	-nan	0	0	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.93 seconds; current allocated memory: 291.917 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.84 seconds; current allocated memory: 285.412 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_vscaler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+###	 Num	NTree	NLUT	EssAll	EssLUT	Size	MSize	Lev	MLev	Sel	Phy 
+####	 0	0	0	11	0	-nan	0	-nan	0	0	0
+INFO: [SCHED 204-11] Generating True dependence constraints ... 
+INFO: [SCHED 204-11] Generating Auxiliary dependence constraints ... 
+INFO: [SCHED 204-11] Generating Ternary mapping constraints ... 
+INFO: [SCHED 204-11] Generating Lut Grouping constraints ... 
+INFO: [SCHED 204-11] Generating Node latency constraints ... 
+INFO: [SCHED 204-11] Generating Relative time constraints ... 
+INFO: [SCHED 204-11] Generating Protocol constraints ... 
+INFO: [SCHED 204-11] Generating Precedence constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Pipeline constraints ... 
+INFO: [SCHED 204-11] Generating DSP mapping constraints ... 
+INFO: [SCHED 204-11] Generating Supporting dependence constraints ... 
+INFO: [SCHED 204-11] Generating Resource constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Latency constraints ... 
+INFO: [SCHED 204-11] Generating Cycle time constraints ... 
+INFO: [SCHED 204-11] Generating Blocking node constraints ... 
+INFO: [SCHED 204-11] Generating Chaining constraints ... 
+INFO: [SCHED 204-11] Generating Operation gating constraints ... 
+INFO: [SCHED 204-11] Generating Variable bound constraints ... 
+INFO: [SCHED 204-11] Generating PHI node constraints ... 
+INFO: [SCHED 204-11] Start checking consistency (resolving sdc graph) ...
+INFO: [SCHED 204-11] Finished checking consistency.
+INFO: [SCHED 204-11] Start scheduling optimization (solving LP) ...
+INFO: [SCHED 204-11] Finished scheduling optimization.
+INFO: [SCHED 204-11] Start constructing STG ...
+INFO: [SCHED 204-11] Finished constructing STG.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.05 seconds; current allocated memory: 285.642 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.86 seconds; current allocated memory: 286.311 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'reg_unsigned_short_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'reg_unsigned_short_s'.
+INFO: [HLS 200-111]  Elapsed time: 1.17 seconds; current allocated memory: 286.463 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'AXIvideo2MultiPixStr'.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 287.788 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Block_crit_edge101' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_crit_edge101'.
+INFO: [HLS 200-111]  Elapsed time: 2.58 seconds; current allocated memory: 289.172 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_vcresampler_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_vcresampler_core'.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 286.716 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'vscale_core_polyphas' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mac_muladd_16s_8ns_13ns_24_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mac_muladd_16s_8ns_24s_25_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mac_muladd_16s_8ns_25s_26_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mac_muladd_16s_8ns_26s_26_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mac_muladd_16s_8ns_26s_27_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mac_muladd_16s_8ns_27s_27_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'v_vscaler_mux_63_8_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'vscale_core_polyphas'.
+INFO: [HLS 200-111]  Elapsed time: 2.15 seconds; current allocated memory: 289.238 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'MultiPixStream2AXIvi'.
+INFO: [HLS 200-111]  Elapsed time: 4.96 seconds; current allocated memory: 290.408 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_vscaler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/s_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/HwReg_HeightIn' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/HwReg_Width' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/HwReg_HeightOut' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/HwReg_LineRate' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/HwReg_ColorMode' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/HwReg_vfltCoeff' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_vscaler/m_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'v_vscaler' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'HwReg_vfltCoeff', 'return', 'HwReg_Width', 'HwReg_HeightOut', 'HwReg_LineRate' and 'HwReg_ColorMode' to AXI-Lite port CTRL.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_vscaler'.
+INFO: [HLS 200-111]  Elapsed time: 2.63 seconds; current allocated memory: 292.617 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vsc_0_v_vcresampler_core_linebuf_y_val_0_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vsc_0_v_vcresampler_core_linebuf_c_val_0_V_ram (RAM)' using block RAMs.
+WARNING: [RTMG 210-274] Memory 'bd_2d50_vsc_0_v_vcresampler_core_linebuf_c_val_2_V' is read-only, switch it to a ROM.
+INFO: [RTMG 210-279] Implementing memory 'bd_2d50_vsc_0_v_vcresampler_core_linebuf_c_val_2_V_rom' using block ROMs.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vsc_0_vscale_core_polyphas_FiltCoeff_0_ram (RAM_1P_LUTRAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_vsc_0_vscale_core_polyphas_LineBuf_val_0_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'SrcYUV_V_val_0_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SrcYUV_V_val_1_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SrcYUV_V_val_2_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_HwReg_ColorMode_loc_1_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SrcYUV422_V_val_0_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SrcYUV422_V_val_1_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SrcYUV422_V_val_2_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_HwReg_ColorMode_loc_U(bd_2d50_vsc_0_fifo_w8_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'OutYUV_V_val_0_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'OutYUV_V_val_1_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'OutYUV_V_val_2_V_U(bd_2d50_vsc_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_v_vcresampler_core_U0_U(bd_2d50_vsc_0_start_for_v_vcresampler_core_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_MultiPixStream2AXIvi_U0_U(bd_2d50_vsc_0_start_for_MultiPixStream2AXIvi_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:23 ; elapsed = 00:01:37 . Memory (MB): peak = 680.102 ; gain = 272.496 ; free physical = 1169 ; free virtual = 4187
+INFO: [SYSC 207-301] Generating SystemC RTL for v_vscaler with prefix bd_2d50_vsc_0_.
+INFO: [VHDL 208-304] Generating VHDL RTL for v_vscaler with prefix bd_2d50_vsc_0_.
+INFO: [VLOG 209-307] Generating Verilog RTL for v_vscaler with prefix bd_2d50_vsc_0_.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:10:38 2021...
+INFO: [HLS 200-112] Total elapsed time: 124.3 seconds; peak allocated memory: 292.617 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Sat Apr 24 21:10:38 2021...

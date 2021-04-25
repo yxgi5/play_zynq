@@ -1,0 +1,629 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /opt/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado/2018.3/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'andy' on host 'archlinux' (Linux_x86_64 version 5.11.15-arch1-2) on Sat Apr 24 21:17:21 CST 2021
+INFO: [HLS 200-10] On os "Arch Linux"
+INFO: [HLS 200-10] In directory '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_dint_0_synth_1'
+INFO: [HLS 200-10] Creating and opening project '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_dint_0_synth_1/bd_2d50_dint_0'.
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer_config.h' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp' to the project
+INFO: [HLS 200-10] Adding design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.h' to the project
+INFO: [HLS 200-10] Creating and opening solution '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_dint_0_synth_1/bd_2d50_dint_0/prj'.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-2'
+INFO: [SYN 201-201] Setting up clock 'ap_clk' with a period of 7.5ns.
+INFO: [XFORM 203-701] Set the default channel type in dataflow to FIFO.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 408.457 ; gain = 0.848 ; free physical = 1367 ; free virtual = 4366
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 408.457 ; gain = 0.848 ; free physical = 1366 ; free virtual = 4364
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::init' into 'hls::Mat<2160, 4096, 4096>::Mat.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:636).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<4320, 4096, 4096>::init' into 'hls::Mat<4320, 4096, 4096>::Mat.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:636).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::write' into 'hls::Mat<2160, 4096, 4096>::operator<<' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator<<' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:176).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator<<' into 'Duplicate<2160, 4096, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:475).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator<<' into 'Duplicate<2160, 4096, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:474).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator<<' into 'pixClkInConvert<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:403).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator<<' into 'hls_readImages<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:273).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator<<' into 'hls_readImages<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:258).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >.1' into 'hls::AXIGetBitFields<24, ap_uint<8> >' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:71).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream<24>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:342).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream<24>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:343).
+INFO: [XFORM 203-603] Inlining function 'hls::AXIGetBitFields<24, ap_uint<8> >' into 'AXIvideo2MultiPixStream<24>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:344).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::read' into 'hls::Mat<2160, 4096, 4096>::operator>>' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'hls::WeaveTwoFields<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:213).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'hls::WeaveTwoFields<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:211).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:103).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:102).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:101).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'hls_writeImage<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:639).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<2160, 4096, 4096>::operator>>' into 'Duplicate<2160, 4096, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:473).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::shift_pixels_down' into 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::shift_down' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:853).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::shift_down' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:113).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::shift_down' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:111).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::shift_down' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:109).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::insert_top_row' into 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::insert_bottom' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_mem.h:873).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::insert_bottom' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:114).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::insert_bottom' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:112).
+INFO: [XFORM 203-603] Inlining function 'hls::LineBuffer<3, 1920, hls::Scalar<3, unsigned char>, 0>::insert_bottom' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:110).
+INFO: [XFORM 203-603] Inlining function 'hls::get_pix<1920, hls::Scalar<3, unsigned char> >' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:126).
+INFO: [XFORM 203-603] Inlining function 'hls::get_pix<1920, hls::Scalar<3, unsigned char> >' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:124).
+INFO: [XFORM 203-603] Inlining function 'hls::get_pix<1920, hls::Scalar<3, unsigned char> >' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:123).
+INFO: [XFORM 203-603] Inlining function 'hls::get_pix<1920, hls::Scalar<3, unsigned char> >' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:122).
+INFO: [XFORM 203-603] Inlining function 'hls::get_pix<1920, hls::Scalar<3, unsigned char> >' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:120).
+INFO: [XFORM 203-603] Inlining function 'hls::get_pix<1920, hls::Scalar<3, unsigned char> >' into 'hls::FieldInterpolate<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:119).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<4320, 4096, 4096>::write' into 'hls::Mat<4320, 4096, 4096>::operator<<' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<4320, 4096, 4096>::operator<<' into 'hls::WeaveTwoFields<2160, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:214).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<4320, 4096, 4096>::read' into 'hls::Mat<4320, 4096, 4096>::operator>>' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711).
+INFO: [XFORM 203-603] Inlining function 'hls::Mat<4320, 4096, 4096>::operator>>' into 'pixClkOutConvert<4320, 4096, 4096>' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:431).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:37 ; elapsed = 00:00:44 . Memory (MB): peak = 536.102 ; gain = 128.492 ; free physical = 1631 ; free virtual = 4641
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:645: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:39 ; elapsed = 00:00:46 . Memory (MB): peak = 600.102 ; gain = 192.492 ; free physical = 2113 ; free virtual = 5132
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' in function 'pixClkOutConvert<4320, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' in function 'pixClkInConvert<2160, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' in function 'hls::WeaveTwoFields<2160, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-4.1' in function 'hls::FieldInterpolate<2160, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:698) in function 'MultiPixStream2AXIvideo<24>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width' in function 'Duplicate<2160, 4096, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_width' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:310) in function 'AXIvideo2MultiPixStream<24>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_col' in function 'hls_writeImage<2160, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_col' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:247) in function 'hls_readImages<2160, 4096, 4096>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_col2' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:262) in function 'hls_readImages<2160, 4096, 4096>' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' in function 'pixClkOutConvert<4320, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' in function 'pixClkOutConvert<4320, 4096, 4096>' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2.1' in function 'pixClkOutConvert<4320, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' in function 'pixClkInConvert<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' in function 'pixClkInConvert<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.3' in function 'pixClkInConvert<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' in function 'hls::WeaveTwoFields<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' in function 'hls::WeaveTwoFields<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.3' in function 'hls::WeaveTwoFields<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.1' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.2' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.3' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.4' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.5' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.6' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.7' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1.8' in function 'hls::FieldInterpolate<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:180) in function 'MultiPixStream2AXIvideo<24>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:715) in function 'MultiPixStream2AXIvideo<24>' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:717) in function 'MultiPixStream2AXIvideo<24>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' in function 'Duplicate<2160, 4096, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' in function 'Duplicate<2160, 4096, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.3' in function 'Duplicate<2160, 4096, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:336) in function 'AXIvideo2MultiPixStream<24>' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1.1.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:338) in function 'AXIvideo2MultiPixStream<24>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' in function 'hls_writeImage<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'loop_channels' in function 'hls_writeImage<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'loop_channels' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:254) in function 'hls_readImages<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:701) in function 'hls_readImages<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'loop_channels2' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:270) in function 'hls_readImages<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.2.2' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:701) in function 'hls_readImages<2160, 4096, 4096>' completely with a factor of 3.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:589) automatically.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign.1' (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:589) automatically.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign' automatically.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign.6' automatically.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign.7' automatically.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign.5' automatically.
+INFO: [XFORM 203-102] Partitioning array 's.val.assign.2' automatically.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'srcYUV.V.val.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'dstYUV.V.val.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'prev_mat.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'curr_mat.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'curr_mat_dei.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'curr_mat_rec.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'next_mat.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'next_mat_dei.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'next_mat_sav.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'curr_mat_new_field.data_stream.V' .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'out_mat.data_stream.V' .
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:662) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tmp.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pix.val.V' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:294) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'map'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pix.val' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:249) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pix.val.1' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:264) in dimension 1 completely.
+INFO: [XFORM 203-712] Applying dataflow to function 'v_deinterlacer_withmm' , detected/extracted 13 process function(s): 
+	 'v_deinterlacer_withmm.entry96'
+	 'v_deinterlacer_withmm_Block_codeRepl47_proc'
+	 'hls_readImages<2160, 4096, 4096>'
+	 'AXIvideo2MultiPixStream<24>'
+	 'pixClkInConvert<2160, 4096, 4096>'
+	 'Duplicate<2160, 4096, 4096, 4096>77'
+	 'hls_writeImage<2160, 4096, 4096>'
+	 'v_deinterlacer_withmm_Block_codeRepl4753_proc'
+	 'Duplicate<2160, 4096, 4096, 4096>'
+	 'hls::FieldInterpolate<2160, 4096, 4096>'
+	 'hls::WeaveTwoFields<2160, 4096, 4096>'
+	 'pixClkOutConvert<4320, 4096, 4096>'
+	 'MultiPixStream2AXIvideo<24>'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock in function 'hls::FieldInterpolate<2160, 4096, 4096>'... converting 19 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/opt/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:49:14) to (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:310:74) in function 'AXIvideo2MultiPixStream<24>'... converting 4 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:46 ; elapsed = 00:00:55 . Memory (MB): peak = 664.102 ; gain = 256.492 ; free physical = 2489 ; free virtual = 5477
+WARNING: [XFORM 203-631] Renaming function 'v_deinterlacer_withmm_Block_codeRepl47_proc' to 'v_deinterlacer_withm' 
+WARNING: [XFORM 203-631] Renaming function 'v_deinterlacer_withmm_Block_codeRepl4753_proc' to 'v_deinterlacer_withm.1' 
+WARNING: [XFORM 203-631] Renaming function 'v_deinterlacer_withmm.entry96' to 'v_deinterlacer_withm.2' 
+WARNING: [XFORM 203-631] Renaming function 'v_deinterlacer_withmm' to 'v_deinterlacer_withm.3' 
+WARNING: [XFORM 203-631] Renaming function 'pixClkOutConvert<4320, 4096, 4096>' to 'pixClkOutConvert' 
+WARNING: [XFORM 203-631] Renaming function 'pixClkInConvert<2160, 4096, 4096>' to 'pixClkInConvert' 
+WARNING: [XFORM 203-631] Renaming function 'hls_writeImage<2160, 4096, 4096>' to 'hls_writeImage' 
+WARNING: [XFORM 203-631] Renaming function 'hls_readImages<2160, 4096, 4096>' to 'hls_readImages' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:238:43)
+WARNING: [XFORM 203-631] Renaming function 'hls::WeaveTwoFields<2160, 4096, 4096>' to 'WeaveTwoFields' 
+WARNING: [XFORM 203-631] Renaming function 'hls::FieldInterpolate<2160, 4096, 4096>' to 'FieldInterpolate' 
+WARNING: [XFORM 203-631] Renaming function 'MultiPixStream2AXIvideo<24>' to 'MultiPixStream2AXIvi' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:180:68)
+WARNING: [XFORM 203-631] Renaming function 'Duplicate<2160, 4096, 4096, 4096>77' to 'Duplicate77' 
+WARNING: [XFORM 203-631] Renaming function 'Duplicate<2160, 4096, 4096, 4096>' to 'Duplicate' 
+WARNING: [XFORM 203-631] Renaming function 'AXIvideo2MultiPixStream<24>' to 'AXIvideo2MultiPixStr' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:49:17)
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev_buff.val.val.0.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev_buff.val.val.0.'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev_buff.val.val.0.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev_buff.val.val.1.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev_buff.val.val.1.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev_buff.val.val.1.'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'prev_buff.val.val.0.1'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'prev_buff.val.val.0.'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'prev_buff.val.val.0.2'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'prev_buff.val.val.1.2'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'prev_buff.val.val.1.1'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'prev_buff.val.val.1.'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'curr_buff.val.val.1.'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'curr_buff.val.val.0.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'curr_buff.val.val.0.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'curr_buff.val.val.0.'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'curr_buff.val.val.1.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'curr_buff.val.val.1.2'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'curr_buff.val.val.1.'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'curr_buff.val.val.0.2'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'curr_buff.val.val.0.1'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'curr_buff.val.val.0.'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'curr_buff.val.val.1.1'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'curr_buff.val.val.1.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'next_buff.val.val.1.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'next_buff.val.val.1.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'next_buff.val.val.1.'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'next_buff.val.val.0.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'next_buff.val.val.0.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'next_buff.val.val.0.'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'next_buff.val.val.1.2'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'next_buff.val.val.1.1'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'next_buff.val.val.1.'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'next_buff.val.val.0.2'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'next_buff.val.val.0.1'.
+WARNING: [ANALYSIS 214-52] Found false intra dependency for variable 'next_buff.val.val.0.'.
+INFO: [HLS 200-444] Inferring multiple bus burst write of variable length on port 'read_fb'. These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of variable length on port 'read_fb' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:250:79). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-444] Inferring multiple bus burst read of variable length on port 'read_fb' (/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_20/src/v_deinterlacer.cpp:265:80). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+WARNING: [XFORM 203-631] Renaming function 'v_deinterlacer_withm.3.entry8' to 'v_deinterlacer_withm.4' 
+WARNING: [XFORM 203-631] Renaming function 'v_deinterlacer_withm' to 'v_deinterlacer_withm.1.1' 
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 792.102 ; gain = 384.492 ; free physical = 2816 ; free virtual = 5811
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'v_deinterlacer' ...
+WARNING: [SYN 201-103] Legalizing function name 'v_deinterlacer_withm.4' to 'v_deinterlacer_withm_4'.
+WARNING: [SYN 201-103] Legalizing function name 'v_deinterlacer_withm.2' to 'v_deinterlacer_withm_2'.
+WARNING: [SYN 201-103] Legalizing function name 'v_deinterlacer_withm.1.1' to 'v_deinterlacer_withm_1_1'.
+WARNING: [SYN 201-103] Legalizing function name 'v_deinterlacer_withm.1' to 'v_deinterlacer_withm_1'.
+WARNING: [SYN 201-103] Legalizing function name 'v_deinterlacer_withm.3' to 'v_deinterlacer_withm_3'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_deinterlacer_withm_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 66.41 seconds; current allocated memory: 403.181 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 403.267 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_deinterlacer_withm_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.34 seconds; current allocated memory: 403.307 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 403.363 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_deinterlacer_withm_1_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.43 seconds; current allocated memory: 403.644 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.6 seconds; current allocated memory: 403.839 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hls_readImages' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_col'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'loop_col2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.57 seconds; current allocated memory: 404.544 MB.
+INFO: [HLS 200-434] Only 2 loops out of a total 3 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 8.61 seconds; current allocated memory: 405.894 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_start'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'loop_wait_for_eol'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 7.94 seconds; current allocated memory: 406.218 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.37 seconds; current allocated memory: 406.663 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pixClkInConvert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.13 seconds; current allocated memory: 406.773 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.57 seconds; current allocated memory: 406.926 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Duplicate77' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.96 seconds; current allocated memory: 407.088 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.68 seconds; current allocated memory: 407.304 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hls_writeImage' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_col'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.78 seconds; current allocated memory: 407.703 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.19 seconds; current allocated memory: 408.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_deinterlacer_withm_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.66 seconds; current allocated memory: 408.292 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 408.332 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Duplicate' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.92 seconds; current allocated memory: 408.525 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1 seconds; current allocated memory: 408.766 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'FieldInterpolate' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 6.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.51 seconds; current allocated memory: 410.151 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 6.3 seconds; current allocated memory: 412.897 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'WeaveTwoFields' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.09 seconds; current allocated memory: 413.121 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.72 seconds; current allocated memory: 413.404 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pixClkOutConvert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.14 seconds; current allocated memory: 413.517 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.47 seconds; current allocated memory: 413.684 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_width'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.63 seconds; current allocated memory: 413.904 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.16 seconds; current allocated memory: 407.319 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_deinterlacer_withm_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.4 seconds; current allocated memory: 407.689 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 4.9 seconds; current allocated memory: 409.197 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'v_deinterlacer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.17 seconds; current allocated memory: 409.325 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.1 seconds; current allocated memory: 409.641 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_deinterlacer_withm_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_deinterlacer_withm_4'.
+INFO: [HLS 200-111]  Elapsed time: 0.81 seconds; current allocated memory: 409.907 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_deinterlacer_withm_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_deinterlacer_withm_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.38 seconds; current allocated memory: 410.380 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_deinterlacer_withm_1_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'phase_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_deinterlacer_withm_1_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.25 seconds; current allocated memory: 410.865 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hls_readImages' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hls_readImages'.
+INFO: [HLS 200-111]  Elapsed time: 0.84 seconds; current allocated memory: 407.806 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'AXIvideo2MultiPixStr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'AXIvideo2MultiPixStr'.
+INFO: [HLS 200-111]  Elapsed time: 8.22 seconds; current allocated memory: 410.171 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pixClkInConvert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pixClkInConvert'.
+INFO: [HLS 200-111]  Elapsed time: 2.7 seconds; current allocated memory: 411.810 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Duplicate77' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Duplicate77'.
+INFO: [HLS 200-111]  Elapsed time: 0.51 seconds; current allocated memory: 412.243 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hls_writeImage' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hls_writeImage'.
+INFO: [HLS 200-111]  Elapsed time: 0.82 seconds; current allocated memory: 413.595 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_deinterlacer_withm_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_deinterlacer_withm_1'.
+INFO: [HLS 200-111]  Elapsed time: 2.02 seconds; current allocated memory: 413.703 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Duplicate' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Duplicate'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 414.064 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'FieldInterpolate' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'v_deinterlacer_mux_32_8_1_1': 18 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'FieldInterpolate'.
+INFO: [HLS 200-111]  Elapsed time: 1.1 seconds; current allocated memory: 416.990 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'WeaveTwoFields' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'WeaveTwoFields'.
+INFO: [HLS 200-111]  Elapsed time: 5.66 seconds; current allocated memory: 417.612 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pixClkOutConvert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pixClkOutConvert'.
+INFO: [HLS 200-111]  Elapsed time: 0.86 seconds; current allocated memory: 417.992 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'MultiPixStream2AXIvi' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'MultiPixStream2AXIvi'.
+INFO: [HLS 200-111]  Elapsed time: 0.53 seconds; current allocated memory: 418.498 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_deinterlacer_withm_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_deinterlacer_withm_3'.
+INFO: [HLS 200-111]  Elapsed time: 2.34 seconds; current allocated memory: 422.405 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'v_deinterlacer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/s_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/m_axis_video_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/width' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/height' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/read_fb' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/write_fb' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/even' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/colorFormat' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/algo' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'v_deinterlacer/invert_field_id' to 's_axilite & ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'v_deinterlacer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'width', 'height', 'read_fb', 'write_fb', 'colorFormat', 'algo', 'invert_field_id' to AXI-Lite port CTRL.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'v_deinterlacer'.
+INFO: [HLS 200-111]  Elapsed time: 3.13 seconds; current allocated memory: 424.415 MB.
+INFO: [WVHDL 200-304] Encrypting RTL VHDL done.
+INFO: [WVHDL 200-304] Encrypting RTL Verilog done.
+INFO: [RTMG 210-279] Implementing memory 'bd_2d50_dint_0_v_deinterlacer_withm_1_1_next_phase_V_rom' using distributed ROMs.
+INFO: [RTMG 210-278] Implementing memory 'bd_2d50_dint_0_FieldInterpolate_prev_buff_val_val_0_s_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'read_fb_offset_c_U(bd_2d50_dint_0_fifo_w30_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'write_fb_offset_c_U(bd_2d50_dint_0_fifo_w30_d6_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'even_c1_U(bd_2d50_dint_0_fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'even_c_U(bd_2d50_dint_0_fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'tmp_6_loc_channel_U(bd_2d50_dint_0_fifo_w23_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'tmp_loc_channel_U(bd_2d50_dint_0_fifo_w23_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'tmp_4_loc_c_U(bd_2d50_dint_0_fifo_w23_d4_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'height_assign_loc_c_U(bd_2d50_dint_0_fifo_w32_d5_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'prev_mat_data_stream_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'prev_mat_data_stream_1_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'prev_mat_data_stream_2_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_data_stream_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_data_stream_1_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_data_stream_2_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_0_V_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_1_V_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'srcYUV_V_val_2_V_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'field_id1_V_U(bd_2d50_dint_0_fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'field_id2_V_U(bd_2d50_dint_0_fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_data_stream_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_data_stream_1_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_data_stream_2_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_dei_data_st_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_dei_data_st_1_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_dei_data_st_2_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_sav_data_st_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_sav_data_st_1_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'next_mat_sav_data_st_2_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'tmp_12_loc_c_U(bd_2d50_dint_0_fifo_w1_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_dei_data_st_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_dei_data_st_1_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_dei_data_st_2_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_rec_data_st_U(bd_2d50_dint_0_fifo_w8_d4000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_rec_data_st_1_U(bd_2d50_dint_0_fifo_w8_d4000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_rec_data_st_2_U(bd_2d50_dint_0_fifo_w8_d4000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_new_field_d_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_new_field_d_1_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'curr_mat_new_field_d_2_U(bd_2d50_dint_0_fifo_w8_d2000_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'out_mat_data_stream_s_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'out_mat_data_stream_1_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'out_mat_data_stream_2_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'height_assign_loc_c7_1_U(bd_2d50_dint_0_fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dstYUV_V_val_0_V_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dstYUV_V_val_1_V_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'dstYUV_V_val_2_V_U(bd_2d50_dint_0_fifo_w8_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'height_assign_loc_c7_U(bd_2d50_dint_0_fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_v_deinterlacer_withm_2_U0_U(bd_2d50_dint_0_start_for_v_deinterlacer_withm_2_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:21 ; elapsed = 00:02:48 . Memory (MB): peak = 808.105 ; gain = 400.496 ; free physical = 1022 ; free virtual = 4075
+INFO: [SYSC 207-301] Generating SystemC RTL for v_deinterlacer with prefix bd_2d50_dint_0_.
+INFO: [VHDL 208-304] Generating VHDL RTL for v_deinterlacer with prefix bd_2d50_dint_0_.
+INFO: [VLOG 209-307] Generating Verilog RTL for v_deinterlacer with prefix bd_2d50_dint_0_.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+ipx::update_checksums: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1369.543 ; gain = 0.000 ; free physical = 1394 ; free virtual = 4476
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:20:44 2021...
+INFO: [HLS 200-112] Total elapsed time: 203.98 seconds; peak allocated memory: 424.415 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Sat Apr 24 21:20:44 2021...

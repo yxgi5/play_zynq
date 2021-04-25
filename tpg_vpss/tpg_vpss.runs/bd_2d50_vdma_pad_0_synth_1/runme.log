@@ -1,0 +1,483 @@
+
+*** Running vivado
+    with args -log bd_2d50_vdma_pad_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_2d50_vdma_pad_0.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source bd_2d50_vdma_pad_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/andy/zynq/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1342.910 ; gain = 20.516 ; free physical = 3019 ; free virtual = 5938
+Command: synth_design -top bd_2d50_vdma_pad_0 -part xc7z020clg484-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 379129 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1450.363 ; gain = 87.645 ; free physical = 2499 ; free virtual = 5427
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/synth/bd_2d50_vdma_pad_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'top_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/top_bd_2d50_vdma_pad_0.v:60]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_SIGNAL_SET bound to: 32'b00000000000000000000000010011011 
+	Parameter C_M_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_M_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_SIGNAL_SET bound to: 32'b00000000000000000000000010011011 
+	Parameter C_M_AXIS_TUSER_WIDTH bound to: 6 - type: integer 
+	Parameter C_DEFAULT_TLAST bound to: 0 - type: integer 
+	Parameter G_INDX_SS_TREADY bound to: 0 - type: integer 
+	Parameter G_INDX_SS_TDATA bound to: 1 - type: integer 
+	Parameter G_INDX_SS_TSTRB bound to: 2 - type: integer 
+	Parameter G_INDX_SS_TKEEP bound to: 3 - type: integer 
+	Parameter G_INDX_SS_TLAST bound to: 4 - type: integer 
+	Parameter G_INDX_SS_TID bound to: 5 - type: integer 
+	Parameter G_INDX_SS_TDEST bound to: 6 - type: integer 
+	Parameter G_INDX_SS_TUSER bound to: 7 - type: integer 
+	Parameter G_MASK_SS_TREADY bound to: 1 - type: integer 
+	Parameter G_MASK_SS_TDATA bound to: 2 - type: integer 
+	Parameter G_MASK_SS_TSTRB bound to: 4 - type: integer 
+	Parameter G_MASK_SS_TKEEP bound to: 8 - type: integer 
+	Parameter G_MASK_SS_TLAST bound to: 16 - type: integer 
+	Parameter G_MASK_SS_TID bound to: 32 - type: integer 
+	Parameter G_MASK_SS_TDEST bound to: 64 - type: integer 
+	Parameter G_MASK_SS_TUSER bound to: 128 - type: integer 
+	Parameter G_TASK_SEVERITY_ERR bound to: 2 - type: integer 
+	Parameter G_TASK_SEVERITY_WARNING bound to: 1 - type: integer 
+	Parameter G_TASK_SEVERITY_INFO bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'axis_subset_converter_v1_1_18_core' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ipshared/33dd/hdl/axis_subset_converter_v1_1_vl_rfs.v:62]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_SIGNAL_SET bound to: 32'b00000000000000000000000010011011 
+	Parameter C_M_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_SIGNAL_SET bound to: 32'b00000000000000000000000010011011 
+	Parameter C_DEFAULT_TLAST bound to: 0 - type: integer 
+	Parameter G_INDX_SS_TREADY bound to: 0 - type: integer 
+	Parameter G_INDX_SS_TDATA bound to: 1 - type: integer 
+	Parameter G_INDX_SS_TSTRB bound to: 2 - type: integer 
+	Parameter G_INDX_SS_TKEEP bound to: 3 - type: integer 
+	Parameter G_INDX_SS_TLAST bound to: 4 - type: integer 
+	Parameter G_INDX_SS_TID bound to: 5 - type: integer 
+	Parameter G_INDX_SS_TDEST bound to: 6 - type: integer 
+	Parameter G_INDX_SS_TUSER bound to: 7 - type: integer 
+	Parameter G_MASK_SS_TREADY bound to: 1 - type: integer 
+	Parameter G_MASK_SS_TDATA bound to: 2 - type: integer 
+	Parameter G_MASK_SS_TSTRB bound to: 4 - type: integer 
+	Parameter G_MASK_SS_TKEEP bound to: 8 - type: integer 
+	Parameter G_MASK_SS_TLAST bound to: 16 - type: integer 
+	Parameter G_MASK_SS_TID bound to: 32 - type: integer 
+	Parameter G_MASK_SS_TDEST bound to: 64 - type: integer 
+	Parameter G_MASK_SS_TUSER bound to: 128 - type: integer 
+	Parameter G_TASK_SEVERITY_ERR bound to: 2 - type: integer 
+	Parameter G_TASK_SEVERITY_WARNING bound to: 1 - type: integer 
+	Parameter G_TASK_SEVERITY_INFO bound to: 0 - type: integer 
+	Parameter P_SIGNAL_SET_XOR bound to: 32'b00000000000000000000000000000000 
+	Parameter P_SIGNAL_SET_ADD bound to: 32'b00000000000000000000000000000000 
+	Parameter P_SIGNAL_SET_REM bound to: 32'b00000000000000000000000000000000 
+	Parameter P_TLAST_CNTR_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axis_subset_converter_v1_1_18_core' (1#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ipshared/33dd/hdl/axis_subset_converter_v1_1_vl_rfs.v:62]
+INFO: [Synth 8-6157] synthesizing module 'tdata_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tdata_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tdata_bd_2d50_vdma_pad_0' (2#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tdata_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'tuser_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tuser_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TUSER_WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tuser_bd_2d50_vdma_pad_0' (3#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tuser_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'tid_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tid_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TID_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tid_bd_2d50_vdma_pad_0' (4#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tid_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'tdest_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tdest_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tdest_bd_2d50_vdma_pad_0' (5#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tdest_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'tstrb_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tstrb_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tstrb_bd_2d50_vdma_pad_0' (6#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tstrb_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'tkeep_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tkeep_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tkeep_bd_2d50_vdma_pad_0' (7#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tkeep_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6157] synthesizing module 'tlast_bd_2d50_vdma_pad_0' [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tlast_bd_2d50_vdma_pad_0.v:48]
+	Parameter C_S_AXIS_TID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXIS_TDATA_WIDTH bound to: 48 - type: integer 
+	Parameter C_S_AXIS_TDEST_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tlast_bd_2d50_vdma_pad_0' (8#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/tlast_bd_2d50_vdma_pad_0.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'top_bd_2d50_vdma_pad_0' (9#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/hdl/top_bd_2d50_vdma_pad_0.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'bd_2d50_vdma_pad_0' (10#1) [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/synth/bd_2d50_vdma_pad_0.v:58]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tid[0]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[47]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[46]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[45]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[44]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[43]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[42]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[41]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[40]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[39]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[38]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[37]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[36]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[35]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[34]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[33]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[32]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[31]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[30]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[29]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[28]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[27]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[26]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[25]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[24]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[23]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[22]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[21]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[20]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[19]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[18]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[17]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[16]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[15]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[14]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[13]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[12]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[11]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[10]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[9]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[8]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[7]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[6]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[5]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[4]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[3]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[2]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[1]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdata[0]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tuser[0]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tdest[0]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tkeep[5]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tkeep[4]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tkeep[3]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tkeep[2]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tkeep[1]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tkeep[0]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tstrb[5]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tstrb[4]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tstrb[3]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tstrb[2]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tstrb[1]
+WARNING: [Synth 8-3331] design tlast_bd_2d50_vdma_pad_0 has unconnected port tstrb[0]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[47]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[46]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[45]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[44]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[43]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[42]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[41]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[40]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[39]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[38]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[37]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[36]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[35]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[34]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[33]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[32]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[31]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[30]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[29]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[28]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[27]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[26]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[25]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[24]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[23]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[22]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[21]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[20]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[19]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[18]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[17]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[16]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[15]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[14]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[13]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[12]
+WARNING: [Synth 8-3331] design tkeep_bd_2d50_vdma_pad_0 has unconnected port tdata[11]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1496.113 ; gain = 133.395 ; free physical = 2484 ; free virtual = 5410
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1496.113 ; gain = 133.395 ; free physical = 2482 ; free virtual = 5408
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1496.113 ; gain = 133.395 ; free physical = 2482 ; free virtual = 5408
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/bd_2d50_vdma_pad_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.srcs/sources_1/bd/system/ip/system_v_proc_ss_0_0/bd_0/ip/ip_15/bd_2d50_vdma_pad_0_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vdma_pad_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vdma_pad_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1782.215 ; gain = 0.000 ; free physical = 1897 ; free virtual = 4823
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1782.215 ; gain = 0.000 ; free physical = 1898 ; free virtual = 4825
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.05 . Memory (MB): peak = 1782.215 ; gain = 0.000 ; free physical = 1899 ; free virtual = 4826
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1782.215 ; gain = 419.496 ; free physical = 1846 ; free virtual = 4786
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1782.215 ; gain = 419.496 ; free physical = 1853 ; free virtual = 4793
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vdma_pad_0_synth_1/dont_touch.xdc, line 6).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1782.215 ; gain = 419.496 ; free physical = 1856 ; free virtual = 4796
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1782.215 ; gain = 419.496 ; free physical = 1852 ; free virtual = 4794
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 1782.215 ; gain = 419.496 ; free physical = 1820 ; free virtual = 4767
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 1793.199 ; gain = 430.480 ; free physical = 2108 ; free virtual = 5034
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 1793.199 ; gain = 430.480 ; free physical = 2107 ; free virtual = 5034
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2106 ; free virtual = 5032
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2022 ; free virtual = 4952
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2022 ; free virtual = 4952
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2022 ; free virtual = 4952
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2021 ; free virtual = 4952
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2021 ; free virtual = 4952
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2021 ; free virtual = 4952
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+
+Report Instance Areas: 
++------+---------+-----------------------+------+
+|      |Instance |Module                 |Cells |
++------+---------+-----------------------+------+
+|1     |top      |                       |     0|
+|2     |  inst   |top_bd_2d50_vdma_pad_0 |     0|
++------+---------+-----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.215 ; gain = 440.496 ; free physical = 2026 ; free virtual = 4956
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1803.215 ; gain = 154.395 ; free physical = 2087 ; free virtual = 5017
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 1803.223 ; gain = 440.496 ; free physical = 2087 ; free virtual = 5017
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1809.215 ; gain = 0.000 ; free physical = 2034 ; free virtual = 4964
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+33 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 1813.215 ; gain = 462.305 ; free physical = 2056 ; free virtual = 4986
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1813.215 ; gain = 0.000 ; free physical = 2056 ; free virtual = 4986
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vdma_pad_0_synth_1/bd_2d50_vdma_pad_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bd_2d50_vdma_pad_0, cache-ID = 88115f47332d450f
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1813.215 ; gain = 0.000 ; free physical = 2024 ; free virtual = 4954
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_vdma_pad_0_synth_1/bd_2d50_vdma_pad_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file bd_2d50_vdma_pad_0_utilization_synth.rpt -pb bd_2d50_vdma_pad_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:16:53 2021...

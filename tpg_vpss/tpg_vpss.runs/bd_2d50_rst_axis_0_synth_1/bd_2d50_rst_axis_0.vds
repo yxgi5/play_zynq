@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Apr 24 21:14:45 2021
+# Process ID: 376188
+# Current directory: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_rst_axis_0_synth_1
+# Command line: vivado -log bd_2d50_rst_axis_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_2d50_rst_axis_0.tcl
+# Log file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_rst_axis_0_synth_1/bd_2d50_rst_axis_0.vds
+# Journal file: /home/andy/zynq/play_zynq/tpg_vpss/tpg_vpss.runs/bd_2d50_rst_axis_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source bd_2d50_rst_axis_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/andy/zynq/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1342.602 ; gain = 47.633 ; free physical = 1381 ; free virtual = 4380
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP bd_2d50_rst_axis_0, cache-ID = 14379611915af640.
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 24 21:15:09 2021...
