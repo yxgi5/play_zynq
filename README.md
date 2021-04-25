@@ -229,11 +229,28 @@ raw_ov5640_colorbar_vdma_hdmi的sdk代码中已经有配置序列了。
 
 
 
-## 6. VPSS CSC subsampling resampling
+## 6. VPSS: CSC, Scale, Deinterlace, PIP
 
-## 7. Scale Crop
+#### tpg_vpss
+
+CSC, Scale, Deinterlace all in one.
+
+vpss full fledged has a buildin vdma!
+
+#### tpg_vpss_csc_only
+
+tpg: 1080p, YUV422
+
+vpss out: 1080p60, RGB888
+
+#### tpg_vpss_scale_only
 
 
+
+
+## 7. VDMA: Crop, PIP, static TPG
+
+## 8. VDMA: Crop, PIP, static TPG
 
 ## TODO:
 cmos->vid_in->swich->vdma->ddr->resize/crop/pan/etc..->vdma->vid_out on AX7021, todo

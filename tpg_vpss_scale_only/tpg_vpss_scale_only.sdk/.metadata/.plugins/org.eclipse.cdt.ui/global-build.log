@@ -1,0 +1,30 @@
+18:17:35 **** Incremental Build of configuration Debug for project vpss_scaler ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/app_hdmi.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/app_hdmi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../vpss_scaler_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/app_hdmi.d" -MT"src/app_hdmi.o" -o "src/app_hdmi.o" "../src/app_hdmi.c"
+Finished building: ../src/app_hdmi.c
+ 
+Building file: ../src/menu.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../vpss_scaler_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/menu.d" -MT"src/menu.o" -o "src/menu.o" "../src/menu.c"
+Finished building: ../src/menu.c
+ 
+Building target: vpss_scaler.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../vpss_scaler_bsp/ps7_cortexa9_0/lib -o "vpss_scaler.elf"  ./src/app_hdmi.o ./src/clk_wiz.o ./src/iic_utils.o ./src/menu.o ./src/platform.o ./src/vdma_api.o ./src/video_resolution.o ./src/vpss_scaler.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: vpss_scaler.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size vpss_scaler.elf  |tee "vpss_scaler.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 187660	   2064	  63920	 253644	  3decc	vpss_scaler.elf
+Finished building: vpss_scaler.elf.size
+ 
+18:17:40 **** Incremental Build of configuration Debug for project vpss_scaler ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
