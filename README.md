@@ -250,7 +250,9 @@ vpss out: 1080p60, RGB888
 
 ## 7. VDMA: Crop, PIP, static TPG
 
-## 8. VDMA: Crop, PIP, static TPG
+
+## 8. TPG --> CSI-TX --> CSI-RX
+
 
 ## TODO:
 cmos->vid_in->swich->vdma->ddr->resize/crop/pan/etc..->vdma->vid_out on AX7021, todo
