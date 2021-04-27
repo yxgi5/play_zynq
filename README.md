@@ -296,6 +296,11 @@ VPSS这玩意这样用需要通过DMA访问DDR，DMA基地址需要被指定。
 
 ## 7. VDMA: Crop, PIP, static TPG
 
+tpg_vdma_crop
+
+tpg_vdma_pip
+
+tpg_vdma_tpg
 
 ## 8. TPG --> CSI-TX --> CSI-RX
 
