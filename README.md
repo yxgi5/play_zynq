@@ -246,6 +246,52 @@ vpss out: 1080p60, RGB888
 #### tpg_vpss_scale_only
 
 
+Select an option:
+
+1. Change TPG background
+
+2. Enable/Disable TPG moving box
+
+3. Change input resolution
+
+4. Change output resolution
+
+5. Show VPSS log
+
+6. AXI4-Stream to Video Out status
+
+z. Display this menu again
+
+
+
+Change Background pattern:
+
+1. Horizontal Ramp
+
+2. Vertical Ramp
+
+3. Temporal Ramp
+
+4. Solid Red
+
+5. Solid Blue
+
+6. Solid Green
+
+7. Solid Black
+
+8. Solid White
+
+9. Color Bar
+
+...
+
+#### tpg_vpss_deint_only
+
+The base address used by the DMA engine inside of the VPSS need to be defined before initializing the VPSS
+VPSS这玩意这样用需要通过DMA访问DDR，DMA基地址需要被指定。
+
+另外，这一工程使用了tcl脚本工程模式。
 
 
 ## 7. VDMA: Crop, PIP, static TPG
