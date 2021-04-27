@@ -5,7 +5,7 @@
 #
 
 # Set SDK Workspace
-sdk setws ./sdk_workspace
+sdk setws -switch ./sdk_workspace
 
 # Create the HW platform
 sdk createhw -name hw_0 -hwspec ./hdf/system_wrapper.hdf
