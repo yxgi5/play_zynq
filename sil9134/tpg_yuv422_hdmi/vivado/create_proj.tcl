@@ -23,7 +23,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 }
 
 # Configuration - Can be modified by the user
-set project_name 				tpg_vpss_deint_only
+set project_name 				tpg_hdmi
 set BD_name 					system
 
 # Create a new project

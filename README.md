@@ -144,7 +144,7 @@ raw_ov5640_colorbar_vdma_hdmi
 
 在针对raw数据使用demosaic或者cfa这样的ip进行插值之后，发现RGB分量顺序的GB分量是反的
 
-经查ug1037，Table 4-9，LSB分量是G，然后是B，R，依次到最高分量
+经查ug934，Table 1-4，LSB分量是G，然后是B，R，依次到最高分量
 
 结论，按手册，其实axis都符合这样的定义。这个和 native stream 不太一样，需要注意。
 
