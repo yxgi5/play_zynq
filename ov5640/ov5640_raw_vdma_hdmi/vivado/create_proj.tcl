@@ -23,7 +23,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 }
 
 # Configuration - Can be modified by the user
-set project_name 				ov5640_tpg_switch_vdma_hdmi
+set project_name 				ov5640_raw_vdma_hdmi
 set BD_name 					system
 
 # Create a new project
