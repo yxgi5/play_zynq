@@ -135,7 +135,7 @@ void XV_ConfigTpg(XV_tpg *InstancePtr)
   //move box
   XV_tpg_Set_ovrlayId(pTpg, 1);
   XV_tpg_Set_boxSize(pTpg,80);
-  //if in YUV mode, R->Y,G->U,B->V,wrong ,it is g b r
+  //if in YUV mode, G->Y,B->U(Cb),R->V(Cr)
   XV_tpg_Set_boxColorR(pTpg,255);
   XV_tpg_Set_boxColorG(pTpg,255);
   XV_tpg_Set_boxColorB(pTpg,255);
@@ -358,6 +358,10 @@ int main()
 	// sil9134 in yuv422 out yuv444
 	//i2c_reg8_write(IicPs,0x72>>1,0x48,0x20);
 	//i2c_reg8_write(IicPs,0x72>>1,0x4a,0x14);
+	
+    // sil9134 in yuv444 out rgb
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x10);
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x38);
 
     cleanup_platform();
     return 0;

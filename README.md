@@ -1,12 +1,6 @@
 # play_zynq
 
-## 1. tpg_hdmi, done
-
-simply generates test patterns and directly output to himi-tx convertion chip on AX7021. tpg config as 1080p(osd moving box), vtc config as 1080p60.
-
-在AX7021开发板，产生测试图样，直接输出到hdmi。tpg配置为1080p彩条叠加移动box，vtc配置为重建1080p60时序。
-
-![](doc/tpg_hdmi.png)
+Play on my AX7021, Mizar_Z7020, AXU2CGB boards.
 
 ## 2. tpg_vdma_hdmi, done
 
