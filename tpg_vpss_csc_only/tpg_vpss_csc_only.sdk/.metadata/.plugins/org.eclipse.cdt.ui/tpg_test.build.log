@@ -1,7 +1,0 @@
-02:14:59 **** Clean-only build of configuration Debug for project tpg_test ****
-make clean 
-rm -rf ./src/PS_i2c.o ./src/main.o ./src/platform.o ./src/video_resolution.o ./src/vtiming_gen.o ./src/PS_i2c.d ./src/main.d ./src/platform.d ./src/video_resolution.d ./src/vtiming_gen.d tpg_test.elf.size  tpg_test.elf
- 
-
-02:15:00 Build Finished (took 379ms)
-
