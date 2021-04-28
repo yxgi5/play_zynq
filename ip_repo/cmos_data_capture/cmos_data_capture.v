@@ -164,7 +164,7 @@ assign rgb_r = cmos_capture_data[15:11];
 assign rgb_g = cmos_capture_data[10:5];
 assign rgb_b = cmos_capture_data[4:0];
 
-assign din = {{rgb_r,rgb_r[2:0]},{rgb_g,rgb_g[1:0]},{rgb_b,rgb_b[2:0]}};
+assign din = {{rgb_r,rgb_r[2:0]},{rgb_b,rgb_b[2:0]},{rgb_g,rgb_g[1:0]}};
 
 
 
