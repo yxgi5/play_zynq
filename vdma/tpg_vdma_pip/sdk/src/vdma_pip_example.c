@@ -74,7 +74,7 @@ int main()
 		return(XST_FAILURE);
 	}
 
-    vtiming_gen_run(&VtcInst, VIDEO_RESOLUTION_720P, 2);
+    vtiming_gen_run(&VtcInst, VIDEO_RESOLUTION_1080P, 2);
 
     print("Initialize frame buffer data...");
     //Disable the data cache to initialize the frame buffer with a blue color
@@ -93,44 +93,51 @@ int main()
 		//	Addr2+=4;
 		//	Addr3+=4;
 		//}
+
+		Addr1 = FRAME_BUFFER_1 + line*SCREEN_X*3 + 0;
+		Addr2 = FRAME_BUFFER_2 + line*SCREEN_X*3 + 0;
+		Addr3 = FRAME_BUFFER_3 + line*SCREEN_X*3 + 0;
+
 		for(column=0; column < SCREEN_X; column++)
 		{
-			//Write the blue color to the frame buffer(0x0000FF in RGB888)
+			//Write the blue color to the frame buffer(0x00FF00 in RGB888)
 			Xil_Out8(Addr1,0x00);
 			Xil_Out8(Addr2,0x00);
 			Xil_Out8(Addr3,0x00);
+
+//			printf("%d\n\r",Xil_In8(Addr1));
 
 			Addr1+=3;
 			Addr2+=3;
 			Addr3+=3;
 		}
 		
-		Addr1 = FRAME_BUFFER_1 + 1;
-		Addr2 = FRAME_BUFFER_2 + 1;
-		Addr3 = FRAME_BUFFER_3 + 1;
+		Addr1 = FRAME_BUFFER_1 + line*SCREEN_X*3 + 1;
+		Addr2 = FRAME_BUFFER_2 + line*SCREEN_X*3 + 1;
+		Addr3 = FRAME_BUFFER_3 + line*SCREEN_X*3 + 1;
 		
 		for(column=0; column < SCREEN_X; column++)
 		{
-			//Write the blue color to the frame buffer(0x0000FF in RGB888)
-			Xil_Out8(Addr1,0x00);
-			Xil_Out8(Addr2,0x00);
-			Xil_Out8(Addr3,0x00);
+			//Write the blue color to the frame buffer(0x00FF00 in RGB888)
+			Xil_Out8(Addr1,0xff);
+			Xil_Out8(Addr2,0xff);
+			Xil_Out8(Addr3,0xff);
 
 			Addr1+=3;
 			Addr2+=3;
 			Addr3+=3;
 		}
 		
-		Addr1 = FRAME_BUFFER_1 + 2;
-		Addr2 = FRAME_BUFFER_2 + 2;
-		Addr3 = FRAME_BUFFER_3 + 2;
+		Addr1 = FRAME_BUFFER_1 + line*SCREEN_X*3 + 2;
+		Addr2 = FRAME_BUFFER_2 + line*SCREEN_X*3 + 2;
+		Addr3 = FRAME_BUFFER_3 + line*SCREEN_X*3 + 2;
 		
 		for(column=0; column < SCREEN_X; column++)
 		{
-			//Write the blue color to the frame buffer(0x0000FF in RGB888)
-			Xil_Out8(Addr1,0xFF);
-			Xil_Out8(Addr2,0xFF);
-			Xil_Out8(Addr3,0xFF);
+			//Write the blue color to the frame buffer(0x00FF00 in RGB888)
+			Xil_Out8(Addr1,0x00);
+			Xil_Out8(Addr2,0x00);
+			Xil_Out8(Addr3,0x00);
 
 			Addr1+=3;
 			Addr2+=3;
@@ -174,7 +181,8 @@ int main()
     u32 height0 = 480;
 
     int offset1 = 0; // (y*w+x)*Bpp
-    offset1 = 960;// center the crop window horizontally, y=0,x=(1920-1280)/2
+    //offset1 = 960; // shift left
+    //offset1 = -960; // shift right
     u32 stride1 = 1920;  // crop keeps write Stride
     u32 width1 = 1920;
     u32 height1 = 1080;

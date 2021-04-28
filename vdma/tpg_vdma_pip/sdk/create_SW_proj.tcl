@@ -11,7 +11,7 @@ sdk setws -switch ./sdk_workspace
 sdk createhw -name hw_0 -hwspec ./hdf/system_wrapper.hdf
 
 #Create the BSP
-set project_name 				vdma_crop
+set project_name 				vdma_pip
 sdk createbsp -name ${project_name}_bsp -hwproject hw_0 -proc ps7_cortexa9_0 -os standalone
 #sdk createbsp -name ${project_name}_bsp -hwproject hw_0 -proc psu_cortexa53_0 -os standalone
 sdk projects -build -type bsp -name ${project_name}_bsp

@@ -15,3 +15,7 @@ simply generates test patterns and directly output to himi-tx convertion chip on
 在AX7021开发板，产生测试图样，直接输出到hdmi。tpg配置为1080p彩条叠加移动box，vtc配置为重建1080p60时序。
 
 ![](images/tpg_hdmi.jpg)
+
+This result matches tpg colorbar config.
+
+![](images/tpg_colarbar1.png)

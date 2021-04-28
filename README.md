@@ -2,13 +2,7 @@
 
 Play on my AX7021, Mizar_Z7020, AXU2CGB boards.
 
-## 2. tpg_vdma_hdmi, done
 
-On AX7021 board， generates 1080p test patterns and buffered to ddr by vdma, then output to hdmi.
-
-在AX7021开发板，产生1080p测试图样，通过vdma缓存到ddr，然后输出到hdmi。
-
-![](doc/tpg_vdma_hdmi.png)
 
 ## 3. ov5640_vdma_hdmi, done
 

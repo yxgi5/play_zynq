@@ -143,7 +143,7 @@ void XV_ConfigTpg(XV_tpg *InstancePtr)
   //move box
   XV_tpg_Set_ovrlayId(pTpg, 1);
   XV_tpg_Set_boxSize(pTpg,80);
-  //if in YUV mode, R->Y,G->U,B->V,wrong ,it is g b r
+  //if in YUV mode, G->Y,B->U(Cb),R->V(Cr)
   XV_tpg_Set_boxColorR(pTpg,255);
   XV_tpg_Set_boxColorG(pTpg,255);
   XV_tpg_Set_boxColorB(pTpg,255);
@@ -353,6 +353,21 @@ int main()
 	XGpio_DiscreteWrite(&GpioOutput, 1, 0x1);
 	i2c_reg8_write(&IicInstance,0x72>>1,0x08,0x35);
 	i2c_reg8_write(&IicInstance,0x7a>>1,0x2f,0x00);
+	// sil9134 in yuv422 out rgb
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x30); // csc select
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x3c);
+
+	// sil9134 in yuv422 out yuv422
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x20);
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x00);
+	
+	// sil9134 in yuv422 out yuv444
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x20);
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x14);
+	
+    // sil9134 in yuv444 out rgb
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x10);
+	//i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x38);
 
 	run_vdma_frame_buffer(&vdma, VDMA_ID, SCREEN_X, SCREEN_Y,
 				VDMA_BASE_ADDR,0,0,BOTH);

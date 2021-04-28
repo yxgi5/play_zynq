@@ -109,10 +109,10 @@ int XClk_Wiz_dynamic_reconfig(XClk_Wiz * ClkWizInstance)
 	*(u32 *)(CfgPtr_Dynamic->BaseAddr + 0x200) = (Multiply_Frac << 16) | (Multiply_Int << 8) | Divide;
 	*(u32 *)(CfgPtr_Dynamic->BaseAddr + 0x204) = 0x00;
 
-	// freq_out0 = VCO / 12.5
+	// freq_out0 = VCO / 6.250
 
-	Divide0_Int = 12;
-	Divide0_Frac = 500;
+	Divide0_Int = 6;
+	Divide0_Frac = 250;
     /* Configuring Multiply and Divide values */
     *(u32 *)(CfgPtr_Dynamic->BaseAddr + 0x208) = (Divide0_Frac << 8) | Divide0_Int;
     *(u32 *)(CfgPtr_Dynamic->BaseAddr + 0x20C) = 0x00;
