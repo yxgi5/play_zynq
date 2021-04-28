@@ -343,8 +343,21 @@ int main()
 	XGpio_DiscreteWrite(&GpioOutput, 1, 0x0);               //set GPIO output value to 0
 	usleep(50000);
 	XGpio_DiscreteWrite(&GpioOutput, 1, 0x1);
+	
 	i2c_reg8_write(&IicInstance,0x72>>1,0x08,0x35);
 	i2c_reg8_write(&IicInstance,0x7a>>1,0x2f,0x00);
+	
+	// sil9134 in yuv422 out rgb
+	//i2c_reg8_write(IicPs,0x72>>1,0x48,0x30); // csc select
+	//i2c_reg8_write(IicPs,0x72>>1,0x4a,0x3c);
+
+	// sil9134 in yuv422 out yuv422
+	//i2c_reg8_write(IicPs,0x72>>1,0x48,0x20);
+	//i2c_reg8_write(IicPs,0x72>>1,0x4a,0x00);
+	
+	// sil9134 in yuv422 out yuv444
+	//i2c_reg8_write(IicPs,0x72>>1,0x48,0x20);
+	//i2c_reg8_write(IicPs,0x72>>1,0x4a,0x14);
 
     cleanup_platform();
     return 0;
