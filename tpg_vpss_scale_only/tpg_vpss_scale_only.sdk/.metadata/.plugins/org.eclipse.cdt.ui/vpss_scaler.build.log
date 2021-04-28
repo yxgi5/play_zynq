@@ -1,8 +1,0 @@
-18:17:40 **** Incremental Build of configuration Debug for project vpss_scaler ****
-make pre-build main-build 
-a9-linaro-pre-build-step
- 
-make: Nothing to be done for 'main-build'.
-
-18:17:40 Build Finished (took 111ms)
-

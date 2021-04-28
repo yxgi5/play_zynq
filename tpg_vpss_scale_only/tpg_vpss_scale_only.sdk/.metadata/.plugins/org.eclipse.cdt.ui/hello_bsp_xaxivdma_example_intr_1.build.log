@@ -1,7 +1,0 @@
-17:01:57 **** Clean-only build of configuration Debug for project hello_bsp_xaxivdma_example_intr_1 ****
-make clean 
-rm -rf ./src/xaxivdma_example_intr.o ./src/xaxivdma_example_intr.d hello_bsp_xaxivdma_example_intr_1.elf.size  hello_bsp_xaxivdma_example_intr_1.elf
- 
-
-17:01:57 Build Finished (took 209ms)
-
