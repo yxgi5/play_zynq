@@ -6,3 +6,8 @@
 6. open xsct shell, cd to sdk folder
 7. source create_SW_proj.tcl
 
+# tpg_vpss_deint_only
+
+The base address used by the DMA engine inside of the VPSS need to be defined before initializing the VPSS
+VPSS这玩意这样用需要通过DMA访问DDR，DMA基地址需要被指定。
+

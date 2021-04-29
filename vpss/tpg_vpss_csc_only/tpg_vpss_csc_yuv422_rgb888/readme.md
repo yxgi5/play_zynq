@@ -6,3 +6,12 @@
 6. open xsct shell, cd to sdk folder
 7. source create_SW_proj.tcl
 
+# tpg_vpss_csc_rgb888_yuv422
+
+tpg: 1080p, YUV422
+
+vpss out: 1080p60, RGB888
+
+注意 create_proj.tcl 加载 ip_repo 的相对路径
+
+
