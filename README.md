@@ -1,6 +1,6 @@
 # play_zynq
 
-Play on my AX7021, Mizar_Z7020, AXU2CGB boards.
+Play my AX7021, Mizar_Z7020, AXU2CGB boards.
 
 
 
