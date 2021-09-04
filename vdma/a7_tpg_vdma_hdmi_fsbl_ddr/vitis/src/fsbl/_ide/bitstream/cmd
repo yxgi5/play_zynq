@@ -1,0 +1,6 @@
+source /opt/Xilinx/Vitis/2020.1/settings64.sh
+updatemem -meminfo system_wrapper.mmi -data ../../Debug/fsbl.elf -proc system_i/microblaze_0 -bit system_wrapper.bit -out download.bit -force
+mkdir -p ../flash
+echo -e "the_ROM_image:\n{\n$PWD/download.bit\n}\n" > ../flash/bootimage.bif
+bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi 
+program_flash -f ../flash/BOOT.bin -offset 0 -flash_type mt25ql128-spi-x1_x2_x4 -verify -cable type xilinx_tcf url TCP:127.0.0.1:3121 
