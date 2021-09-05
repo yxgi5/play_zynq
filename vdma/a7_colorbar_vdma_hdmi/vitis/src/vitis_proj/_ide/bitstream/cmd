@@ -1,0 +1,7 @@
+source /opt/Xilinx/SDK/2018.3/settings64.sh
+mkdir -p ../flash
+echo -e "the_ROM_image:\n{\n$PWD/../../Debug/vitis_proj.elf\n}\n" > ../flash/bootimage.bif
+echo "bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi"
+bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi
+echo "program_flash -f ../flash/BOOT.bin -offset 0x00250000 -flash_type mt25ql128-spi-x1_x2_x4 -verify -cable type xilinx_tcf url TCP:127.0.0.1:3121"
+program_flash -f ../flash/BOOT.bin -offset 0x00250000 -flash_type mt25ql128-spi-x1_x2_x4 -verify -cable type xilinx_tcf url TCP:127.0.0.1:3121 

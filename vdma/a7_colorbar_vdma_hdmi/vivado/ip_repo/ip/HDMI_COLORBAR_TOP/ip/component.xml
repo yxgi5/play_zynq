@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>openedv.com</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>hdmi_colorbar_top</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>sys_rst_n</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sys_rst_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.SYS_RST_N.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pixel_clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pixel_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.PIXEL_CLK.FREQ_HZ"/>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pixel_clk_5x</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pixel_clk_5x</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.PIXEL_CLK_5X.FREQ_HZ"/>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>data_in</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>data_in</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>TMDS</spirit:name>
+      <spirit:busType spirit:vendor="openedv.com" spirit:library="user" spirit:name="TMDS" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="openedv.com" spirit:library="user" spirit:name="TMDS_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_data_p</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_data_p</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_clk_p</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_clk_p</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_data_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_data_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_clk_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_clk_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>TMDS1</spirit:name>
+      <spirit:busType spirit:vendor="openedv.com" spirit:library="user" spirit:name="TMDS" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="openedv.com" spirit:library="user" spirit:name="TMDS_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_data_p</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_data_p1</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_clk_p</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_clk_p1</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_data_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_data_n1</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>tmds_clk_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>tmds_clk_n1</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>hdmi_colorbar_top</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>d27e7597</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>hdmi_colorbar_top</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>d27e7597</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>4b620edd</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>sys_rst_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>ddr_init_done</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pixel_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pixel_clk_5x</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>data_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>data_req</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_clk_p</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_clk_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_data_p</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_data_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_oen</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_clk_p1</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_clk_n1</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_data_p1</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_data_n1</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>tmds_oen1</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>H_SYNC</spirit:name>
+        <spirit:displayName>H Sync</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.H_SYNC" spirit:bitStringLength="10">&quot;0001100000&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>H_BACK</spirit:name>
+        <spirit:displayName>H Back</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.H_BACK" spirit:bitStringLength="10">&quot;0000110000&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>H_DISP</spirit:name>
+        <spirit:displayName>H Disp</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.H_DISP" spirit:bitStringLength="10">&quot;1010000000&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>H_FRONT</spirit:name>
+        <spirit:displayName>H Front</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.H_FRONT" spirit:bitStringLength="10">&quot;0000010000&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>H_TOTAL</spirit:name>
+        <spirit:displayName>H Total</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.H_TOTAL" spirit:bitStringLength="10">&quot;1100100000&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>V_SYNC</spirit:name>
+        <spirit:displayName>V Sync</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.V_SYNC" spirit:bitStringLength="10">&quot;0000000010&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>V_BACK</spirit:name>
+        <spirit:displayName>V Back</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.V_BACK" spirit:bitStringLength="10">&quot;0000100001&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>V_DISP</spirit:name>
+        <spirit:displayName>V Disp</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.V_DISP" spirit:bitStringLength="10">&quot;0111100000&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>V_FRONT</spirit:name>
+        <spirit:displayName>V Front</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.V_FRONT" spirit:bitStringLength="10">&quot;0000001010&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>V_TOTAL</spirit:name>
+        <spirit:displayName>V Total</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.V_TOTAL" spirit:bitStringLength="10">&quot;1000001101&quot;</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/asyn_rst_syn.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dvi_encoder.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dvi_transmitter_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/serializer_10_to_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/video_driver.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/hdmi_colorbar_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_66be5946</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/asyn_rst_syn.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dvi_encoder.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dvi_transmitter_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/serializer_10_to_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/video_driver.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/hdmi_colorbar_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/hdmi_colorbar_top_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_4b620edd</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>hdmi_colorbar_top_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>H_SYNC</spirit:name>
+      <spirit:displayName>H Sync</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.H_SYNC" spirit:bitStringLength="10">&quot;0001100000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>H_BACK</spirit:name>
+      <spirit:displayName>H Back</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.H_BACK" spirit:bitStringLength="10">&quot;0000110000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>H_DISP</spirit:name>
+      <spirit:displayName>H Disp</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.H_DISP" spirit:bitStringLength="10">&quot;1010000000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>H_FRONT</spirit:name>
+      <spirit:displayName>H Front</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.H_FRONT" spirit:bitStringLength="10">&quot;0000010000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>H_TOTAL</spirit:name>
+      <spirit:displayName>H Total</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.H_TOTAL" spirit:bitStringLength="10">&quot;1100100000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>V_SYNC</spirit:name>
+      <spirit:displayName>V Sync</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.V_SYNC" spirit:bitStringLength="10">&quot;0000000010&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>V_BACK</spirit:name>
+      <spirit:displayName>V Back</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.V_BACK" spirit:bitStringLength="10">&quot;0000100001&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>V_DISP</spirit:name>
+      <spirit:displayName>V Disp</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.V_DISP" spirit:bitStringLength="10">&quot;0111100000&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>V_FRONT</spirit:name>
+      <spirit:displayName>V Front</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.V_FRONT" spirit:bitStringLength="10">&quot;0000001010&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>V_TOTAL</spirit:name>
+      <spirit:displayName>V Total</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.V_TOTAL" spirit:bitStringLength="10">&quot;1000001101&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">video_driver_v1_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynq</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>hdmi_colorbar_top_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>xilinx.com:user:video_driver:1.0</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2020-09-01T06:16:45Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="nopcore"/>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e37b760_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@723c3948_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a5c0c92_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47583d65_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a1198df_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25dd00b9_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@338ebce1_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@608712a9_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c80d7ae_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63d4afe3_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c58dfc1_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d5f8721_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e2433f1_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35405c4f_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f8e3265_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1887c430_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@259c0bfc_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c6b52dd_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3110e329_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@369619ef_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b08fad2_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@291176da_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28757001_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7609964a_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ec32c26_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33bed7a9_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5db7dfea_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12faaf2e_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1393da0_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64ffdf1f_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34b6447a_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5adca41f_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64f23698_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2185670e_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e8e79eb_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4973582e_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8ee5089_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@642572bc_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@231f670_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2daaa8b3_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f993db4_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5546438c_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b211d98_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@74300513_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52210f3c_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d3a8562_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14aa52b4_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5341063e_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24cfc357_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4900bce4_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6065390b_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47f43e5_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ed3dfe4_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1df6d498_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8d296ee_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14806c12_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6626e253_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e0e5a89_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@908a585_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c76937c_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@224d32d2_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2233c0a1_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@697fcdbd_ARCHIVE_LOCATION">g:/vitis_pro/ip_repo/HDMI_COLORBAR_TOP/ip</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="eea16f3f"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="198c917d"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="e8506ac7"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9112b923"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="ea58a16f"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
