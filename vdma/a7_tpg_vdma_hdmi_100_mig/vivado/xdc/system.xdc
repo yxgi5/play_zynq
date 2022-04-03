@@ -11,7 +11,7 @@ set_property BITSTREAM.CONFIG.SPI_FALL_EDGE Yes [current_design]
 
 set_property PACKAGE_PIN R4 [get_ports sys_clk]
 set_property IOSTANDARD LVCMOS33 [get_ports sys_clk]
-
+create_clock -name sys_clk_p -period 5 [get_ports sys_clk_p]
 
 #set_property PACKAGE_PIN A13 [get_ports UA1_LOCK]
 #set_property PACKAGE_PIN M22 [get_ports UA2_LOCK]
