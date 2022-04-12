@@ -16,7 +16,7 @@ if {[get_property PROGRESS [get_runs impl_1]] != "100%"} {
 }
 
 if {[get_property NEEDS_REFRESH [get_runs impl_1]] == 1} {
-  reset_run synth_1
+  reset_run impl_1
   launch_runs impl_1 -to_step write_bitstream -jobs 20
   wait_on_run impl_1
   open_run impl_1

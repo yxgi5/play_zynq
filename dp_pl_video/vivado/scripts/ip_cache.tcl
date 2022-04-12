@@ -28,6 +28,13 @@ foreach tparam $ttt {
 	    open_run $tparam
 	    report_timing_summary
 	}
+	if {[get_property NEEDS_REFRESH [get_runs $tparam]] == 1} {
+	    reset_run $tparam
+	    launch_runs $tparam -jobs 8
+	    wait_on_run $tparam
+	    open_run $tparam
+	    report_timing_summary
+	}
 }
 
 close_project
