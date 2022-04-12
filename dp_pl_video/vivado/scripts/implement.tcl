@@ -15,7 +15,7 @@ if {[get_property PROGRESS [get_runs impl_1]] != "100%"} {
   report_timing_summary
 }
 
-if {[get_property NEEDS_REFRESH [get_runs impl_1]] != "1"} {
+if {[get_property NEEDS_REFRESH [get_runs impl_1]] != 1} {
   reset_run synth_1
   launch_runs impl_1 -to_step write_bitstream -jobs 20
   wait_on_run impl_1
