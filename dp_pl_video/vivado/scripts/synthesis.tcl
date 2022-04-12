@@ -22,7 +22,16 @@ create_ip_run [get_files -of_objects [get_fileset sources_1] $project_path/$proj
 #    launch_runs system_*_synth_1 -jobs 2
 #    wait_on_run system_*_synth_1
 #}
+
 if {[get_property PROGRESS [get_runs synth_1]] != "100%"} {
+    launch_runs synth_1 -jobs 8
+    wait_on_run synth_1
+    open_run synth_1
+    report_timing_summary
+}
+
+if {[get_property NEEDS_REFRESH [get_runs synth_1]] != "1"} {
+    reset_run synth_1
     launch_runs synth_1 -jobs 8
     wait_on_run synth_1
     open_run synth_1

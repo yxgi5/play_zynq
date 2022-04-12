@@ -96,7 +96,7 @@ syn: project
 	vivado -mode batch -source scripts/synthesis.tcl -tclargs "$(PROJ_PATH)" "$(PROJ_NAME)" "$(BD_SRC)"
 	@ rm -rf *.jou .Xil *.log .hbs
 
-syn_clean:
+syn_clean: implement_clean
 	@ rm -rf $(PROJ_PATH)/$(PROJ_NAME).runs/synth_1/
 	@ rm -rf *.jou .Xil *.log .hbs
 
