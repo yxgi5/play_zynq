@@ -30,7 +30,7 @@ if {[get_property PROGRESS [get_runs synth_1]] != "100%"} {
     report_timing_summary
 }
 
-if {[get_property NEEDS_REFRESH [get_runs synth_1]] != 1} {
+if {[get_property NEEDS_REFRESH [get_runs synth_1]] == 1} {
     reset_run synth_1
     launch_runs synth_1 -jobs 8
     wait_on_run synth_1
