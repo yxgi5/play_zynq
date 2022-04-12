@@ -79,7 +79,7 @@ domain create -name ${domain_name} -os ${os_name} -proc ${processor_name}
 # Get active platform name
 #platform active
 # Add the specified directory to the platform repository
-#repo -add-platforms ${project_path}/${platform_name}
+repo -add-platforms ${project_path}/${platform_name}
 # Set active domain
 #domain active ${domain_name}
 # Get active domain name
@@ -109,23 +109,23 @@ domain create -name ${domain_name} -os ${os_name} -proc ${processor_name}
 #domain active {zynqmp_pmufw}
 #bsp config stdin psu_uart_1
 #bsp config stdout psu_uart_1
-domain active ${domain_name}
-bsp config stdin axi_uartlite_0
-bsp config stdout axi_uartlite_0
+#domain active ${domain_name}
+#bsp config stdin axi_uartlite_0
+#bsp config stdout axi_uartlite_0
 
 #bsp listparams -os
 #bsp listparams -proc
 #bsp listparams -lib xilisf
-bsp setlib -name lwip211
-bsp listparams -lib lwip211
-bsp config mem_size 134217728
-bsp config memp_n_pbuf 4096
-bsp config memp_n_tcp_pcb 1024
-bsp config memp_n_tcp_seg 1024
-bsp config pbuf_pool_size 2048
-#bsp config pbuf_pool_size 4096
-bsp config tcp_snd_buf 65536
-bsp config tcp_wnd 8192
+#bsp setlib -name lwip211
+#bsp listparams -lib lwip211
+#bsp config mem_size 134217728
+#bsp config memp_n_pbuf 4096
+#bsp config memp_n_tcp_pcb 1024
+#bsp config memp_n_tcp_seg 1024
+#bsp config pbuf_pool_size 2048
+##bsp config pbuf_pool_size 4096
+#bsp config tcp_snd_buf 65536
+#bsp config tcp_wnd 8192
 
 #importprojects ${project_path}/${platform_name}
 
@@ -135,11 +135,11 @@ bsp config tcp_wnd 8192
 
 
 # bsp settings
-#bsp setdriver -ip psu_dp -driver dppsu -ver 1.2
-#bsp regenerate
+bsp setdriver -ip psu_dp -driver dppsu -ver 1.2
+bsp regenerate
 
 #puts "Build platform project"
-#platform generate
+platform generate
 
 #creating empty application
 #sdk createapp -name ${project_name}_app -hwproject hw_0 -proc ps7_cortexa9_0 -os standalone -lang C -app {Empty Application} -bsp ${project_name}_bsp
