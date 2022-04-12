@@ -63,7 +63,7 @@ case "$1" in
 -h|--help) echo "Usage: $0 [parameters]"
     echo "avalible parameters:"
     echo "-c: clear log files(default)"
-    echo "-w: delete workspace(default)"
+    echo "-w: delete workspace"
     echo "-d: delete output"
     echo "-t: move to trash"
     echo "-b: batch mode"
