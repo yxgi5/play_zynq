@@ -159,6 +159,15 @@ if {[get_property PROGRESS [get_runs synth_1]] != "100%"} {
     open_run synth_1
     report_timing_summary
 }
+
+if {[get_property NEEDS_REFRESH [get_runs synth_1]] == 1} {
+    reset_run synth_1
+    launch_runs synth_1 -jobs 8
+    wait_on_run synth_1
+    open_run synth_1
+    report_timing_summary
+}
+
 #report_timing_summary -file timing_synth.log
 #close_design
 if {[get_property PROGRESS [get_runs impl_1]] != "100%"} {
@@ -167,6 +176,15 @@ if {[get_property PROGRESS [get_runs impl_1]] != "100%"} {
   open_run impl_1
   report_timing_summary
 }
+
+if {[get_property NEEDS_REFRESH [get_runs impl_1]] == 1} {
+  reset_run impl_1
+  launch_runs impl_1 -to_step write_bitstream -jobs 20
+  wait_on_run impl_1
+  open_run impl_1
+  report_timing_summary
+}
+
 #report_timing_summary -file timing_impl.log
 #close_design
 #file copy -force xxx xxx.hdf
