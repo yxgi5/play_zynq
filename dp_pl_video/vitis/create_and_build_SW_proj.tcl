@@ -11,8 +11,8 @@
 #puts "Current workspace is $projpath"
 
 #Create the BSP
-#set arch 64-bit
-set arch 32-bit
+set arch 64-bit
+#set arch 32-bit
 set processor_name psu_cortexa53_0
 #set processor_name ps7_cortexa9_0
 #set processor_name microblaze_0
