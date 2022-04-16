@@ -28,3 +28,5 @@ function pause(){
     read -n 1
 }
 pause
+
+exit | source clean.sh -b
