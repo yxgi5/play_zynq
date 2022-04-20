@@ -14,6 +14,7 @@ set xdc_filename [lindex $argv 3]
 #set ip_repo_path [pwd]/ip_repo
 set ip_repo_path [lindex $argv 4]
 set ip_cache_path [pwd]/ip_cache
+set current_vivado_version [version -short]
 
 # Create a new project
 create_project $project_name $project_path -part xczu2cg-sfvc784-1-e
@@ -73,7 +74,11 @@ make_wrapper -files [get_files $project_path/$project_name.srcs/sources_1/bd/$BD
 
 # Add the wrapper to the fileset
 set obj [get_filesets sources_1]
-set files [list "[file normalize [glob "$project_path/$project_name.srcs/sources_1/bd/$BD_name/hdl/*_wrapper*"]]"]
+if { [string first $current_vivado_version "2020.2 2021.1"] != -1 } {
+    set files [list "[file normalize [glob "$project_path/$project_name.gen/sources_1/bd/$BD_name/hdl/*_wrapper*"]]"]
+} elseif { [string first $current_vivado_version "2018.1 2018.2 2018.3 2019.1 2019.2 2020.1"] != -1 } {
+    set files [list "[file normalize [glob "$project_path/$project_name.srcs/sources_1/bd/$BD_name/hdl/*_wrapper*"]]"]
+}
 #set files [list \
 #               [file normalize $origin_dir/generated-src/Top.$CONFIG.v] \
 #               [file normalize $base_dir/src/main/verilog/chip_top.sv] \
