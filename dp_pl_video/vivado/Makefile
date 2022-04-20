@@ -41,7 +41,7 @@ XDC_SRC ?= xdc/system.xdc
 IP_SRC ?= ip_repo
 PROJ_NAME ?= vivado_proj
 PROJ_PATH ?= $(PROJ_NAME)
-PART ?= 
+PART ?= xczu2cg-sfvc784-1-e
 
 BOARD ?= ACQ_V2
 SIM_SRC ?= 
@@ -82,7 +82,7 @@ project: $(BD_SRC) $(XDC_SRC)
 #	@ if ! [ -a ./ip_cache ]; then echo not exists; else echo exists; fi;
 	@ if ! [ -a ip_cache ]; then echo ip_cache does not exists; mkdir ip_cache; touch ip_cache/.gitkeep; else echo ip_cache does exist; fi;
 	@ if [ -a $(PROJ_PATH) ]; then echo -e project folder does exist; else \
-	vivado -mode batch -source scripts/create_proj.tcl -tclargs "$(PROJ_PATH)" "$(PROJ_NAME)" "$(BD_SRC)" "$(XDC_SRC)" "$(IP_SRC)" \
+	vivado -mode batch -source scripts/create_proj.tcl -tclargs "$(PROJ_PATH)" "$(PROJ_NAME)" "$(PART)" "$(BD_SRC)" "$(XDC_SRC)" "$(IP_SRC)" \
 	"$(RTL_SRC)" "$(INC_DIR0)"  "${BOARD}"; rm -rf *.jou .Xil *.log; \
 	fi;
 

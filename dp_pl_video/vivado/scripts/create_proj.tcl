@@ -5,19 +5,21 @@ put [pwd]
 set project_path [lindex $argv 0]
 #set project_name vivado_proj
 set project_name [lindex $argv 1]
+#set part name
+set part_name [lindex $argv 2]
 #set BD_name system
-set bd_filename [lindex $argv 2]
+set bd_filename [lindex $argv 3]
 #set BD_name [file rootname [lrange [file split $bd_filename] end end]]
 set BD_name [file rootname [file tail $bd_filename]]
-set xdc_filename [lindex $argv 3]
+set xdc_filename [lindex $argv 4]
 #set design_name $BD_name
 #set ip_repo_path [pwd]/ip_repo
-set ip_repo_path [lindex $argv 4]
+set ip_repo_path [lindex $argv 5]
 set ip_cache_path [pwd]/ip_cache
 set current_vivado_version [version -short]
 
 # Create a new project
-create_project $project_name $project_path -part xczu2cg-sfvc784-1-e
+create_project $project_name $project_path -part $part_name
 set_property target_language Verilog [current_project]
 
 # Create 'sources_1' fileset (if not found)
