@@ -2,7 +2,8 @@
 
 mkdir -p ip_cache
 exit | source clean.sh -b -w
-source /opt/Xilinx/Vivado/2020.1/settings64.sh
+#source /opt/Xilinx/Vivado/2020.1/settings64.sh
+source setenv.sh
 #vivado -mode tcl -source create_proj.tcl
 vivado -mode batch -source create_proj.tcl
 if [ $? != 0 ]
