@@ -17,7 +17,7 @@ if {[string equal ${BOARD} "ultra96v2"]} {
     set_property board_part xilinx.com:kv260_som:part0:1.2 [current_project]
     set_property board_connections {som240_1_connector xilinx.com:kv260_carrier:som240_1_connector:1.2} [current_project]
 } elseif {[string equal ${BOARD} "ACQ_V2"]} {
-    create_project -part xczu2cg-sfvc784-1-e -in_memory
+    create_project -part xczu2cg-sfvc784-1-i -in_memory
 }
 
 #write_mem_info -force $outputDir/system_wrapper.mmi
