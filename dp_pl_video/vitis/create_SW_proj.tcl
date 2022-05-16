@@ -139,7 +139,7 @@ bsp setdriver -ip psu_dp -driver dppsu -ver 1.2
 bsp regenerate
 
 #puts "Build platform project"
-#platform generate
+platform generate
 
 #creating empty application
 #sdk createapp -name ${project_name}_app -hwproject hw_0 -proc ps7_cortexa9_0 -os standalone -lang C -app {Empty Application} -bsp ${project_name}_bsp
