@@ -41,7 +41,7 @@ XDC_SRC ?= xdc/system.xdc
 IP_SRC ?= ip_repo
 PROJ_NAME ?= vivado_proj
 PROJ_PATH ?= $(PROJ_NAME)
-PART ?= xczu2cg-sfvc784-1-e
+PART ?= xczu2cg-sfvc784-1-i
 
 BOARD ?= ACQ_V2
 SIM_SRC ?= 
