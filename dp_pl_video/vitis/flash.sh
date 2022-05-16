@@ -6,7 +6,7 @@ source /opt/Xilinx/Vitis/2020.1/settings64.sh
 
 
 program_flash -f BOOT.bin -fsbl fsbl.elf -offset 0 -flash_type qspi-x4-single -cable type xilinx_tcf
-program_flash -f BOOT.bin -fsbl fsbl.elf -offset 0x500000 -flash_type qspi-x4-single -cable type xilinx_tcf
+#program_flash -f BOOT.bin -fsbl fsbl.elf -offset 0x500000 -flash_type qspi-x4-single -cable type xilinx_tcf
 #echo "Can not flash winbond directly"
 #read -s -n1 -p "Press any key to exit ... "
 
