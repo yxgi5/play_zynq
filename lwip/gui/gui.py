@@ -1,6 +1,6 @@
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
-from ui_gui import Ui_Form
+from PyQt5 import QtCore, QtGui, QtWidgets, uic
+# from ui_gui import Ui_Form
 import udp_logic
 import memory_ops
 import gpio_ops
@@ -55,20 +55,19 @@ def hex_to_signed(source):
     value = int(source, 16)
     return -(value & sign_bit_mask) | (value & other_bits_mask)
 
-class MyDialog(Ui_Form):
+class MyDialog(QtWidgets.QMainWindow):
     def __init__(self,parent=None):
         super(MyDialog, self).__init__()
-        self.initUI()
+        # self.setupUi()
+        uic.loadUi('gui.ui', self)
+        self.show() # Show the GUI
     #初始化窗口
-    def initUI(self):
+    def setupUi(self, Form):
         pass
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    main = QtWidgets.QMainWindow()#创建一个主窗体（必须要有一个主窗体）
     form = MyDialog()
-    form.setupUi(main)#将对话框依附于主窗体
-    main.show()
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
