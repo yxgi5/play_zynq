@@ -57,7 +57,7 @@ void print_app_header()
 #else
 	xil_printf("\n\r\n\r-----lwIPv6 UDP echo server ------\n\r");
 #endif
-	xil_printf("TCP packets sent to port %d will be echoed back\n\r", echo_server_port);
+	xil_printf("UDP packets sent to port %d will be echoed back\n\r", echo_server_port);
 }
 
 #if 1
