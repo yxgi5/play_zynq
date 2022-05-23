@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Xilinx, Inc.  All rights reserved.
+ * Copyright (c) 2008 Xilinx, Inc.  All rights reserved.
  *
  * Xilinx, Inc.
  * XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS" AS A
@@ -16,10 +16,9 @@
  *
  */
 
-#ifndef __PLATFORM_H_
-#define __PLATFORM_H_
+#ifndef __PLATFORM_FS_H_
+#define __PLATFORM_FS_H_
 
-int init_platform();
-void cleanup_platform();
+int platform_init_fs();
 
 #endif

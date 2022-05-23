@@ -16,10 +16,11 @@
  *
  */
 
-#ifndef __PLATFORM_H_
-#define __PLATFORM_H_
+#ifndef __PLATFORM_GPIO_H_
+#define __PLATFORM_GPIO_H_
 
-int init_platform();
-void cleanup_platform();
+void platform_init_gpios();
+int toggle_leds();
+unsigned int get_switch_state();
 
 #endif

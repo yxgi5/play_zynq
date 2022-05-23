@@ -16,10 +16,12 @@
  *
  */
 
-#ifndef __PLATFORM_H_
-#define __PLATFORM_H_
+#ifndef __PROT_MALLOC_H_
+#define __PROT_MALLOC_H_
 
-int init_platform();
-void cleanup_platform();
+#include "lwip/mem.h"
+
+void *prot_mem_malloc(mem_size_t n);
+void prot_mem_free(void *a);
 
 #endif

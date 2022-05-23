@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Xilinx, Inc.  All rights reserved.
+ * Copyright (c) 2008 Xilinx, Inc.  All rights reserved.
  *
  * Xilinx, Inc.
  * XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS" AS A
@@ -15,11 +15,28 @@
  * AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  */
+#if (INCLUDE_WEB_SERVER)
+#include "mfs_config.h"
+#ifndef __PPC__
+#include "xil_printf.h"
+#endif
 
-#ifndef __PLATFORM_H_
-#define __PLATFORM_H_
+int
+platform_init_fs()
+{
+#if 1
+	/* initialize the memory file system (MFS) image pre-loaded into memory */
+	mfs_init_fs(MFS_NUMBYTES, (char *)(MFS_BASE_ADDRESS+4), MFS_INIT_TYPE);
 
-int init_platform();
-void cleanup_platform();
-
+	/* check if we can access index.html */
+	if (mfs_exists_file("index.html") == 0) {
+		xil_printf("%s: ERROR: unable to locate index.html in MFS\r\n", __FUNCTION__);
+		xil_printf("One of your applications requires a Memory File System to be loaded.\r\n");
+                xil_printf("Please check if MFS has been loaded, "
+				"and it has index.html file in root directory\r\n");
+		return -1;
+	}
+#endif
+	return 0;
+}
 #endif
