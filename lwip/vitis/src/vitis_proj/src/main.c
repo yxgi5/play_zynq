@@ -4,6 +4,7 @@
 #include "xgpio.h"
 #include "xgpiops.h"
 #include "sleep.h"
+#include "AXI_LITE_REG.h"
 
 #define LED0 (78+0)
 #define LED1 (78+1)
@@ -69,6 +70,14 @@ int emio_init(void)
 int main()
 {
 	u32 ret;
+
+#ifdef XPAR_AXI_LITE_REG_NUM_INSTANCES
+	if(XPAR_AXI_LITE_REG_0_DEVICE_ID==0)
+	{
+		printf("hardware ver = 0x%08x\n", AXI_LITE_REG_mReadReg(XPAR_AXI_LITE_REG_0_S00_AXI_BASEADDR, \
+				AXI_LITE_REG_S00_AXI_SLV_REG0_OFFSET));
+	}
+#endif
 
     init_platform();
 
