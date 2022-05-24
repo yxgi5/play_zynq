@@ -657,7 +657,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>0x0000B055</string>
+       <string>0xA0000001</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_35">

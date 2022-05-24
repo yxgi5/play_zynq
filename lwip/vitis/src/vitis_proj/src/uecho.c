@@ -1,39 +1,34 @@
-/*
- * Copyright (C) 2009 - 2019 Xilinx, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
- * 3. The name of the author may not be used to endorse or promote products
- *    derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
- * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
- * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
- * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
- * OF SUCH DAMAGE.
- *
- */
+/**
+  ******************************************************************************
+  * @file    uecho.c
+  * @author  Andreas Zhang
+  * @version V0.0.1
+  * @date    Oct 28, 2018
+  * @brief   UDP echo server
+  ******************************************************************************
+  * @attention
+  *
+  * pc receive：
+  * sudo nc -ul 7
+  *
+  * pc send：
+  * nc -u 192.168.1.10 7
+  *
+  ******************************************************************************
+  */
 
 #include <stdio.h>
 #include <string.h>
+#include <xil_io.h>
 
 #include "lwip/err.h"
+//#include "lwip/pbuf.h"
 #include "lwip/udp.h"
+//#include "lwip/tcp.h"
 #if defined (__arm__) || defined (__aarch64__)
 #include "xil_printf.h"
 #endif
+#include "version.h"
 
 //#define PRINT_REMOTE
 
@@ -52,15 +47,43 @@ int transfer_data() {
 
 void print_app_header()
 {
-#if (LWIP_IPV6==0)
-	xil_printf("\n\r\n\r-----lwIP UDP echo server ------\n\r");
-#else
-	xil_printf("\n\r\n\r-----lwIPv6 UDP echo server ------\n\r");
-#endif
-	xil_printf("UDP packets sent to port %d will be echoed back\n\r", echo_server_port);
+	xil_printf("%20s %6d\r\n", "udp server", echo_server_port);
 }
 
-#if 1
+//int binary_search(int n, int a[n], int who)
+//{
+//	int p = n/2;
+//	while (n > 0)
+//	{
+//		n = n/2;
+//		if (who < a[p])
+//		{
+//			p -= n;
+//		}
+//		else if(who > a[p])
+//		{
+//			p += n;
+//		}
+//		else
+//		{
+//			return p;
+//		}
+//	}
+//}
+
+uint8_t checksum(uint8_t * ptr, int16_t cnt)
+{
+	int16_t i = 0;
+	uint8_t calc=0;
+	for(i=0;i<cnt;i++)
+	{
+		calc=calc + ptr[i];
+	}
+
+	return calc=~calc&0xff;
+}
+
+#if 0
 /**
   * @brief This function is called when an UDP datagrm has been received on the port UDP_PORT.
   * @param arg user supplied argument (udp_pcb.recv_arg)
@@ -91,7 +114,7 @@ void recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, ip_addr_t *a
 	  pbuf_free(p);
 }
 #endif
-#if 0
+#if 1
 /**
   * @brief This function is called when an UDP datagrm has been received on the port UDP_PORT.
   * @param arg user supplied argument (udp_pcb.recv_arg)
@@ -101,106 +124,121 @@ void recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, ip_addr_t *a
   * @param port the remote port from which the packet was received
   * @retval None
   */
-uint8_t receivebuf[30] = {0};
-uint8_t send_buf[10] = {0x00,0x00,0x00,0x00,0x00,0x00,0xdd,0xcc,0xdd,0xbb};
+uint8_t receivebuf[1500] = {0};
+uint8_t send_buf[1500] = {0};
 uint8_t str[8];
+uint8_t str2[8];
 uint8_t smdata[4];
+uint8_t smaddr[4];
 int receivelen = 0;
-void udp_echoserver_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p,ip_addr_t *addr, u16_t port)
+int sendlen = 0;
+int receivebufdecodelen = 0;
+int sendencodelen=0;
+uint32_t iic_status=0;
+uint32_t spi_status=0;
+uint8_t spi_recv_buf[256]={0};
+uint8_t spi_recv_len=0;
+uint8_t spi_send_byte=0;
+uint8_t iic_data_buf[256]={0};
+uint8_t iic_data_len=0;
+
+void recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p,ip_addr_t *addr, u16_t port)
 {
     struct pbuf *pq;
 	receivelen = p->len;
 	memset(receivebuf, 0, sizeof(receivebuf));
+	memset(send_buf, 0, sizeof(send_buf));
 	memcpy(receivebuf,p->payload,p->len);
     pbuf_free(p);
+    int32_t Status=0;
+    uint16_t msg_len=0;
+    uint16_t msg_cmd=0;
+    uint32_t msg_addr=0;
+    uint32_t msg_value=0;
+    uint8_t msg_ack=0;
+    uint16_t mem_len=0;
 
-    /* Connect to the remote client */
-    udp_connect(upcb, addr, echo_client_port);
+    memcpy(&msg_len,receivebuf,2);
+    memcpy(&msg_cmd,receivebuf+4,1);
 
-    unsigned int match_count = 0;
-    unsigned int maddr = 0;
-    unsigned int mdata = 0;
-
-    match_count = sscanf(receivebuf,"mrd 0x%x", &maddr);
-
-    if(match_count == 1)
+    if(msg_cmd==0x10)	// read mem addr
     {
-        //allocate memory
-        //pq = pbuf_alloc(PBUF_TRANSPORT,2,PBUF_POOL);
-        //pq = pbuf_alloc(PBUF_TRANSPORT,4,PBUF_POOL);
-        pq = pbuf_alloc(PBUF_TRANSPORT,10,PBUF_POOL);
-
-    	mdata = *(volatile unsigned int *)(maddr);
-    	//mdata = Xil_In32(maddr);
-
-    	mdata=htonl(mdata);
-
-    	//memcpy(send_buf,&mdata,4);
-
-    	send_buf[0]='0';
-    	send_buf[1]='x';
-
-    	int i=0;
-
-    	for(i = 0; i<4;i++)
-    	{
-    		smdata[i] = 0xff&(mdata>>i*8);
-    	}
-
-    	for(i = 0; i<4;i++)
-    	{
-    		str[2*i] = smdata[i]>>4;
-    		str[2*i+1] = smdata[i]&0xf;
-    	}
-
-    	for(i = 0; i<8;i++)
-		{
-			sprintf(&send_buf[i+2],"%X/n",str[i]);
-		}
-
-    	//copy data to buf
-    	pbuf_take(pq,(char*)send_buf,10);
-
-    	//send udp data
-    	udp_send(upcb,pq);
-
-    	match_count = 0;
+    	memcpy(&msg_addr,receivebuf+5,4);
+    	msg_value = Xil_In32(msg_addr); // don't use signed int, otherwise hardfail
+    	//mdata=htonl(mdata);
+    	memcpy(send_buf,receivebuf,receivelen);
+    	sendlen=receivelen;
+    	//memcpy(send_buf,&sendlen,2);
+    	memcpy(send_buf+9,&msg_value,4);
+    	send_buf[sendlen-1] = checksum(send_buf,sendlen-1); // 计算除checksum外的全部
+    	memcpy(send_buf,&sendlen,2);
     }
-
-    match_count = sscanf(receivebuf,"mwr 0x%x 0x%x", &maddr, &mdata);
-
-	if(match_count == 2)
+    if(msg_cmd==0x11)	// write mem addr
 	{
-		//allocate memory
-		pq = pbuf_alloc(PBUF_TRANSPORT,2,PBUF_POOL);
+		memcpy(&msg_addr,receivebuf+5,4);
+		memcpy(&msg_value,receivebuf+9,4);
+		//msg_value=htonl(msg_value);
+		//*(volatile unsigned int *)(msg_addr) = msg_value;
+		Xil_Out32(msg_addr, msg_value);
+		msg_value = Xil_In32(msg_addr); // don't use signed int, otherwise hardfail
 
-		*(volatile unsigned int *)(maddr) = mdata;
-		//Xil_Out32(maddr, mdata);
-		//if(Xil_In32(maddr)==mdata)
-		if(*(volatile unsigned int *)(maddr) = mdata)
-		{
-			send_buf[0]='O';
-			send_buf[1]='K';
-		}
-		else
-		{
-			send_buf[0]='N';
-			send_buf[1]='A';
-		}
-
-		//copy data to buf
-		pbuf_take(pq,(char*)send_buf,2);
-
-		//send udp data
-		udp_send(upcb,pq);
-
-		match_count = 0;
+		memcpy(send_buf,receivebuf,receivelen);
+		sendlen=receivelen;
+		//memcpy(send_buf,&sendlen,2);
+		memcpy(send_buf+9,&msg_value,4);
+		send_buf[sendlen-1] = checksum(send_buf,sendlen-1); // 计算除checksum外的全部
+		memcpy(send_buf,&sendlen,2);
+	}
+    if(msg_cmd==0x12)	// read mem bulk
+	{
+		memcpy(&msg_addr,receivebuf+5,4);
+		memcpy(&mem_len,receivebuf+9,4);
+		memcpy(send_buf,receivebuf,receivelen);
+		memcpy(send_buf+receivelen-1,(void*)msg_addr,mem_len*4);
+		sendlen=receivelen+mem_len*4;
+		memcpy(send_buf,&sendlen,2);
+		send_buf[sendlen-1] = checksum(send_buf,sendlen-1); // 计算除checksum外的全部
+	}
+    if(msg_cmd==0x13)	// write mem bulk
+	{
+		memcpy(&msg_addr,receivebuf+5,4);
+		memcpy(&mem_len,receivebuf+9,4);
+		memcpy((void*)msg_addr,receivebuf+13,mem_len*4);
+		sendlen=receivelen-mem_len*4;
+		memcpy(send_buf,receivebuf,sendlen);
+//		memcpy(send_buf,&sendlen,2);
+		send_buf[sendlen-1] = checksum(send_buf,sendlen-1); // 计算除checksum外的全部
+		memcpy(send_buf,&sendlen,2);
 	}
 
-	/* free the UDP connection, so we can accept new clients */
-	udp_disconnect(upcb);
+    if(msg_cmd==0x40)
+    {
+    	uint16_t cmd_index;
+    	uint32_t msg_send;
+		memcpy(&cmd_index,receivebuf+5,2);
 
-	/* Free the p buffer */
+		if(cmd_index==1)
+		{
+//			uint16_t major = __SW_VER_MAJOR__;
+//			uint16_t minor = __SW_VER_MINOR__;
+			uint32_t ver = __SW_VER__;
+//			msg_send = (uint32_t)(((uint32_t)major)<<16) + (uint32_t)minor;
+			msg_send = ver;
+
+			memcpy(send_buf,receivebuf,7);
+			memcpy(send_buf+7,&msg_send,4);
+			sendlen = 12;
+			send_buf[sendlen-1] = checksum(send_buf,sendlen-1); // 计算除checksum外的全部
+			memcpy(send_buf,&sendlen,2);
+		}
+    }
+
+    pq = pbuf_alloc(PBUF_TRANSPORT,sendlen,PBUF_POOL);
+	pbuf_take(pq,(char*)send_buf,sendlen);
+
+    udp_connect(upcb, addr, port);
+	udp_send(upcb,pq);
+	udp_disconnect(upcb);
 	pbuf_free(pq);
 }
 #endif

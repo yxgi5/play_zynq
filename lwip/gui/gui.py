@@ -3,6 +3,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+import math
+import struct
+import socket
+import random
 # from ui_gui import Ui_Form
 import udp_logic
 import memory_ops
@@ -12,10 +16,8 @@ import check_ip_addr
 import check_ping
 import xgpio_ops
 import xaxis_switch_ops
-import math
-import struct
-import socket
-import random
+import var_msg_ops
+
 
 GPIO_OFFSET = 78
 PA_EN1 = GPIO_OFFSET + 91
@@ -88,7 +90,7 @@ class MyDialog(QtWidgets.QMainWindow):
         
         for index in range(174):
             self.ll_gpio_globalno_combobox.addItem('%d' % index)
-        self.ll_gpio_globalno_combobox.setCurrentIndex(68+78)
+        self.ll_gpio_globalno_combobox.setCurrentIndex(0+78)
         self.ll_gpio_globalno = self.ll_gpio_globalno_combobox.currentIndex()
         
         self.gpio_ep=QRegExp("^[0-1]{1,1}$")
@@ -222,6 +224,7 @@ class MyDialog(QtWidgets.QMainWindow):
                     self.g1 = gpio_ops.gpio_ops(self.ut)
                     self.xg1 = xgpio_ops.xgpio_ops(self.ut)
                     self.xsw1 = xaxis_switch_ops.xaxis_switch_ops(self.ut)
+                    self.vm1 = var_msg_ops.var_msg_ops(self.ut)
                     self.connection_status = True
                     self.ipaddr_disconnect_btn.setDisabled(False)
                     self.ipaddr_connect_btn.setDisabled(True)
@@ -248,13 +251,13 @@ class MyDialog(QtWidgets.QMainWindow):
                     QMessageBox.information(self,"Error!", "communication status err") 
                     print("ng")
                 
-                # status=self.vm1.read_var(SOFT_VER_IDX)
-                # if status[0]:
-                #     print("ok, 0x%x"%status[1])
-                #     self.firmware_ver_label.setText("0x"+("%08x"%status[1]).upper())
-                # else:
-                #     QMessageBox.information(self,"Error!", "communication status err") 
-                #     print("ng")
+                status=self.vm1.read_var(SOFT_VER_IDX)
+                if status[0]:
+                    print("ok, 0x%x"%status[1])
+                    self.firmware_ver_label.setText("0x"+("%08x"%status[1]).upper())
+                else:
+                    QMessageBox.information(self,"Error!", "communication status err") 
+                    print("ng")
 
                 self.ConnectSignalSlot()
             pass
@@ -280,8 +283,11 @@ class MyDialog(QtWidgets.QMainWindow):
         self.ll_spi_ch_combobox.setCurrentIndex(0)
         self.ll_spi_cs_combobox.setCurrentIndex(0)
         self.ll_iic_ch_combobox.setCurrentIndex(0)
-        self.ll_gpio_globalno_combobox.setCurrentIndex(68+78)
+        self.ll_gpio_globalno_combobox.setCurrentIndex(0+78)
         self.ll_gpio_dir_combobox.setCurrentIndex(0)
+
+        self.hardware_ver_label.setText("?")
+        self.firmware_ver_label.setText("?")
 
     def DisconnectSignalSlot(self):      
         pass

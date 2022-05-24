@@ -49,6 +49,8 @@
 #endif
 #endif
 
+#include "version.h"
+
 /* defined by each RAW mode application */
 void print_app_header();
 int start_application();
@@ -143,6 +145,8 @@ int main()
 		return -1;
 	}
 #endif
+
+	printf("software ver = 0x%08x\n", __SW_VER__);
 
 	init_platform();
 
