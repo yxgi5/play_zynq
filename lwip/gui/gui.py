@@ -216,11 +216,18 @@ class MyDialog(QtWidgets.QMainWindow):
             self.ipaddr = self.ipaddr_lineEdit.text()
             try:
                 self.check_connection(self.ipaddr)
-                #self.timer.start(1000)
                 try:
                     self.ut = udp_logic.udp_logic(server_host=self.ipaddr)
                     #self.ut = udp_logic.udp_logic(server_host='192.168.1.10')
-                    self.m1=memory_ops.memory_ops(self.ut)
+                    self.m1 = memory_ops.memory_ops(self.ut)
+                    self.m1.read_reg(HARD_VER_ADDR)
+                except Exception as ret:
+                    print(ret)
+                    QMessageBox.information(self,"Error!", "connection failed!")
+                    self.ut.udp_close()
+                    del self.ut
+                #self.timer.start(1000)
+                try:
                     self.g1 = gpio_ops.gpio_ops(self.ut)
                     self.xg1 = xgpio_ops.xgpio_ops(self.ut)
                     self.xsw1 = xaxis_switch_ops.xaxis_switch_ops(self.ut)
