@@ -83,9 +83,10 @@ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
 
 static XScuGic Intc; /* The Instance of the Interrupt Controller Driver */
 
-static u32 AllButtonsPressed; /* Intr status of the bank */
+static u32 ButtonsPressed; /* Intr status of the bank */
 static u32 Input_Pin; /* Switch button */
 static u32 Output_Pin; /* LED button */
+static u32 LED_Value;
 
 /****************************************************************************/
 /**
@@ -119,11 +120,23 @@ int main(void)
 		return XST_FAILURE;
 	}
 
-	xil_printf("Successfully ran GPIO Interrupt Example Test\r\n");
+	//xil_printf("Successfully ran GPIO Interrupt Example Test\r\n");
 
 	while(1)
 	{
-
+		if(ButtonsPressed)
+		{
+			usleep(20000);
+			if (XGpioPs_ReadPin(&Gpio, Input_Pin) == 0)
+			{
+				LED_Value = ~LED_Value;
+				XGpioPs_WritePin(&Gpio, Output_Pin, LED_Value);
+			}
+			ButtonsPressed = FALSE;
+			XGpioPs_IntrClearPin(&Gpio, Input_Pin); //清除按键 KEY 中断
+			XGpioPs_IntrEnablePin(&Gpio, Input_Pin); //使能按键 KEY 中断
+			asm("NOP");
+		}
 	}
 
 	return XST_SUCCESS;
@@ -200,13 +213,13 @@ int GpioIntrExample(XScuGic *Intc, XGpioPs *Gpio, u16 DeviceId, u16 GpioIntrId)
 	}
 
 	xil_printf("\n\rPush Switch button to exit\n\r");
-	AllButtonsPressed = FALSE;
+	ButtonsPressed = FALSE;
 
 	/*
 	 * Loop forever while the button changes are handled by the interrupt
 	 * level processing.
 	 */
-	while(AllButtonsPressed == FALSE);
+	//while(ButtonsPressed == FALSE);
 
 	return XST_SUCCESS;
 }
@@ -228,6 +241,7 @@ int GpioIntrExample(XScuGic *Intc, XGpioPs *Gpio, u16 DeviceId, u16 GpioIntrId)
 static void IntrHandler(void *CallBackRef, u32 Bank, u32 Status)
 {
 	XGpioPs *Gpio = (XGpioPs *)CallBackRef;
+#if 0
 	u32 DataRead;
 
 	/* Push the switch button */
@@ -238,16 +252,22 @@ static void IntrHandler(void *CallBackRef, u32 Bank, u32 Status)
 			XGpioPs_SetDirectionPin(Gpio, Output_Pin, 1);
 			XGpioPs_SetOutputEnablePin(Gpio, Output_Pin, 1);
 			XGpioPs_WritePin(Gpio, Output_Pin, 0);
-			AllButtonsPressed = TRUE;
+			ButtonsPressed = TRUE;
 		}
 		else
 		{
 			XGpioPs_SetDirectionPin(Gpio, Output_Pin, 1);
 			XGpioPs_SetOutputEnablePin(Gpio, Output_Pin, 1);
 			XGpioPs_WritePin(Gpio, Output_Pin, 1);
-			AllButtonsPressed = TRUE;
+			ButtonsPressed = TRUE;
 		}
 	//}
+#endif
+//	if (XGpioPs_IntrGetStatusPin(Gpio, Input_Pin))
+	{
+		ButtonsPressed = TRUE;
+		XGpioPs_IntrDisablePin(Gpio, Input_Pin); //屏蔽按键 KEY 中断
+	}
 }
 
 
@@ -294,7 +314,7 @@ static int SetupInterruptSystem(XScuGic *GicInstancePtr, XGpioPs *Gpio,
 		return XST_FAILURE;
 	}
 
-
+//	Xil_ExceptionInit();
 	/*
 	 * Connect the interrupt controller interrupt handler to the hardware
 	 * interrupt handling logic in the processor.
@@ -317,19 +337,18 @@ static int SetupInterruptSystem(XScuGic *GicInstancePtr, XGpioPs *Gpio,
 
 	/* Enable falling edge interrupts for all the pins in bank 0. */
 //	XGpioPs_SetIntrType(Gpio, GPIO_BANK, 0xFFFFFFFF, 0x00, 0x00);
-	XGpioPs_SetIntrType(Gpio, GPIO_BANK, 0x00, 0x00, 0x00);
+	XGpioPs_SetIntrTypePin(Gpio, Input_Pin, XGPIOPS_IRQ_TYPE_EDGE_FALLING);
 
 	/* Set the handler for gpio interrupts. */
 	XGpioPs_SetCallbackHandler(Gpio, (void *)Gpio, IntrHandler);
 
 
 	/* Enable the GPIO interrupts of Bank 0. */
-	XGpioPs_IntrEnable(Gpio, GPIO_BANK, (1 << Input_Pin));
-
+//	XGpioPs_IntrEnable(Gpio, GPIO_BANK, (1 << Input_Pin));
+	XGpioPs_IntrEnablePin(Gpio, Input_Pin);
 
 	/* Enable the interrupt for the GPIO device. */
 	XScuGic_Enable(GicInstancePtr, GpioIntrId);
-
 
 	/* Enable interrupts in the Processor. */
 	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
