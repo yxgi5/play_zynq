@@ -18,6 +18,8 @@ import xgpio_ops
 import xaxis_switch_ops
 import var_msg_ops
 
+import extract_fw
+
 
 GPIO_OFFSET = 78
 PA_EN1 = GPIO_OFFSET + 91
@@ -109,31 +111,74 @@ class MyDialog(QtWidgets.QMainWindow):
         self.ipaddr_connect_btn.clicked.connect(self.ipaddr_connect_btn_handler)
         self.ipaddr_disconnect_btn.clicked.connect(self.ipaddr_disconnect_btn_handler)
 
-    def ll_gpio_lineEdit_handler(self):
-        self.ll_gpio_input_value=int(self.ll_gpio_lineEdit.text())
-
-    def ll_gpio_read_btn_handler(self):
-        if self.ll_gpio_dir == 0:
-            self.g1.gpio_direction_input(self.ll_gpio_globalno)
-            result = self.g1.gpio_read_input(self.ll_gpio_globalno)
-        else:
-            result = self.g1.gpio_get_output_status(self.ll_gpio_globalno)
+    def ConnectSignalSlot(self):
+        # ll_mmemory_access
+        self.ll_mm_read_btn.clicked.connect(self.mm_readOnCmd)
+        self.ll_mm_write_btn.clicked.connect(self.mm_writeOnCmd)
         
-        disp ='%d'% (result)
-        self.ll_gpio_lineEdit.setText(disp)
+        # ll_gpio_access
+        self.ll_gpio_read_btn.clicked.connect(self.ll_gpio_read_btn_handler)
+        self.ll_gpio_write_btn.clicked.connect(self.ll_gpio_write_btn_handler)
+        self.ll_gpio_dir_combobox.currentIndexChanged.connect(self.ll_gpio_dir_combobox_handler)
+        self.ll_gpio_globalno_combobox.currentIndexChanged.connect(self.ll_gpio_globalno_combobox_handler)
+        self.ll_gpio_lineEdit.editingFinished.connect(self.ll_gpio_lineEdit_handler)
+        
+        # # ll_spi_access
+        # self.connect(self.ll_spi_send_lineEdit, SIGNAL('editingFinished()'), self.ll_spi_check_spi_send)
+        # self.connect(self.ll_spi_send_btn, SIGNAL('clicked()'), self.ll_spi_send_btn_handler)
+        # self.connect(self.ll_spi_ch_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_spi_ch_combobox_handler)
+        # self.connect(self.ll_spi_cs_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_spi_cs_combobox_handler)
+        
+        # # ll_iic_access
+        # self.connect(self.ll_iic_addr_lineEdit, SIGNAL('editingFinished()'), self.ll_iic_check_addr)
+        # self.connect(self.ll_iic_send_lineEdit, SIGNAL('editingFinished()'), self.ll_iic_check_send)
+        # self.connect(self.ll_iic_ch_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_iic_ch_combobox_handler)
+        # self.connect(self._filter, SIGNAL('focusOut()'), self.ll_iic_check_addr)
+        # self.connect(self.ll_iic_write_btn, SIGNAL('clicked()'), self.ll_iic_write_btn_handler)
+        # self.connect(self.ll_iic_read_btn, SIGNAL('clicked()'), self.ll_iic_read_btn_handler)
+        
+        
+        
+        # timer
+        self.timer.timeout.connect(self.check_connection_alive)
 
-    def ll_gpio_write_btn_handler(self):
-        if self.ll_gpio_dir == 0:
-            self.g1.gpio_direction_input(self.ll_gpio_globalno)
-            self.input_value=1
-        else:
-            self.g1.gpio_direction_output(self.ll_gpio_globalno, self.ll_gpio_input_value)
+        #upgrade file
+        self.upgrade_file_button.clicked.connect(self.open_upgrade_file_handler)
+        self.upgrade_file_extract_btn.clicked.connect(self.upgrade_extract_handler)
+        
+        pass
 
-    def ll_gpio_dir_combobox_handler(self, index):
-        self.ll_gpio_dir = index
-    
-    def ll_gpio_globalno_combobox_handler(self, index):
-        self.ll_gpio_globalno = index
+    def DisconnectSignalSlot(self):     
+        # ll_mmemory_access
+        self.ll_mm_read_btn.clicked.disconnect(self.mm_readOnCmd)
+        self.ll_mm_write_btn.clicked.disconnect(self.mm_writeOnCmd)
+        
+        # ll_gpio_access
+        self.ll_gpio_read_btn.clicked.disconnect(self.ll_gpio_read_btn_handler)
+        self.ll_gpio_write_btn.clicked.disconnect(self.ll_gpio_write_btn_handler)
+        self.ll_gpio_dir_combobox.currentIndexChanged.disconnect(self.ll_gpio_dir_combobox_handler)
+        self.ll_gpio_globalno_combobox.currentIndexChanged.disconnect(self.ll_gpio_globalno_combobox_handler)
+        self.ll_gpio_lineEdit.editingFinished.disconnect(self.ll_gpio_lineEdit_handler)
+        
+        # # ll_spi_access
+        # self.disconnect(self.ll_spi_send_lineEdit, SIGNAL('editingFinished()'), self.ll_spi_check_spi_send)
+        # self.disconnect(self.ll_spi_send_btn, SIGNAL('clicked()'), self.ll_spi_send_btn_handler)
+        # self.disconnect(self.ll_spi_ch_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_spi_ch_combobox_handler)
+        # self.disconnect(self.ll_spi_cs_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_spi_cs_combobox_handler)
+        
+        # # ll_iic_access
+        # self.disconnect(self.ll_iic_addr_lineEdit, SIGNAL('editingFinished()'), self.ll_iic_check_addr)
+        # self.disconnect(self.ll_iic_send_lineEdit, SIGNAL('editingFinished()'), self.ll_iic_check_send)
+        # self.disconnect(self.ll_iic_ch_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_iic_ch_combobox_handler)
+        # self.disconnect(self._filter, SIGNAL('focusOut()'), self.ll_iic_check_addr)
+        # self.disconnect(self.ll_iic_write_btn, SIGNAL('clicked()'), self.ll_iic_write_btn_handler)
+        # self.disconnect(self.ll_iic_read_btn, SIGNAL('clicked()'), self.ll_iic_read_btn_handler) 
+
+        #upgrade
+        self.upgrade_file_button.clicked.disconnect(self.open_upgrade_file_handler)
+        self.upgrade_file_extract_btn.clicked.disconnect(self.upgrade_extract_handler)
+        
+        pass
 
     def mm_readOnCmd(self):
         #print("opps!")
@@ -176,38 +221,94 @@ class MyDialog(QtWidgets.QMainWindow):
             QMessageBox.information(self,"Error!", "write failed! 请检查网络或端口号")  
             return
 
-    def ConnectSignalSlot(self):
-        # ll_mmemory_access
-        self.ll_mm_read_btn.clicked.connect(self.mm_readOnCmd)
-        self.ll_mm_write_btn.clicked.connect(self.mm_writeOnCmd)
+    def ll_gpio_lineEdit_handler(self):
+        self.ll_gpio_input_value=int(self.ll_gpio_lineEdit.text())
+		
+    def ll_gpio_dir_combobox_handler(self, index):
+        self.ll_gpio_dir = index
+    
+    def ll_gpio_globalno_combobox_handler(self, index):
+        self.ll_gpio_globalno = index
+
+    def ll_gpio_read_btn_handler(self):
+        if self.ll_gpio_dir == 0:
+            self.g1.gpio_direction_input(self.ll_gpio_globalno)
+            result = self.g1.gpio_read_input(self.ll_gpio_globalno)
+        else:
+            result = self.g1.gpio_get_output_status(self.ll_gpio_globalno)
         
-        # ll_gpio_access
-        self.ll_gpio_read_btn.clicked.connect(self.ll_gpio_read_btn_handler)
-        self.ll_gpio_write_btn.clicked.connect(self.ll_gpio_write_btn_handler)
-        self.ll_gpio_dir_combobox.currentIndexChanged.connect(self.ll_gpio_dir_combobox_handler)
-        self.ll_gpio_globalno_combobox.currentIndexChanged.connect(self.ll_gpio_globalno_combobox_handler)
-        self.ll_gpio_lineEdit.editingFinished.connect(self.ll_gpio_lineEdit_handler)
-        
-        # # ll_spi_access
-        # self.connect(self.ll_spi_send_lineEdit, SIGNAL('editingFinished()'), self.ll_spi_check_spi_send)
-        # self.connect(self.ll_spi_send_btn, SIGNAL('clicked()'), self.ll_spi_send_btn_handler)
-        # self.connect(self.ll_spi_ch_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_spi_ch_combobox_handler)
-        # self.connect(self.ll_spi_cs_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_spi_cs_combobox_handler)
-        
-        # # ll_iic_access
-        # self.connect(self.ll_iic_addr_lineEdit, SIGNAL('editingFinished()'), self.ll_iic_check_addr)
-        # self.connect(self.ll_iic_send_lineEdit, SIGNAL('editingFinished()'), self.ll_iic_check_send)
-        # self.connect(self.ll_iic_ch_combobox, SIGNAL('currentIndexChanged(int)'), self.ll_iic_ch_combobox_handler)
-        # self.connect(self._filter, SIGNAL('focusOut()'), self.ll_iic_check_addr)
-        # self.connect(self.ll_iic_write_btn, SIGNAL('clicked()'), self.ll_iic_write_btn_handler)
-        # self.connect(self.ll_iic_read_btn, SIGNAL('clicked()'), self.ll_iic_read_btn_handler)
-        
-        
-        
-        # timer
-        self.timer.timeout.connect(self.check_connection_alive)
-        
-        pass
+        disp ='%d'% (result)
+        self.ll_gpio_lineEdit.setText(disp)
+
+    def ll_gpio_write_btn_handler(self):
+        if self.ll_gpio_dir == 0:
+            self.g1.gpio_direction_input(self.ll_gpio_globalno)
+            self.input_value=1
+        else:
+            self.g1.gpio_direction_output(self.ll_gpio_globalno, self.ll_gpio_input_value)
+
+    def is_hex(self, s):
+        try:
+            int(s, 16)
+            return True
+        except ValueError:
+            return False
+            
+    def is_int(self, s):
+        try:
+            int(s, 10)
+            return True
+        except ValueError:
+            return False
+ 
+    def closeEvent(self, event):
+        reply = QtWidgets.QMessageBox.question(self,
+                                               '本程序',
+                                               "是否要退出程序？",
+                                               QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                               QtWidgets.QMessageBox.No)
+        if reply == QtWidgets.QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
+            return
+
+        try:
+            self.m1
+        except Exception as ret:
+            print(ret)
+        else:
+            del self.m1
+            
+        try:
+            self.ut
+        except Exception as ret:
+            print(ret)
+        else:
+            self.ut.udp_close()
+
+    def open_upgrade_file_handler(self):
+        print("select file")
+        fileName = QFileDialog.getOpenFileName(
+            self, 'choose the file', options=QFileDialog.DontUseNativeDialog)
+        self.textEdit_upgradeFile.setText(fileName[0])
+
+
+    def upgrade_extract_handler(self):
+        print("upgrade firmeware")
+        if self.textEdit_upgradeFile.text() == "":
+            QMessageBox.information(self, "Error!", "please select the file")
+            return
+        print("extract file")
+        status =extract_fw.extract_xilinx_file(self.textEdit_upgradeFile.text(), 1)
+        if(status[0]==True):
+            self.textEdit_upgradeFile_out_put.append("creat "+self.textEdit_upgradeFile.text()+".pl"+
+                                                     " %d bytes"%status[1])
+        if (status[2] == True):
+            self.textEdit_upgradeFile_out_put.append(
+                "creat " + self.textEdit_upgradeFile.text() + ".sw" + " %d bytes" % status[3])
+
+
     def ipaddr_connect_btn_handler(self):
         status = check_ip_addr.is_valid_ipv4_address(self.ipaddr_lineEdit.text())
         if status is False:
@@ -296,8 +397,6 @@ class MyDialog(QtWidgets.QMainWindow):
         self.hardware_ver_label.setText("?")
         self.firmware_ver_label.setText("?")
 
-    def DisconnectSignalSlot(self):      
-        pass
 
     def ipaddr_disconnect_btn_handler(self):
         self.DisconnectSignalSlot()
