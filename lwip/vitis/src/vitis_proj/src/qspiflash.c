@@ -674,24 +674,25 @@ int QspiFlashInit(XQspiPsu *QspiPsuInstancePtr, u16 QspiPsuDeviceId)
 	int Page;
 	XQspiPsu_Config *QspiPsuConfig;
 
+	if(!(QspiPsuInstancePtr->IsReady))
+	{
+		/*
+		 * Initialize the QSPIPSU driver so that it's ready to use
+		 */
+		QspiPsuConfig = XQspiPsu_LookupConfig(QspiPsuDeviceId);
+		if (NULL == QspiPsuConfig) {
+			return flash_step_exit;
+		}
 
-	/*
-	 * Initialize the QSPIPSU driver so that it's ready to use
-	 */
-	QspiPsuConfig = XQspiPsu_LookupConfig(QspiPsuDeviceId);
-	if (NULL == QspiPsuConfig) {
-		return flash_step_exit;
+		/* To test, change connection mode here if not obtained from HDF */
+		//QspiPsuConfig->ConnectionMode = 2;
+
+		Status = XQspiPsu_CfgInitialize(QspiPsuInstancePtr, QspiPsuConfig,
+						QspiPsuConfig->BaseAddress);
+		if ((Status != XST_SUCCESS) && (Status != XST_DEVICE_IS_STARTED)) {
+			return flash_step_exit;
+		}
 	}
-
-	/* To test, change connection mode here if not obtained from HDF */
-	//QspiPsuConfig->ConnectionMode = 2;
-
-	Status = XQspiPsu_CfgInitialize(QspiPsuInstancePtr, QspiPsuConfig,
-					QspiPsuConfig->BaseAddress);
-	if (Status != XST_SUCCESS) {
-		return flash_step_exit;
-	}
-
 	/*
 	 * Set Manual Start
 	 */
