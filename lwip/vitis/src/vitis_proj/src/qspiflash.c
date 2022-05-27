@@ -801,7 +801,7 @@ int QspiFlashWrite(XQspiPsu *QspiPsuInstancePtr)
 	else{
 			g_write_page_cnt=0;
 			re_step=flash_step_readbk;
-			xil_printf("Flash write success, read check start !!\r\n");
+			xil_printf("\r\nFlash write success, read check start !!\r\n");
 			flash_upgrade_send_message("programme success !!! read check start ...");
 //			set_flash_bootflag(pl_file_length,sw_file_length);
 			sw_file_length=0;
@@ -883,8 +883,8 @@ int QspiFlashReadCheck(XQspiPsu *QspiPsuInstancePtr)
     }
 	g_write_page_cnt=0;
 
-	flash_upgrade_send_message("read check success !");
-	xil_printf("read check success !");
+	flash_upgrade_send_message("\r\nread check success !\r\n");
+	xil_printf("read check success !\r\n");
 	return flash_step_exit;
 }
 #if 0
