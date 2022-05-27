@@ -17,7 +17,7 @@ import check_ping
 import xgpio_ops
 import xaxis_switch_ops
 import var_msg_ops
-
+import tftp_put
 import extract_fw
 
 
@@ -144,7 +144,10 @@ class MyDialog(QtWidgets.QMainWindow):
 
         #upgrade file
         self.upgrade_file_button.clicked.connect(self.open_upgrade_file_handler)
+        self.upgrade_button.clicked.connect(self.upgrade_file_handler)
         self.upgrade_file_extract_btn.clicked.connect(self.upgrade_extract_handler)
+        self.upgrade_button_fpga.clicked.connect(self.upgrade_fpga_handler)
+        self.upgrade_button_sw.clicked.connect(self.upgrade_sw_handler)
         
         pass
 
@@ -176,7 +179,10 @@ class MyDialog(QtWidgets.QMainWindow):
 
         #upgrade
         self.upgrade_file_button.clicked.disconnect(self.open_upgrade_file_handler)
+        self.upgrade_button.clicked.disconnect(self.upgrade_file_handler)
         self.upgrade_file_extract_btn.clicked.disconnect(self.upgrade_extract_handler)
+        self.upgrade_button_fpga.clicked.disconnect(self.upgrade_fpga_handler)
+        self.upgrade_button_sw.clicked.disconnect(self.upgrade_sw_handler)
         
         pass
 
@@ -293,6 +299,81 @@ class MyDialog(QtWidgets.QMainWindow):
             self, 'choose the file', options=QFileDialog.DontUseNativeDialog)
         self.textEdit_upgradeFile.setText(fileName[0])
 
+    def RecvTftpTreadSinal(self, ls):
+            print
+            'get!'
+            # 使用传回的返回值
+            for word in ls:
+                if ((word == "#") or (word == ".") or (word == "*")):
+                    self.textEdit_upgradeFile_out_put.moveCursor(QTextCursor.End)
+                    self.textEdit_upgradeFile_out_put.insertPlainText(word)
+                   # print(".")
+                else :
+                    self.textEdit_upgradeFile_out_put.append(word)
+
+    def upgrade_file_handler(self):
+        print("upgrade firmeware")
+        if self.textEdit_upgradeFile.text()=="":
+            QMessageBox.information(self, "Error!", "please select the file")
+            return
+        print("self.textEdit_upgradeFile.text()")
+        flash_add_cmd = memory_ops.pravite_cmd.upgrade_region_cmd.value
+        flash_addr= memory_ops.flash_upgrade_addr.all.value
+        self.m1.write_pravite_value(flash_add_cmd, flash_addr)
+        self.tftpThread = tftp_put.tftp_md5_put_tread(self.textEdit_upgradeFile.text(),self.ipaddr_lineEdit.text())
+        self.tftpThread.finishSignal.connect(self.RecvTftpTreadSinal)
+        self.tftpThread.start()
+
+    def upgrade_fpga_handler(self):
+        print("upgrade pl firmware")
+        if self.textEdit_upgradeFile.text() == "":
+            QMessageBox.information(self, "Error!", "please select the file")
+            return
+        print("self.textEdit_upgradeFile.text()")
+
+        str_len=len(self.textEdit_upgradeFile.text())
+        find_idx=self.textEdit_upgradeFile.text().find('.pl',0,str_len)
+        if(find_idx==-1):
+            QMessageBox.information(self, "Error!", "please select the right file")
+            return
+        fd = open(self.textEdit_upgradeFile.text(), "rb")
+        fd.seek(-1,2)# 从文件尾部 向前移动1个字节
+        realfileLen = 1+fd.tell()-0xdb80 ##0x2db80 是bif 文件中配置的固定偏移量
+        fd.close()
+        print("pl-file-real-size:"+"%d bytes"%realfileLen)
+        cmd = memory_ops.pravite_cmd.upgrade_pl_size.value
+        self.m1.write_pravite_value(cmd,realfileLen)
+        flash_add_cmd = memory_ops.pravite_cmd.upgrade_region_cmd.value
+        flash_addr = memory_ops.flash_upgrade_addr.fpga.value
+        self.m1.write_pravite_value(flash_add_cmd, flash_addr)
+        self.tftpThread = tftp_put.tftp_md5_put_tread(self.textEdit_upgradeFile.text(), self.ipaddr_lineEdit.text())
+        self.tftpThread.finishSignal.connect(self.RecvTftpTreadSinal)
+        self.tftpThread.start()
+    def upgrade_sw_handler(self):
+        print("upgrade pl firmware")
+        if self.textEdit_upgradeFile.text() == "":
+            QMessageBox.information(self, "Error!", "please select the file")
+            return
+        print("self.textEdit_upgradeFile.text()")
+
+        str_len=len(self.textEdit_upgradeFile.text())
+        find_idx=self.textEdit_upgradeFile.text().find('.sw',0,str_len)
+        if(find_idx==-1):
+            QMessageBox.information(self, "Error!", "please select the right file")
+            return
+        fd = open(self.textEdit_upgradeFile.text(), "rb")
+        fd.seek(-1,2)# 从文件尾部 向前移动1个字节
+        realfileLen = 1+fd.tell()-0xdb80 ##0x2db80 是bif 文件中配置的固定偏移量
+        fd.close()
+        print("sw-file-real-size:" + "%d bytes" % realfileLen)
+        cmd = memory_ops.pravite_cmd.upgrade_sw_size.value
+        self.m1.write_pravite_value(cmd,realfileLen)
+        flash_add_cmd = memory_ops.pravite_cmd.upgrade_region_cmd.value
+        flash_addr = memory_ops.flash_upgrade_addr.sw.value
+        self.m1.write_pravite_value(flash_add_cmd, flash_addr)
+        self.tftpThread = tftp_put.tftp_md5_put_tread(self.textEdit_upgradeFile.text(), self.ipaddr_lineEdit.text())
+        self.tftpThread.finishSignal.connect(self.RecvTftpTreadSinal)
+        self.tftpThread.start()
 
     def upgrade_extract_handler(self):
         print("upgrade firmeware")

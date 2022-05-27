@@ -41,7 +41,7 @@ static unsigned echo_server_port = 5555;
 //static unsigned echo_client_port = 5556;
 static unsigned echo_server_running = 0;
 
-int transfer_data() {
+int transfer_udp_data() {
 	return 0;
 }
 
@@ -251,7 +251,7 @@ void recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p,ip_addr_t *ad
 #endif
 
 
-int start_application()
+int start_udp_application()
 {
 	struct udp_pcb *pcb;
 	err_t err;
