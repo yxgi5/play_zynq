@@ -53,11 +53,13 @@ if [ $RM_LVL -ge 1 ]; then
         rm -rf ./*.jou
         rm -rf ./*.log
         rm -rf ./Packages
+        rm -rf ./NA
     else
         gio trash ./.Xil
         gio trash ./*.jou
         gio trash ./*.log
         gio trash ./Packages
+        gio trash ./NA
     fi
 fi
 

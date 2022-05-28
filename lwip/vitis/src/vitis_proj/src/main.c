@@ -47,8 +47,8 @@ XGpioPs  gpiops_inst;
 
 /* defined by each RAW mode application */
 void print_app_header();
-int start_application();
-int transfer_data();
+int start_udp_application();
+void transfer_data();
 void tcp_fasttmr(void);
 void tcp_slowtmr(void);
 
@@ -139,6 +139,13 @@ int emio_init(void)
 	XGpioPs_WritePin(&gpiops_inst, LED1, 1);
 
 	return XST_SUCCESS ;
+}
+
+void transfer_data()
+{
+	transfer_udp_data();
+	transfer_tftp_data();
+	upgradeFlashThread();
 }
 
 int main()
@@ -244,7 +251,8 @@ int main()
 
 #endif
 	/* start the application (web server, rxtest, txtest, etc..) */
-	start_application();
+	start_udp_application();
+	start_tftp_application();
 
     while(1)
     {
