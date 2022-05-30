@@ -1,34 +1,8 @@
 /******************************************************************************
-*
-* Copyright (C) 2006 - 2014 Xilinx, Inc.  All rights reserved.
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-*
-* Use of the Software is limited solely to applications:
-* (a) running on a Xilinx device, or
-* (b) that interact with a Xilinx device through a bus or interconnect.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-* XILINX  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
-* OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*
-* Except as contained in this notice, the name of the Xilinx shall not be used
-* in advertising or otherwise to promote the sale, use or other dealings in
-* this Software without prior written authorization from Xilinx.
-*
+* Copyright (C) 2006 - 2020 Xilinx, Inc.  All rights reserved.
+* SPDX-License-Identifier: MIT
 ******************************************************************************/
+
 /*****************************************************************************/
 /**
 * @file xiic_repeated_start_example.c
@@ -61,49 +35,63 @@
 *	              fix for CR539763 where XIic_Start was being called
 *	              instead of XIic_Stop. Added code for setting up the
 *	              StatusHandler callback.
+* 3.4   ms   01/23/17 Added xil_printf statement in main function to
+*                     ensure that "Successfully ran" and "Failed" strings
+*                     are available in all examples. This is a fix for
+*                     CR-965028.
 *
 * </pre>
 *
 ******************************************************************************/
- 
+
 /***************************** Include Files *********************************/
- 
+
 #include "xparameters.h"
 #include "xiic.h"
-#include "xintc.h"
-#include "xil_exception.h"
+#if defined (ARMR5) || (__aarch64__) || (__arm__)
 #include "xscugic.h"
- 
+#else
+#include "xintc.h"
+#endif
+#include "xil_exception.h"
+#include "xil_printf.h"
+
+#include "sleep.h"
+
 /************************** Constant Definitions *****************************/
- 
+
 /*
  * The following constants map to the XPAR parameters created in the
  * xparameters.h file. They are defined here such that a user can easily
  * change all the needed parameters in one place.
  */
+
+#if defined (ARMR5) || (__aarch64__) || (__arm__)
 #define IIC_DEVICE_ID		XPAR_IIC_0_DEVICE_ID
-//#define INTC_DEVICE_ID		XPAR_INTC_0_DEVICE_ID
-//#define IIC_INTR_ID		XPAR_INTC_0_IIC_0_VEC_ID
- 
 #define INTC_DEVICE_ID		XPAR_SCUGIC_SINGLE_DEVICE_ID
-#define IIC_INT_VEC_ID		XPS_FPGA0_INT_ID
- 
+//#define IIC_INTR_ID		    XPS_FPGA0_INT_ID
+#define IIC_INT_VEC_ID		XPAR_FABRIC_IIC_0_VEC_ID
+#else
+#define IIC_DEVICE_ID		XPAR_IIC_0_DEVICE_ID
+#define INTC_DEVICE_ID		XPAR_INTC_0_DEVICE_ID
+#define IIC_INTR_ID			XPAR_INTC_0_IIC_0_VEC_ID
+#endif
 /*
  * The following constant defines the address of the IIC
  * device on the IIC bus. Note that since the address is only 7 bits, this
  * constant is the address divided by 2.
  */
 #define SLAVE_ADDRESS	0x50	/* 0xE0 as an 8 bit number. */
- 
+
 #define SEND_COUNT	25
 #define RECEIVE_COUNT   25
- 
+
 /**************************** Type Definitions *******************************/
- 
+
 /***************** Macros (Inline Functions) Definitions *********************/
- 
+
 /************************** Function Prototypes ******************************/
- 
+
 int IicRepeatedStartExample();
 static int WriteData(u16 ByteCount);
 static int ReadData(u8 *BufferPtr, u16 ByteCount);
@@ -111,20 +99,23 @@ static int SetupInterruptSystem(XIic *IicInstPtr);
 static void SendHandler(XIic *InstancePtr);
 static void ReceiveHandler(XIic *InstancePtr);
 static void StatusHandler(XIic *InstancePtr, int Event);
- 
+
 /************************** Variable Definitions *****************************/
- 
+
 XIic IicInstance;
+#if defined (ARMR5) || (__aarch64__) || (__arm__)
 XScuGic InterruptController;
- 
+#else
+XIntc InterruptController;	/* The instance of the Interrupt Controller */
+#endif
 u8 WriteBuffer[SEND_COUNT];	/* Write buffer for writing a page. */
 u8 ReadBuffer[RECEIVE_COUNT];	/* Read buffer for reading a page. */
- 
+
 volatile u8 TransmitComplete;
 volatile u8 ReceiveComplete;
- 
+
 /************************** Function Definitions *****************************/
- 
+
 /*****************************************************************************/
 /**
 * Main function to call the Repeated Start example.
@@ -139,19 +130,21 @@ volatile u8 ReceiveComplete;
 int main(void)
 {
 	int Status;
- 
+
 	/*
 	 * Run the Repeated Start example.
 	 */
+	xil_printf("Run IIC repeated start Example\r\n");
 	Status = IicRepeatedStartExample();
 	if (Status != XST_SUCCESS) {
- 
+		xil_printf("IIC repeated start Example Failed\r\n");
 		return XST_FAILURE;
 	}
- 
+
+	xil_printf("Successfully ran IIC repeated start Example\r\n");
 	return XST_SUCCESS;
 }
- 
+
 /*****************************************************************************/
 /**
 * This function writes and reads the data to the IIC Slave.
@@ -168,15 +161,16 @@ int IicRepeatedStartExample(void)
 	u8 Index;
 	int Status;
 	XIic_Config *ConfigPtr;	/* Pointer to configuration data */
- 
+
 	/*
 	 * Initialize the data to write and the read buffer.
 	 */
 	for (Index = 0; Index < SEND_COUNT; Index++) {
-		WriteBuffer[Index] = Index;
+		WriteBuffer[Index] = Index+1;
+//		WriteBuffer[Index] = Index;
 		ReadBuffer[Index] = 0;
 	}
- 
+
 	/*
 	 * Initialize the IIC driver so that it is ready to use.
 	 */
@@ -184,13 +178,13 @@ int IicRepeatedStartExample(void)
 	if (ConfigPtr == NULL) {
 		return XST_FAILURE;
 	}
- 
+
 	Status = XIic_CfgInitialize(&IicInstance, ConfigPtr,
 					ConfigPtr->BaseAddress);
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Setup the Interrupt System.
 	 */
@@ -198,7 +192,7 @@ int IicRepeatedStartExample(void)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Set the Transmit, Receive and Status handlers.
 	 */
@@ -208,7 +202,7 @@ int IicRepeatedStartExample(void)
 				(XIic_Handler) ReceiveHandler);
 	XIic_SetStatusHandler(&IicInstance, &IicInstance,
 				  (XIic_StatusHandler) StatusHandler);
- 
+
 	/*
 	 * Set the Address of the Slave.
 	 */
@@ -217,19 +211,19 @@ int IicRepeatedStartExample(void)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Write to the IIC Slave.
 	 */
-	while(1)
-	{
-		Status = WriteData(SEND_COUNT);
-		delay_SL(0x11111111);
-	}
+//	while(1)
+//	{
+	Status = WriteData(SEND_COUNT);
+//		delay_SL(0x11111111);
+//	}
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Read from the IIC Slave.
 	 */
@@ -237,17 +231,19 @@ int IicRepeatedStartExample(void)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	return XST_SUCCESS;
 }
- 
+
+#if 0
 void delay_SL(u32 delayCount) {
 	do {
 		__asm__("nop");
 		delayCount--;
 	} while (delayCount > 0);
 }
- 
+#endif
+
 /*****************************************************************************/
 /**
 * This function writes a buffer of data to IIC Slave.
@@ -264,12 +260,12 @@ static int WriteData(u16 ByteCount)
 {
 	int Status;
 	int BusBusy;
- 
+
 	/*
 	 * Set the defaults.
 	 */
 	TransmitComplete = 1;
- 
+
 	/*
 	 * Start the IIC device.
 	 */
@@ -277,12 +273,12 @@ static int WriteData(u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Set the Repeated Start option.
 	 */
 	IicInstance.Options = XII_REPEATED_START_OPTION;
- 
+
 	/*
 	 * Send the data.
 	 */
@@ -290,27 +286,22 @@ static int WriteData(u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
 	xil_printf("i2c master send begin \r\n");
- 
-//	delay_SL(0x11111111);
 	/*
 	 * Wait till data is transmitted.
 	 */
 	while (TransmitComplete) {
- 
+
 	}
- 
 	xil_printf("i2c master TransmitComplete end \r\n");
- 
 	/*
 	 * This is for verification that Bus is not released and still Busy.
 	 */
 	BusBusy = XIic_IsIicBusy(&IicInstance);
- 
+
 	TransmitComplete = 1;
 	IicInstance.Options = 0x0;
- 
+
 	/*
 	 * Send the Data.
 	 */
@@ -318,18 +309,14 @@ static int WriteData(u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
-	xil_printf("i2c master second send begin \r\n");
- 
-//	delay_SL(0x11111111);
+
 	/*
 	 * Wait till data is transmitted.
 	 */
 	while ((TransmitComplete) || (XIic_IsIicBusy(&IicInstance) == TRUE)) {
- 
+
 	}
- 
-	xil_printf("i2c master second TransmitComplete end \r\n");
+
 	/*
 	 * Stop the IIC device.
 	 */
@@ -337,10 +324,10 @@ static int WriteData(u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	return XST_SUCCESS;
 }
- 
+
 /*****************************************************************************/
 /**
 * This function reads a data from the IIC Slave into a specified buffer.
@@ -357,12 +344,12 @@ static int ReadData(u8 *BufferPtr, u16 ByteCount)
 {
 	int Status;
 	int BusBusy;
- 
+
 	/*
 	 * Set the defaults.
 	 */
 	ReceiveComplete = 1;
- 
+
 	/*
 	 * Start the IIC device.
 	 */
@@ -370,12 +357,12 @@ static int ReadData(u8 *BufferPtr, u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Set the Repeated Start option.
 	 */
 	IicInstance.Options = XII_REPEATED_START_OPTION;
- 
+
 	/*
 	 * Receive the data.
 	 */
@@ -383,22 +370,22 @@ static int ReadData(u8 *BufferPtr, u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Wait till all the data is received.
 	 */
 	while (ReceiveComplete) {
- 
+
 	}
- 
+
 	/*
 	 * This is for verification that Bus is not released and still Busy.
 	 */
 	BusBusy = XIic_IsIicBusy(&IicInstance);
- 
+
 	ReceiveComplete = 1;
 	IicInstance.Options = 0x0;
- 
+
 	/*
 	 * Receive the Data.
 	 */
@@ -406,14 +393,14 @@ static int ReadData(u8 *BufferPtr, u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Wait till all the data is received.
 	 */
 	while ((ReceiveComplete) || (XIic_IsIicBusy(&IicInstance) == TRUE)) {
- 
+
 	}
- 
+
 	/*
 	 * Stop the IIC device.
 	 */
@@ -421,10 +408,10 @@ static int ReadData(u8 *BufferPtr, u16 ByteCount)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	return XST_SUCCESS;
 }
- 
+
 /*****************************************************************************/
 /**
 * This function setups the interrupt system so interrupts can occur for the
@@ -443,14 +430,13 @@ static int ReadData(u8 *BufferPtr, u16 ByteCount)
 ******************************************************************************/
 static int SetupInterruptSystem(XIic *IicInstPtr)
 {
- 
 #if 0
 	int Status;
- 
+
 	if (InterruptController.IsStarted == XIL_COMPONENT_IS_STARTED) {
 		return XST_SUCCESS;
 	}
- 
+
 	/*
 	 * Initialize the interrupt controller driver so that it's ready to use.
 	 */
@@ -458,7 +444,7 @@ static int SetupInterruptSystem(XIic *IicInstPtr)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Connect the device driver handler that will be called when an
 	 * interrupt for the device occurs, the handler defined above performs
@@ -470,7 +456,7 @@ static int SetupInterruptSystem(XIic *IicInstPtr)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Start the interrupt controller so interrupts are enabled for all
 	 * devices that cause interrupts.
@@ -479,24 +465,24 @@ static int SetupInterruptSystem(XIic *IicInstPtr)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
- 
+
 	/*
 	 * Enable the interrupts for the IIC device.
 	 */
 	XIntc_Enable(&InterruptController, IIC_INTR_ID);
- 
+
 	/*
 	 * Initialize the exception table.
 	 */
 	Xil_ExceptionInit();
- 
+
 	/*
 	 * Register the interrupt controller handler with the exception table.
 	 */
 	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
 				 (Xil_ExceptionHandler) XIntc_InterruptHandler,
 				 &InterruptController);
- 
+
 	/*
 	 * Enable non-critical exceptions.
 	 */
@@ -504,7 +490,6 @@ static int SetupInterruptSystem(XIic *IicInstPtr)
  
 	return XST_SUCCESS;
 #endif
- 
 	int Status;
 	XScuGic_Config *IntcConfig; /* Instance of the interrupt controller */
  
@@ -559,7 +544,7 @@ static int SetupInterruptSystem(XIic *IicInstPtr)
  
 	return XST_SUCCESS;
 }
- 
+
 /*****************************************************************************/
 /**
 * This Send handler is called asynchronously from an interrupt context and
@@ -577,7 +562,7 @@ static void SendHandler(XIic *InstancePtr)
 {
 	TransmitComplete = 0;
 }
- 
+
 /*****************************************************************************/
 /**
 * This Receive handler is called asynchronously from an interrupt context and
@@ -595,7 +580,7 @@ static void ReceiveHandler(XIic *InstancePtr)
 {
 	ReceiveComplete = 0;
 }
- 
+
 /*****************************************************************************/
 /**
 * This Status handler is called asynchronously from an interrupt
@@ -612,5 +597,5 @@ static void ReceiveHandler(XIic *InstancePtr)
 ******************************************************************************/
 static void StatusHandler(XIic *InstancePtr, int Event)
 {
-	TransmitComplete = 0;
+//	TransmitComplete = 0;
 }
