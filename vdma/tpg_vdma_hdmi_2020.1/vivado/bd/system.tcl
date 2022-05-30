@@ -123,6 +123,7 @@ set bCheckIPsPassed 1
 set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
+xilinx.com:ip:xlconstant:1.1\
 xilinx.com:ip:axi_gpio:2.0\
 xilinx.com:ip:axi_vdma:6.3\
 xilinx.com:ip:clk_wiz:6.0\
@@ -213,6 +214,15 @@ proc create_root_design { parentCell } {
   set hdmi_hs [ create_bd_port -dir O hdmi_hs ]
   set hdmi_nreset [ create_bd_port -dir O -from 0 -to 0 hdmi_nreset ]
   set hdmi_vs [ create_bd_port -dir O hdmi_vs ]
+
+  # Create instance: Const_GND_0, and set properties
+  set Const_GND_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 Const_GND_0 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {0} \
+ ] $Const_GND_0
+
+  # Create instance: Const_VCC_0, and set properties
+  set Const_VCC_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 Const_VCC_0 ]
 
   # Create instance: axi_gpio_0, and set properties
   set axi_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0 ]
@@ -1078,6 +1088,10 @@ proc create_root_design { parentCell } {
 
   # Create instance: v_tpg_0, and set properties
   set v_tpg_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_tpg:8.0 v_tpg_0 ]
+  set_property -dict [ list \
+   CONFIG.MAX_COLS {1920} \
+   CONFIG.MAX_ROWS {1080} \
+ ] $v_tpg_0
 
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
@@ -1100,6 +1114,8 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net v_tpg_0_m_axis_video [get_bd_intf_pins axi_vdma_0/S_AXIS_S2MM] [get_bd_intf_pins v_tpg_0/m_axis_video]
 
   # Create port connections
+  connect_bd_net -net Const_GND_0_dout [get_bd_pins Const_GND_0/dout] [get_bd_pins v_axi4s_vid_out_0/fid] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_reset]
+  connect_bd_net -net Const_VCC_0_dout [get_bd_pins Const_VCC_0/dout] [get_bd_pins v_axi4s_vid_out_0/aclken] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce]
   connect_bd_net -net axi_gpio_0_gpio_io_o [get_bd_ports hdmi_nreset] [get_bd_pins axi_gpio_0/gpio_io_o]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports hdmi_clk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins rst_video/slowest_sync_clk] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_clk] [get_bd_pins v_tc_0/clk]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins rst_video/ext_reset_in]
