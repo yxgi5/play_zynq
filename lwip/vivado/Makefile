@@ -113,7 +113,7 @@ bitstream: implement
 	@ rm -rf *.jou .Xil *.log .hbs
 
 clean:
-	@ rm -rf *.jou .Xil *.log .hbs
+	@ rm -rf *.jou .Xil *.log .hbs NA
 	
 dist_clean: project_clean
 	@ rm -rf $(PROJ_PATH)/$(PROJ_NAME).runs/synth_1/
