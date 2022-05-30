@@ -1,0 +1,4 @@
+docker exec -it ubuntu_container /bin/bash
+su andy
+cd [workspace]
+source [tcl]
