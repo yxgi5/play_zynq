@@ -59,7 +59,7 @@
 #include "sleep.h"
 #include "video_resolution.h"
 #include "vtiming_gen.h"
-#include "xaxivdma.h"
+//#include "xaxivdma.h"
 #include "PS_i2c.h"
 
 #if defined(__MICROBLAZE__)
@@ -919,6 +919,7 @@ void tpg_config()
     //xil_printf("TPG0 started!\r\n");
 }
 
+#if 0
 void vdma_config(void)
 {
     /* Start of VDMA Configuration */
@@ -966,6 +967,7 @@ void vdma_config(void)
     // MM2S VSIZE register
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x50, height1);
 }
+#endif
 
 /***************************************************************************
 *  This is the main loop of the application
@@ -1112,6 +1114,7 @@ int main(void)
 	{
 		xil_printf("INFO: clock configured \n\r");
 	}
+//    ConfigVtc(&VidStream);// must after clk_wiz init
 
 #ifdef XPAR_XV_FRMBUFRD_NUM_INSTANCES
     /* Configure Frame Buffers */
@@ -1133,7 +1136,7 @@ int main(void)
     ConfigMixer(&VidStream);
     ConfigVtc(&VidStream);
     ConfigTpg(&VidStream);
-    vdma_config();
+//    vdma_config();
 
     xil_printf("Wait for vid out lock: ");
 
