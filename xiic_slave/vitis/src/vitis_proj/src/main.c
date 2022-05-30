@@ -101,6 +101,7 @@ static void ReceiveHandler(XIic *InstancePtr);
 /************************** Variable Definitions *****************************/
 
 XIic IicInstance;		/* The instance of the IIC device. */
+XIicStats IicStatus;
 #if defined (ARMR5) || (__aarch64__) || (__arm__)
 XScuGic InterruptController;
 #else
@@ -117,6 +118,7 @@ volatile u8 ReceiveComplete;
 volatile u8 SlaveRead;
 volatile u8 SlaveWrite;
 volatile u8 SlaveReadWrite;
+volatile u8 SlaveReadBytes;
 
 /************************** Function Definitions *****************************/
 
@@ -430,12 +432,14 @@ int SlaveReadWriteData(void)
     {
         if(SlaveReadWrite==1)
         {
+//        	XIic_GetStats(&IicInstance, &IicStatus);
             XIic_SlaveRecv(&IicInstance, ReadBuffer, RECEIVE_COUNT);
             if(ReceiveComplete)
             {
                 ReceiveComplete = 0;
                 SlaveReadWrite = 0;
-                if(ReadBuffer[0]==0x5a)
+                SlaveReadBytes = IicInstance.Stats.RecvBytes-IicStatus.RecvBytes;
+                if(ReadBuffer[0]==0x5a && (SlaveReadBytes == 1))
                 {
                     for (u8 Index = 0; Index < SEND_COUNT; Index++)
                     {
@@ -446,7 +450,7 @@ int SlaveReadWriteData(void)
         }
         else if(SlaveReadWrite==2)
         {
-            if(ReadBuffer[0]==0x5a)
+            if(ReadBuffer[0]==0x5a && (SlaveReadBytes == 1))
             {
                 XIic_SlaveSend(&IicInstance, WriteBuffer_1, SEND_COUNT);
             }
@@ -458,6 +462,7 @@ int SlaveReadWriteData(void)
             {
                 TransmitComplete = 0;
                 SlaveReadWrite = 0;
+                SlaveReadBytes = 0;
                 memset(ReadBuffer, 0, RECEIVE_COUNT);
             }
         }
@@ -498,6 +503,7 @@ static void StatusHandler(XIic *InstancePtr, int Event)
 		 */
 //		SlaveRead = 1;
 		SlaveReadWrite = 1; // MST write to SLV
+		XIic_GetStats(&IicInstance, &IicStatus);
 	} else {
 		/*
 		 * Its a Read request from the master.
