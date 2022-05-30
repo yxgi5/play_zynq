@@ -135,7 +135,7 @@ set_property PACKAGE_PIN B21 [get_ports {hdmi_d[23]}]
 
 set_property PACKAGE_PIN E20 [get_ports hdmi_de]
 set_property PACKAGE_PIN E19 [get_ports hdmi_hs]
-set_property PACKAGE_PIN C17 [get_ports hdmi_locked]
+set_property PACKAGE_PIN C17 [get_ports hdmi_nreset]
 set_property PACKAGE_PIN F16 [get_ports hdmi_vs]
 set_property PACKAGE_PIN B22 [get_ports hdmi_i2c_scl_io]
 set_property PACKAGE_PIN A22 [get_ports hdmi_i2c_sda_io]
@@ -148,7 +148,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports hdmi_hs]
 set_property IOSTANDARD LVCMOS33 [get_ports {hdmi_d[*]}]
 set_property IOSTANDARD LVCMOS33 [get_ports hdmi_vs]
 
-set_property IOSTANDARD LVCMOS33 [get_ports hdmi_locked]
+set_property IOSTANDARD LVCMOS33 [get_ports hdmi_nreset]
 
 set_property PULLUP true [get_ports hdmi_i2c_scl_io]
 set_property PULLUP true [get_ports hdmi_i2c_sda_io]
