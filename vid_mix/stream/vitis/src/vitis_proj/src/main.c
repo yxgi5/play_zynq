@@ -74,10 +74,10 @@ u32 volatile *gpio_hlsIpReset;
 
 static const XVidC_VideoWindow MixLayerConfig[8] =
 {// X   Y     W    H
-  {732, 10,  720, 480}, //Layer 1
-  {12,  490, 720, 480}, //Layer 2
-  {732, 490, 720, 480}, //Layer 3
-  {600, 10,  128, 128}, //Layer 4
+  {12,  10,  720, 480}, //Layer 1
+  {732, 10,  720, 480}, //Layer 2
+  {12,  490, 720, 480}, //Layer 3
+  {732, 490, 720, 480}, //Layer 4
   {800, 100, 128, 128}, //Layer 5
   {12,  100, 128, 128}, //Layer 6
   {200, 100, 128, 128}, //Layer 7
@@ -521,11 +521,9 @@ int main(void)
 #endif
 
     resetIp();
-#if defined(MASTER_LAYER_EN)
-    tpg_config_0();
-#else
-    XV_tpg_Stop(&tpg_inst0);
-#endif
+
+    tpg_config();
+
     vmix_config();
 //    XV_tpg_Stop(&tpg_inst0);
 
