@@ -44,7 +44,10 @@
 #include "xv_frmbufwr_l2.h"
 #include "xvidc.h"
 #include "xvtc.h"
+#include "xv_tpg.h"
 #include "xgpio.h"
+#include "clk_wiz.h"
+#include "PS_i2c.h"
 
 #if defined(__MICROBLAZE__)
 #define DDR_BASEADDR XPAR_MIG7SERIES_0_BASEADDR
@@ -53,15 +56,19 @@
 #endif
 
 #define XVFRMBUFRD_BUFFER_BASEADDR (DDR_BASEADDR + (0x20000000))
-#define XVFRMBUFWR_BUFFER_BASEADDR (DDR_BASEADDR + (0x21000000))
+#define XVFRMBUFWR_BUFFER_BASEADDR (DDR_BASEADDR + (0x20000000))
 
 #define VIDEO_MONITOR_LOCK_TIMEOUT (1000000)
 #define FRMBUF_IDLE_TIMEOUT (1000000)
 
-#define NUM_TEST_MODES 4
-#define NUM_TEST_FORMATS 26
+//#define NUM_TEST_MODES 4
+#define NUM_TEST_MODES 1
+//#define NUM_TEST_FORMATS 26
+#define NUM_TEST_FORMATS 1
 
 #define CHROMA_ADDR_OFFSET   (0x01000000U)
+
+#define IIC_SCLK_RATE		100000
 
 //mapping between memory and streaming video formats
 typedef struct {
@@ -73,32 +80,33 @@ typedef struct {
 VideoFormats ColorFormats[NUM_TEST_FORMATS] =
 {
   //memory format            stream format        bits per component
-  {XVIDC_CSF_MEM_RGBX8,      XVIDC_CSF_RGB,       8},
-  {XVIDC_CSF_MEM_YUVX8,      XVIDC_CSF_YCRCB_444, 8},
-  {XVIDC_CSF_MEM_YUYV8,      XVIDC_CSF_YCRCB_422, 8},
-  {XVIDC_CSF_MEM_RGBX10,     XVIDC_CSF_RGB,       10},
-  {XVIDC_CSF_MEM_YUVX10,     XVIDC_CSF_YCRCB_444, 10},
-  {XVIDC_CSF_MEM_Y_UV8,      XVIDC_CSF_YCRCB_422, 8},
-  {XVIDC_CSF_MEM_Y_UV8_420,  XVIDC_CSF_YCRCB_420, 8},
-  {XVIDC_CSF_MEM_RGB8,       XVIDC_CSF_RGB,       8},
-  {XVIDC_CSF_MEM_YUV8,       XVIDC_CSF_YCRCB_444, 8},
-  {XVIDC_CSF_MEM_Y_UV10,     XVIDC_CSF_YCRCB_422, 10},
-  {XVIDC_CSF_MEM_Y_UV10_420, XVIDC_CSF_YCRCB_420, 10},
-  {XVIDC_CSF_MEM_Y8,         XVIDC_CSF_YONLY, 8},
-  {XVIDC_CSF_MEM_Y10,        XVIDC_CSF_YONLY, 10},
-  {XVIDC_CSF_MEM_BGRX8,      XVIDC_CSF_RGB,       8},
-  {XVIDC_CSF_MEM_UYVY8,      XVIDC_CSF_YCRCB_422, 8},
-  {XVIDC_CSF_MEM_BGR8,       XVIDC_CSF_RGB,       8},
-  {XVIDC_CSF_MEM_RGBX12,     XVIDC_CSF_RGB,       12},
-  {XVIDC_CSF_MEM_RGB16,      XVIDC_CSF_RGB,       16},
-  {XVIDC_CSF_MEM_YUVX12,     XVIDC_CSF_YCRCB_444, 12},
-  {XVIDC_CSF_MEM_YUV16,      XVIDC_CSF_YCRCB_444, 16},
-  {XVIDC_CSF_MEM_Y_UV12,     XVIDC_CSF_YCRCB_422, 12},
-  {XVIDC_CSF_MEM_Y_UV16,     XVIDC_CSF_YCRCB_422, 16},
-  {XVIDC_CSF_MEM_Y_UV12_420, XVIDC_CSF_YCRCB_420, 12},
-  {XVIDC_CSF_MEM_Y_UV16_420, XVIDC_CSF_YCRCB_420, 16},
-  {XVIDC_CSF_MEM_Y12,        XVIDC_CSF_YONLY, 12},
-  {XVIDC_CSF_MEM_Y16,        XVIDC_CSF_YONLY, 16}
+//  {XVIDC_CSF_MEM_RGBX8,      XVIDC_CSF_RGB,       8},
+//  {XVIDC_CSF_MEM_YUVX8,      XVIDC_CSF_YCRCB_444, 8},
+//  {XVIDC_CSF_MEM_YUYV8,      XVIDC_CSF_YCRCB_422, 8},
+//  {XVIDC_CSF_MEM_RGBX10,     XVIDC_CSF_RGB,       10},
+//  {XVIDC_CSF_MEM_YUVX10,     XVIDC_CSF_YCRCB_444, 10},
+//  {XVIDC_CSF_MEM_Y_UV8,      XVIDC_CSF_YCRCB_422, 8},
+//  {XVIDC_CSF_MEM_Y_UV8_420,  XVIDC_CSF_YCRCB_420, 8},
+//  {XVIDC_CSF_MEM_RGB8,       XVIDC_CSF_RGB,       8},
+//  {XVIDC_CSF_MEM_YUV8,       XVIDC_CSF_YCRCB_444, 8},
+//  {XVIDC_CSF_MEM_Y_UV10,     XVIDC_CSF_YCRCB_422, 10},
+//  {XVIDC_CSF_MEM_Y_UV10_420, XVIDC_CSF_YCRCB_420, 10},
+//  {XVIDC_CSF_MEM_Y8,         XVIDC_CSF_YONLY, 8},
+//  {XVIDC_CSF_MEM_Y10,        XVIDC_CSF_YONLY, 10},
+//  {XVIDC_CSF_MEM_BGRX8,      XVIDC_CSF_RGB,       8},
+//  {XVIDC_CSF_MEM_UYVY8,      XVIDC_CSF_YCRCB_422, 8},
+//  {XVIDC_CSF_MEM_BGR8,       XVIDC_CSF_RGB,       8},
+//  {XVIDC_CSF_MEM_RGBX12,     XVIDC_CSF_RGB,       12},
+//  {XVIDC_CSF_MEM_RGB16,      XVIDC_CSF_RGB,       16},
+//  {XVIDC_CSF_MEM_YUVX12,     XVIDC_CSF_YCRCB_444, 12},
+//  {XVIDC_CSF_MEM_YUV16,      XVIDC_CSF_YCRCB_444, 16},
+//  {XVIDC_CSF_MEM_Y_UV12,     XVIDC_CSF_YCRCB_422, 12},
+//  {XVIDC_CSF_MEM_Y_UV16,     XVIDC_CSF_YCRCB_422, 16},
+//  {XVIDC_CSF_MEM_Y_UV12_420, XVIDC_CSF_YCRCB_420, 12},
+//  {XVIDC_CSF_MEM_Y_UV16_420, XVIDC_CSF_YCRCB_420, 16},
+//  {XVIDC_CSF_MEM_Y12,        XVIDC_CSF_YONLY, 12},
+//  {XVIDC_CSF_MEM_Y16,        XVIDC_CSF_YONLY, 16}
+	{XVIDC_CSF_MEM_RGB8,       XVIDC_CSF_RGB,       8}
 };
 
 XV_FrmbufRd_l2     frmbufrd;
@@ -106,12 +114,16 @@ XV_frmbufrd_Config frmbufrd_cfg;
 XV_FrmbufWr_l2     frmbufwr;
 XV_frmbufwr_Config frmbufwr_cfg;
 XVtc       vtc;
+XV_tpg     tpg;
 #if defined(__MICROBLAZE__)
 XIntc      intc;
 #else
 XScuGic    intc;
 #endif
 XGpio      vmon;
+XGpio hdmi_reset;
+XIicPs psiic_inst;
+XClk_Wiz clk_wiz_inst;
 
 XVidC_VideoStream VidStream;
 
@@ -139,6 +151,7 @@ static int ConfigFrmbuf(u32 StrideInBytes,
                          XVidC_ColorFormat Cfmt,
                          XVidC_VideoStream *StreamPtr);
 static void ConfigVtc(XVidC_VideoStream *StreamPtr);
+static void ConfigTpg(XVidC_VideoStream *StreamPtr);
 static int ValidateTestCase(u16 PixPerClk,
                             XVidC_VideoMode Mode,
                             u16 DataWidth,
@@ -281,6 +294,12 @@ static int DriverInit(void)
     return(XST_FAILURE);
   }
 
+  Status = XV_tpg_Initialize(&tpg, XPAR_V_TPG_0_DEVICE_ID);
+  if(Status != XST_SUCCESS) {
+    xil_printf("ERROR:: TPG device not found\r\n");
+    return(XST_FAILURE);
+  }
+
   Status = XVFrmbufRd_Initialize(&frmbufrd, XPAR_V_FRMBUF_RD_0_DEVICE_ID);
   if(Status != XST_SUCCESS) {
     xil_printf("ERROR:: Frame Buffer Read initialization failed\r\n");
@@ -339,6 +358,39 @@ static void ConfigVtc(XVidC_VideoStream *StreamPtr)
   XVtc_EnableGenerator(&vtc);
   XVtc_RegUpdateEnable(&vtc);
   xil_printf("INFO: VTC configured\r\n");
+}
+
+/*****************************************************************************/
+/**
+ * This function configures TPG for defined mode
+ *
+ * @return none
+ *
+ *****************************************************************************/
+static void ConfigTpg(XVidC_VideoStream *StreamPtr)
+{
+  //Stop TPG
+  XV_tpg_DisableAutoRestart(&tpg);
+
+  XV_tpg_Set_height(&tpg, StreamPtr->Timing.VActive);
+  XV_tpg_Set_width(&tpg, StreamPtr->Timing.HActive);
+  XV_tpg_Set_colorFormat(&tpg, StreamPtr->ColorFormatId);
+//  XV_tpg_Set_bckgndId(&tpg, XTPG_BKGND_SOLID_GREEN);
+  XV_tpg_Set_bckgndId(&tpg, XTPG_BKGND_COLOR_BARS);
+  XV_tpg_Set_ovrlayId(&tpg, 0);
+
+  // Set Overlay to moving box
+  // Set the size of the box
+  XV_tpg_Set_boxSize(&tpg, 50);
+  // Set the speed of the box
+  XV_tpg_Set_motionSpeed(&tpg, 1);
+  // Enable the moving box
+  XV_tpg_Set_ovrlayId(&tpg, 1);
+
+  //Start TPG
+  XV_tpg_EnableAutoRestart(&tpg);
+  XV_tpg_Start(&tpg);
+  xil_printf("INFO: TPG configured\r\n");
 }
 
 /*****************************************************************************/
@@ -644,15 +696,48 @@ int main(void)
 
   XVidC_VideoMode TestModes[NUM_TEST_MODES] =
   {
-    XVIDC_VM_720_60_P,
-    XVIDC_VM_1080_60_P,
-    XVIDC_VM_UHD_30_P,
-    XVIDC_VM_UHD_60_P
+//    XVIDC_VM_720_60_P,
+//    XVIDC_VM_1080_60_P,
+//    XVIDC_VM_UHD_30_P,
+//    XVIDC_VM_UHD_60_P
+    XVIDC_VM_1080_60_P
   };
 
   init_platform();
 
   xil_printf("Start Frame Buffer Example Design Test\r\n");
+
+  i2c_init(&psiic_inst, XPAR_XIICPS_0_DEVICE_ID, IIC_SCLK_RATE);
+  XGpio_Initialize(&hdmi_reset, XPAR_AXI_GPIO_0_DEVICE_ID);   //initialize GPIO IP
+  XGpio_SetDataDirection(&hdmi_reset, 1, 0x0);            //set GPIO as output
+  XGpio_DiscreteWrite(&hdmi_reset, 1, 0x0);               //set GPIO output value to 0
+  usleep(50000);
+  XGpio_DiscreteWrite(&hdmi_reset, 1, 0x1);
+  i2c_reg8_write(&psiic_inst, 0x72 >> 1, 0x08, 0x35);
+  i2c_reg8_write(&psiic_inst, 0x7a >> 1, 0x2f, 0x00);
+  // sil9134 in yuv422 out rgb
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x30); // csc select
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x3c);
+
+  // sil9134 in yuv422 out yuv422
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x20);
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x00);
+
+  // sil9134 in yuv422 out yuv444
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x20);
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x14);
+
+  // sil9134 in yuv444 out rgb
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x10);
+  //i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x38);
+
+  Status = XClk_Wiz_dynamic_reconfig(&clk_wiz_inst, XPAR_CLK_WIZ_0_DEVICE_ID);
+  if(Status != XST_SUCCESS)
+  {
+      xil_printf("XClk_Wiz0 dynamic reconfig failed.\r\n");
+//      return XST_FAILURE;
+  }
+  xil_printf("XClk_Wiz0 dynamic reconfig ok\n\r");
 
   /* Setup Reset line and video lock monitor */
   gpio_hlsIpReset = (u32*)XPAR_HLS_IP_RESET_BASEADDR;
@@ -739,16 +824,19 @@ int main(void)
                             &VidStream);
 
         ConfigFrmbuf(stride, Cfmt, &VidStream);
+        ConfigTpg(&VidStream);
 
         xil_printf("Wait for vid out lock: ");
         Lock = CheckVidoutLock();
-        Overflow = CheckVidinOverflow();
-        if(Lock && !Overflow) {
+//        Overflow = CheckVidinOverflow();
+//        if(Lock && !Overflow) {
+        if(Lock) {
           ++PassCount;
         } else {
           ++FailCount;
         }
 
+        while(1);
         resetIp();
         if(XVMonitor_IsVideoLocked(&vmon)) {
           xil_printf("ERROR:: Video should not be locked\r\n");
