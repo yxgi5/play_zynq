@@ -118,7 +118,7 @@ void tpg_config_0(void)
     XV_tpg_Start(&tpg_inst0);
     //xil_printf("TPG started!\r\n");
 }
-
+#if 0
 void tpg_config_1(void)
 {
     u32 Status;
@@ -196,14 +196,14 @@ void tpg_config_3(void)
     XV_tpg_Start(&tpg_inst3);
     //xil_printf("TPG started!\r\n");
 }
-
+#endif
 
 void tpg_config(void)
 {
     tpg_config_0();
-    tpg_config_1();
-    tpg_config_2();
-    tpg_config_3();
+//    tpg_config_1();
+//    tpg_config_2();
+//    tpg_config_3();
 }
 
 void vdma_config_0(void)
@@ -252,7 +252,53 @@ void vdma_config_0(void)
 //    // MM2S VSIZE register
 //    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x50, height1);
 }
+void vdma_config_1(void)
+{
+    /* Start of VDMA Configuration */
+    u32 bytePerPixels = 3;
+//    int offset0 = 0; // (y*w+x)*Bpp
+    int offset1 = 0; // (y*w+x)*Bpp
 
+//    u32 stride0 = 1920;
+//    u32 width0 = 1920;
+//    u32 height0 = 1080;
+    u32 stride1 = 1920;  // crop keeps write Stride
+    u32 width1 = 1920;
+    u32 height1 = 1080;
+
+//    /* Configure the Write interface (S2MM)*/
+//    // S2MM Control Register
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x30, 0x8B);
+//    //S2MM Start Address 1
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0xAC, FRAME_BUFFER_1 + offset0);
+//    //S2MM Start Address 2
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0xB0, FRAME_BUFFER_2 + offset0);
+//    //S2MM Start Address 3
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0xB4, FRAME_BUFFER_3 + offset0);
+//    //S2MM Frame delay / Stride register
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0xA8, stride0 * bytePerPixels);
+//    // S2MM HSIZE register
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0xA4, width0 * bytePerPixels);
+//    // S2MM VSIZE register
+//    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0xA0, height0);
+
+    /* Configure the Read interface (MM2S)*/
+    // MM2S Control Register
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x00, 0x83);
+    // MM2S Start Address 1
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x5C, FRAME_BUFFER_1 + offset1);
+    // MM2S Start Address 2
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x60, FRAME_BUFFER_2 + offset1);
+    // MM2S Start Address 3
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x64, FRAME_BUFFER_3 + offset1);
+    // MM2S Frame delay / Stride register
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x58, stride1 * bytePerPixels);
+    // MM2S HSIZE register
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x54, width1 * bytePerPixels);
+    // MM2S VSIZE register
+    Xil_Out32(XPAR_AXI_VDMA_1_BASEADDR + 0x50, height1);
+}
+#if 0
 void vdma_config_1(void)
 {
     /* Start of VDMA Configuration */
@@ -442,14 +488,14 @@ void vdma_config_4(void)
 
     Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x00, 0x8B);
 }
-
+#endif
 void vdma_config(void)
 {
-//	vdma_config_0();
-//	vdma_config_1();
+	vdma_config_0();
+	vdma_config_1();
 //	vdma_config_2();
 //	vdma_config_3();
-	vdma_config_4();
+//	vdma_config_4();
 }
 
 void XV_tpg_Stop(XV_tpg *InstancePtr) {
