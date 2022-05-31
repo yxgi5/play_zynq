@@ -1066,7 +1066,7 @@ proc create_root_design { parentCell } {
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {10} \
+   CONFIG.NUM_MI {12} \
  ] $ps7_0_axi_periph
 
   # Create instance: rst_ps7_0_200M, and set properties
@@ -1093,15 +1093,12 @@ proc create_root_design { parentCell } {
    CONFIG.BG_COLOR0 {0} \
    CONFIG.BG_COLOR1 {0} \
    CONFIG.BG_COLOR2 {0} \
-   CONFIG.HAS_AXI4_LITE {false} \
-   CONFIG.LAYER0_ENABLE {true} \
    CONFIG.LAYER0_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER0_HEIGHT {480} \
    CONFIG.LAYER0_HORIZONTAL_START_POSITION {20} \
    CONFIG.LAYER0_PRIORITY {0} \
    CONFIG.LAYER0_VERTICAL_START_POSITION {20} \
    CONFIG.LAYER0_WIDTH {720} \
-   CONFIG.LAYER1_ENABLE {true} \
    CONFIG.LAYER1_GLOBAL_ALPHA_ENABLE {true} \
    CONFIG.LAYER1_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER1_HEIGHT {480} \
@@ -1109,7 +1106,6 @@ proc create_root_design { parentCell } {
    CONFIG.LAYER1_PRIORITY {1} \
    CONFIG.LAYER1_VERTICAL_START_POSITION {20} \
    CONFIG.LAYER1_WIDTH {720} \
-   CONFIG.LAYER2_ENABLE {true} \
    CONFIG.LAYER2_GLOBAL_ALPHA_ENABLE {true} \
    CONFIG.LAYER2_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER2_HEIGHT {480} \
@@ -1117,7 +1113,6 @@ proc create_root_design { parentCell } {
    CONFIG.LAYER2_PRIORITY {2} \
    CONFIG.LAYER2_VERTICAL_START_POSITION {520} \
    CONFIG.LAYER2_WIDTH {720} \
-   CONFIG.LAYER3_ENABLE {true} \
    CONFIG.LAYER3_GLOBAL_ALPHA_ENABLE {true} \
    CONFIG.LAYER3_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER3_HEIGHT {480} \
@@ -1125,7 +1120,6 @@ proc create_root_design { parentCell } {
    CONFIG.LAYER3_PRIORITY {3} \
    CONFIG.LAYER3_VERTICAL_START_POSITION {520} \
    CONFIG.LAYER3_WIDTH {720} \
-   CONFIG.LAYER4_ENABLE {false} \
    CONFIG.LAYER4_GLOBAL_ALPHA_ENABLE {false} \
    CONFIG.LAYER4_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER4_HEIGHT {720} \
@@ -1133,7 +1127,6 @@ proc create_root_design { parentCell } {
    CONFIG.LAYER4_PRIORITY {3} \
    CONFIG.LAYER4_VERTICAL_START_POSITION {0} \
    CONFIG.LAYER4_WIDTH {1280} \
-   CONFIG.LAYER5_ENABLE {false} \
    CONFIG.LAYER5_GLOBAL_ALPHA_ENABLE {false} \
    CONFIG.LAYER5_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER5_HEIGHT {720} \
@@ -1141,7 +1134,6 @@ proc create_root_design { parentCell } {
    CONFIG.LAYER5_PRIORITY {3} \
    CONFIG.LAYER5_VERTICAL_START_POSITION {0} \
    CONFIG.LAYER5_WIDTH {1280} \
-   CONFIG.LAYER6_ENABLE {false} \
    CONFIG.LAYER6_GLOBAL_ALPHA_ENABLE {false} \
    CONFIG.LAYER6_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER6_HEIGHT {720} \
@@ -1149,7 +1141,6 @@ proc create_root_design { parentCell } {
    CONFIG.LAYER6_PRIORITY {3} \
    CONFIG.LAYER6_VERTICAL_START_POSITION {0} \
    CONFIG.LAYER6_WIDTH {1280} \
-   CONFIG.LAYER7_ENABLE {false} \
    CONFIG.LAYER7_GLOBAL_ALPHA_ENABLE {false} \
    CONFIG.LAYER7_GLOBAL_ALPHA_VALUE {256} \
    CONFIG.LAYER7_HEIGHT {720} \
@@ -1244,16 +1235,17 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_IIC_0 [get_bd_intf_ports hdmi_i2c] [get_bd_intf_pins processing_system7_0/IIC_0]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins axi_vdma_0/S_AXI_LITE] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins axis_passthrough_mon_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins ps7_0_axi_periph/M00_AXI] [get_bd_intf_pins v_tpg_0/s_axi_CTRL]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins ps7_0_axi_periph/M01_AXI] [get_bd_intf_pins v_osd_0/ctrl]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins clk_wiz_0/s_axi_lite] [get_bd_intf_pins ps7_0_axi_periph/M03_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M04_AXI [get_bd_intf_pins ps7_0_axi_periph/M04_AXI] [get_bd_intf_pins v_tc_0/ctrl]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M05_AXI [get_bd_intf_pins ps7_0_axi_periph/M05_AXI] [get_bd_intf_pins v_tpg_0/s_axi_CTRL]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M05_AXI [get_bd_intf_pins ps7_0_axi_periph/M05_AXI] [get_bd_intf_pins video_lock_monitor/S_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M06_AXI [get_bd_intf_pins ps7_0_axi_periph/M06_AXI] [get_bd_intf_pins v_tpg_1/s_axi_CTRL]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M07_AXI [get_bd_intf_pins ps7_0_axi_periph/M07_AXI] [get_bd_intf_pins v_tpg_2/s_axi_CTRL]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M08_AXI [get_bd_intf_pins ps7_0_axi_periph/M08_AXI] [get_bd_intf_pins v_tpg_3/s_axi_CTRL]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M09_AXI [get_bd_intf_pins ps7_0_axi_periph/M09_AXI] [get_bd_intf_pins video_lock_monitor/S_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M09_AXI [get_bd_intf_pins axi_vdma_0/S_AXI_LITE] [get_bd_intf_pins ps7_0_axi_periph/M09_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M10_AXI [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M10_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M11_AXI [get_bd_intf_pins axis_passthrough_mon_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M11_AXI]
   connect_bd_intf_net -intf_net smartconnect_0_M00_AXI [get_bd_intf_pins processing_system7_0/S_AXI_HP0] [get_bd_intf_pins smartconnect_0/M00_AXI]
   connect_bd_intf_net -intf_net v_osd_0_video_out [get_bd_intf_pins axi_vdma_0/S_AXIS_S2MM] [get_bd_intf_pins v_osd_0/video_out]
   connect_bd_intf_net -intf_net v_tc_0_vtiming_out [get_bd_intf_pins v_axi4s_vid_out_0/vtiming_in] [get_bd_intf_pins v_tc_0/vtiming_out]
@@ -1270,9 +1262,9 @@ proc create_root_design { parentCell } {
   connect_bd_net -net axi_vdma_0_s2mm_introut [get_bd_pins axi_vdma_0/s2mm_introut] [get_bd_pins xlconcat_0/In7]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_ports hdmi_clk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins rst_video/slowest_sync_clk] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_clk] [get_bd_pins v_tc_0/clk]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins rst_video/ext_reset_in]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins axi_vdma_0/m_axi_s2mm_aclk] [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins axi_vdma_0/s_axis_s2mm_aclk] [get_bd_pins axis_passthrough_mon_0/aclk] [get_bd_pins axis_passthrough_mon_0/s00_axi_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clk_wiz_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/M06_ACLK] [get_bd_pins ps7_0_axi_periph/M07_ACLK] [get_bd_pins ps7_0_axi_periph/M08_ACLK] [get_bd_pins ps7_0_axi_periph/M09_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_200M/slowest_sync_clk] [get_bd_pins smartconnect_0/aclk] [get_bd_pins v_axi4s_vid_out_0/aclk] [get_bd_pins v_osd_0/aclk] [get_bd_pins v_tc_0/s_axi_aclk] [get_bd_pins v_tpg_0/ap_clk] [get_bd_pins v_tpg_1/ap_clk] [get_bd_pins v_tpg_2/ap_clk] [get_bd_pins v_tpg_3/ap_clk] [get_bd_pins video_lock_monitor/s_axi_aclk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins axi_vdma_0/m_axi_s2mm_aclk] [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins axi_vdma_0/s_axis_s2mm_aclk] [get_bd_pins axis_passthrough_mon_0/aclk] [get_bd_pins axis_passthrough_mon_0/s00_axi_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clk_wiz_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/M06_ACLK] [get_bd_pins ps7_0_axi_periph/M07_ACLK] [get_bd_pins ps7_0_axi_periph/M08_ACLK] [get_bd_pins ps7_0_axi_periph/M09_ACLK] [get_bd_pins ps7_0_axi_periph/M10_ACLK] [get_bd_pins ps7_0_axi_periph/M11_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_200M/slowest_sync_clk] [get_bd_pins smartconnect_0/aclk] [get_bd_pins v_axi4s_vid_out_0/aclk] [get_bd_pins v_osd_0/aclk] [get_bd_pins v_osd_0/s_axi_aclk] [get_bd_pins v_tc_0/s_axi_aclk] [get_bd_pins v_tpg_0/ap_clk] [get_bd_pins v_tpg_1/ap_clk] [get_bd_pins v_tpg_2/ap_clk] [get_bd_pins v_tpg_3/ap_clk] [get_bd_pins video_lock_monitor/s_axi_aclk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_200M/ext_reset_in]
-  connect_bd_net -net rst_ps7_0_200M_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins axis_passthrough_mon_0/aresetn] [get_bd_pins axis_passthrough_mon_0/s00_axi_aresetn] [get_bd_pins clk_wiz_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/M06_ARESETN] [get_bd_pins ps7_0_axi_periph/M07_ARESETN] [get_bd_pins ps7_0_axi_periph/M08_ARESETN] [get_bd_pins ps7_0_axi_periph/M09_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_200M/peripheral_aresetn] [get_bd_pins smartconnect_0/aresetn] [get_bd_pins v_axi4s_vid_out_0/aresetn] [get_bd_pins v_osd_0/aresetn] [get_bd_pins v_tc_0/s_axi_aresetn] [get_bd_pins v_tpg_0/ap_rst_n] [get_bd_pins v_tpg_1/ap_rst_n] [get_bd_pins v_tpg_2/ap_rst_n] [get_bd_pins v_tpg_3/ap_rst_n] [get_bd_pins video_lock_monitor/s_axi_aresetn]
+  connect_bd_net -net rst_ps7_0_200M_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins axis_passthrough_mon_0/aresetn] [get_bd_pins axis_passthrough_mon_0/s00_axi_aresetn] [get_bd_pins clk_wiz_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/M06_ARESETN] [get_bd_pins ps7_0_axi_periph/M07_ARESETN] [get_bd_pins ps7_0_axi_periph/M08_ARESETN] [get_bd_pins ps7_0_axi_periph/M09_ARESETN] [get_bd_pins ps7_0_axi_periph/M10_ARESETN] [get_bd_pins ps7_0_axi_periph/M11_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_200M/peripheral_aresetn] [get_bd_pins smartconnect_0/aresetn] [get_bd_pins v_axi4s_vid_out_0/aresetn] [get_bd_pins v_osd_0/aresetn] [get_bd_pins v_osd_0/s_axi_aresetn] [get_bd_pins v_tc_0/s_axi_aresetn] [get_bd_pins v_tpg_0/ap_rst_n] [get_bd_pins v_tpg_1/ap_rst_n] [get_bd_pins v_tpg_2/ap_rst_n] [get_bd_pins v_tpg_3/ap_rst_n] [get_bd_pins video_lock_monitor/s_axi_aresetn]
   connect_bd_net -net rst_video_peripheral_aresetn [get_bd_pins rst_video/peripheral_aresetn] [get_bd_pins v_tc_0/resetn]
   connect_bd_net -net v_axi4s_vid_out_0_locked [get_bd_pins v_axi4s_vid_out_0/locked] [get_bd_pins video_lock_monitor/gpio_io_i]
   connect_bd_net -net v_axi4s_vid_out_0_vid_active_video [get_bd_ports hdmi_de] [get_bd_pins v_axi4s_vid_out_0/vid_active_video]
@@ -1280,6 +1272,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net v_axi4s_vid_out_0_vid_hsync [get_bd_ports hdmi_hs] [get_bd_pins v_axi4s_vid_out_0/vid_hsync]
   connect_bd_net -net v_axi4s_vid_out_0_vid_vsync [get_bd_ports hdmi_vs] [get_bd_pins v_axi4s_vid_out_0/vid_vsync]
   connect_bd_net -net v_axi4s_vid_out_0_vtg_ce [get_bd_pins v_axi4s_vid_out_0/vtg_ce] [get_bd_pins v_tc_0/gen_clken]
+  connect_bd_net -net v_osd_0_irq [get_bd_pins v_osd_0/irq] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net v_tc_0_irq [get_bd_pins v_tc_0/irq] [get_bd_pins xlconcat_0/In5]
   connect_bd_net -net v_tpg_0_interrupt [get_bd_pins v_tpg_0/interrupt] [get_bd_pins xlconcat_0/In1]
   connect_bd_net -net v_tpg_1_interrupt [get_bd_pins v_tpg_1/interrupt] [get_bd_pins xlconcat_0/In2]
@@ -1294,6 +1287,7 @@ proc create_root_design { parentCell } {
   assign_bd_address -offset 0x43000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_vdma_0/S_AXI_LITE/Reg] -force
   assign_bd_address -offset 0x43C70000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axis_passthrough_mon_0/S00_AXI/S00_AXI_reg] -force
   assign_bd_address -offset 0x43C00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs clk_wiz_0/s_axi_lite/Reg] -force
+  assign_bd_address -offset 0x43C10000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs v_osd_0/ctrl/Reg] -force
   assign_bd_address -offset 0x43C20000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs v_tc_0/ctrl/Reg] -force
   assign_bd_address -offset 0x43C30000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs v_tpg_0/s_axi_CTRL/Reg] -force
   assign_bd_address -offset 0x43C40000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs v_tpg_1/s_axi_CTRL/Reg] -force

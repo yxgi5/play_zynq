@@ -263,10 +263,84 @@ void XV_tpg_Stop(XV_tpg *InstancePtr) {
     XV_tpg_WriteReg(InstancePtr->Config.BaseAddress, XV_TPG_CTRL_ADDR_AP_CTRL, Data &~ 0x01);
 }
 
+void osd_config(void)
+{
+    u32 reg;
+
+    // sw reset
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR, STB(reg, BIT32(31)));
+
+	// REG_UPDATE_EN,  SW_ENABLE
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR, reg | 0x03);
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR);
+
+	// Output Active Size
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR+0x0020);
+	reg = ((1080&0xfff) << 16) + ((1920&0xfff) << 0);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0020, reg);
+
+	// component depth 8-bit, Output Video Format RGB
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR+0x0028);
+	reg = ((0&0x3) << 4) + ((2&0xf) << 0);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0028, reg);
+
+	// OSD Background Color channel G
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0100, 0&0xff);
+	// OSD Background Color channel B
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0104, 0&0xff);
+	// OSD Background Color channel R
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0108, 0&0xff);
+
+	// Layer 0 Alpha 255, Layer 0 Priority 0 (Lowest), Layer 0 Alpha Enable, Layer 0 Enable
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR+0x0110);
+	reg = ((255&0xff)<<16) + ((0&0x7)<<8) + 0x2 + 0x1;
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0110, reg);
+	// Layer 0 Position, Y and X
+	reg = ((20&0xfff)<<16)+(20&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0114, reg);
+	// Layer 0 Size, H and W
+	reg = ((480&0xfff)<<16)+(720&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0118, reg);
+
+	// Layer 1 Alpha 255, Layer 0 Priority 1, Layer 1 Alpha Enable, Layer 1 Enable
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR+0x0110);
+	reg = ((255&0xff)<<16) + ((1&0x7)<<8) + 0x2 + 0x1;
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0120, reg);
+	// Layer 1 Position, Y and X
+	reg = ((20&0xfff)<<16)+(800&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0124, reg);
+	// Layer 1 Size, H and W
+	reg = ((480&0xfff)<<16)+(720&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0128, reg);
+
+	// Layer 2 Alpha 255, Layer 1 Priority 2, Layer 2 Alpha Enable, Layer 2 Enable
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR+0x0110);
+	reg = ((255&0xff)<<16) + ((2&0x7)<<8) + 0x2 + 0x1;
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0130, reg);
+	// Layer 2 Position, Y and X
+	reg = ((520&0xfff)<<16)+(20&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0134, reg);
+	// Layer 2 Size, H and W
+	reg = ((480&0xfff)<<16)+(720&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0138, reg);
+
+	// Layer 3 Alpha 255, Layer 3 Priority 3, Layer 3 Alpha Enable, Layer 3 Enable
+	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR+0x0110);
+	reg = ((255&0xff)<<16) + ((3&0x7)<<8) + 0x2 + 0x1;
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0140, reg);
+	// Layer 3 Position, Y and X
+	reg = ((520&0xfff)<<16)+(800&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0144, reg);
+	// Layer 3 Size, H and W
+	reg = ((480&0xfff)<<16)+(720&0xfff);
+	Xil_Out32(XPAR_V_OSD_0_BASEADDR+0x0148, reg);
+}
+
 int main(void)
 {
     int Status;
-    u32 reg;
 
     XVidC_ColorFormat Cfmt;
 
@@ -299,10 +373,7 @@ int main(void)
     clkwiz_vtc_cfg();
     tpg_config();
     vdma_config();
-
-//    reg = Xil_In32(XPAR_V_OSD_0_BASEADDR);
-//	Xil_Out32(XPAR_V_OSD_0_BASEADDR, reg | 0x03);
-//	reg = Xil_In32(XPAR_V_OSD_0_BASEADDR);
+    osd_config();
 
     while(1)
     {
