@@ -42,17 +42,13 @@
 #define DDR_BASEADDR XPAR_DDR_MEM_BASEADDR
 #endif
 
-#define XVFRMBUFRD_BUFFER_BASEADDR (DDR_BASEADDR + (0x20000000))
-#define XVFRMBUFWR_BUFFER_BASEADDR (DDR_BASEADDR + (0x20000000))
+#define XVFRMBUFRD_BUFFER_BASEADDR (DDR_BASEADDR + (0x10000000))
+#define XVFRMBUFWR_BUFFER_BASEADDR (DDR_BASEADDR + (0x10000000))
 #define CHROMA_ADDR_OFFSET   (0x01000000U)
-#define VIDEO_MONITOR_LOCK_TIMEOUT (1000000)
 #define FRMBUF_IDLE_TIMEOUT (1000000)
 #define NUM_FORMATS 26
 
 //#define USR_FRAME_BUF_BASEADDR     	(DDR_BASEADDR + (0x20000000))
-
-#define XVMonitor_IsVideoLocked(GpioPtr) (XGpio_DiscreteRead(GpioPtr, 1))
-//#define XVMonitor_DidVideoOverflow(GpioPtr) (XGpio_DiscreteRead(GpioPtr, 2))
 
 //mapping between memory and streaming video formats
 typedef struct {
@@ -99,7 +95,6 @@ XScuGic intc;
 #endif
 
 XGpio hdmi_reset;
-XGpio      vmon;
 XIicPs psiic_inst;
 XV_tpg tpg_inst0;
 XV_tpg tpg_inst1;
@@ -171,12 +166,12 @@ void tpg_config(void)
     // tpg
     //xil_printf("TPG Initializing\n\r");
 
-//    Status = XV_tpg_Initialize(&tpg_inst0, XPAR_V_TPG_0_DEVICE_ID);
-//    if(Status != XST_SUCCESS)
-//    {
-//        xil_printf("TPG0 configuration failed\r\n");
-////      return(XST_FAILURE);
-//    }
+    Status = XV_tpg_Initialize(&tpg_inst0, XPAR_V_TPG_0_DEVICE_ID);
+    if(Status != XST_SUCCESS)
+    {
+        xil_printf("TPG0 configuration failed\r\n");
+//      return(XST_FAILURE);
+    }
 
     //Configure the TPG
     tpg_cfg(&tpg_inst0, 1080, 1920, colorFmtIn, bckgndId);
@@ -514,51 +509,22 @@ static int ConfigFrmbuf(u32 StrideInBytes,
   return(Status);
 }
 
-/*****************************************************************************/
-/**
- * This function checks Video Out lock status
- *
- * @return T/F
- *
- *****************************************************************************/
-static int CheckVidoutLock(void)
-{
-  int Status = FALSE;
-  int Lock = FALSE;
-  u32 Timeout;
-
-  Timeout = VIDEO_MONITOR_LOCK_TIMEOUT;
-
-  usleep(1000000); //wait
-
-  while(!Lock && Timeout) {
-    if(XVMonitor_IsVideoLocked(&vmon)) {
-      xil_printf("Locked\r\n");
-      Lock = TRUE;
-      Status = TRUE;
-    }
-    --Timeout;
-  }
-
-  if(!Timeout) {
-      xil_printf("<ERROR:: Not Locked>\r\n\r\n");
-  }
-  return(Status);
-}
 
 int main(void)
 {
     int Status;
     int valid;
     int stride;
-//    int Lock = FALSE;
-    XGpio_Config *GpioCfgPtr;
-    XVtc_Config *VtcConfig;
 
     XVidC_ColorFormat Cfmt;
     XVidC_VideoTiming const *TimingPtr;
 
     init_platform();
+    /* Setup Reset line and video lock monitor */
+    gpio_hlsIpReset = (u32*)XPAR_HLS_IP_RESET_BASEADDR;
+    /* Release reset line */
+    *gpio_hlsIpReset = 1;
+
 
     i2c_init(&psiic_inst, XPAR_XIICPS_0_DEVICE_ID, IIC_SCLK_RATE);
     XGpio_Initialize(&hdmi_reset, XPAR_AXI_GPIO_0_DEVICE_ID);   //initialize GPIO IP
@@ -584,18 +550,7 @@ int main(void)
     //i2c_reg8_write(&IicInstance,0x72>>1,0x48,0x10);
     //i2c_reg8_write(&IicInstance,0x72>>1,0x4a,0x38);
 
-    Status = XClk_Wiz_dynamic_reconfig(&clk_wiz_inst, XPAR_CLK_WIZ_0_DEVICE_ID);
-    if(Status != XST_SUCCESS)
-    {
-        xil_printf("XClk_Wiz0 dynamic reconfig failed.\r\n");
-  //      return XST_FAILURE;
-    }
-    xil_printf("XClk_Wiz0 dynamic reconfig ok\n\r");
-
-    /* Setup Reset line and video lock monitor */
-    gpio_hlsIpReset = (u32*)XPAR_HLS_IP_RESET_BASEADDR;
-    /* Release reset line */
-    *gpio_hlsIpReset = 1;
+    clkwiz_vtc_cfg();
 
     Status = SetupInterrupts();
 	if (Status == XST_FAILURE)
@@ -604,22 +559,6 @@ int main(void)
 		xil_printf("ERROR:: Test could not be completed\r\n");
 		return(1);
 	}
-
-    // vtc configuration
-    VtcConfig = XVtc_LookupConfig(XPAR_VTC_0_DEVICE_ID);
-    Status = XVtc_CfgInitialize(&vtc_inst, VtcConfig, VtcConfig->BaseAddress);
-    if(Status != XST_SUCCESS)
-    {
-        xil_printf("VTC0 Initialization failed %d\r\n", Status);
-        return(XST_FAILURE);
-    }
-
-    Status = XV_tpg_Initialize(&tpg_inst0, XPAR_V_TPG_0_DEVICE_ID);
-    if(Status != XST_SUCCESS)
-    {
-        xil_printf("TPG0 configuration failed\r\n");
-        return(XST_FAILURE);
-    }
 
 	Status = XVFrmbufRd_Initialize(&frmbufrd, XPAR_V_FRMBUF_RD_0_DEVICE_ID);
     if(Status != XST_SUCCESS)
@@ -633,22 +572,6 @@ int main(void)
     {
         xil_printf("ERROR:: Frame Buffer Write initialization failed\r\n");
         return (1);
-    }
-
-    //Video Lock Monitor
-    GpioCfgPtr = XGpio_LookupConfig(XPAR_VIDEO_LOCK_MONITOR_DEVICE_ID);
-    if(GpioCfgPtr == NULL) {
-      xil_printf("ERROR:: Video Lock Monitor GPIO device not found\r\n");
-      return(XST_FAILURE);
-    }
-
-    Status = XGpio_CfgInitialize(&vmon,
-                                 GpioCfgPtr,
-                                 GpioCfgPtr->BaseAddress);
-    if(Status != XST_SUCCESS)  {
-      xil_printf("ERROR:: Video Lock Monitor GPIO Initialization failed %d\r\n",
-                 Status);
-      return(XST_FAILURE);
     }
 
     /* Enable exceptions. */
@@ -666,13 +589,6 @@ int main(void)
 
     resetIp();
 
-    /* Sanity check */
-    if(XVMonitor_IsVideoLocked(&vmon)) {
-      xil_printf("ERROR:: Video should not be locked\r\n");
-      xil_printf("ERROR:: Test could not be completed\r\n");
-      return(1);
-    }
-
     Cfmt = XVIDC_CSF_MEM_RGB8;
     VidStream.ColorFormatId = XVIDC_CSF_RGB;
     VidStream.VmId = XVIDC_VM_1080_60_P;
@@ -682,36 +598,29 @@ int main(void)
     valid = ValidateTestCase(frmbufwr.FrmbufWr.Config.PixPerClk,
                              XVIDC_VM_1080_60_P,
                              frmbufwr.FrmbufWr.Config.MaxDataWidth,
-							 ColorFormats[7]);
-    if (valid)
-    {
-		/* Get mode timing parameters */
-		TimingPtr = XVidC_GetTimingInfo(VidStream.VmId);
-		VidStream.Timing = *TimingPtr;
-		VidStream.FrameRate = XVidC_GetFrameRate(VidStream.VmId);
+                             ColorFormat);
+    /* Get mode timing parameters */
+    TimingPtr = XVidC_GetTimingInfo(VidStream.VmId);
+    VidStream.Timing = *TimingPtr;
+    VidStream.FrameRate = XVidC_GetFrameRate(VidStream.VmId);
 
-		xil_printf("\r\n********************************************\r\n");
-		xil_printf("Test Input Stream: %s (%s)\r\n",
-				   XVidC_GetVideoModeStr(VidStream.VmId),
-				   XVidC_GetColorFormatStr(Cfmt));
-		xil_printf("********************************************\r\n");
+    xil_printf("\r\n********************************************\r\n");
+    xil_printf("Test Input Stream: %s (%s)\r\n",
+               XVidC_GetVideoModeStr(VidStream.VmId),
+               XVidC_GetColorFormatStr(Cfmt));
+    xil_printf("********************************************\r\n");
 
-		vtiming_gen_run(&vtc_inst, VIDEO_RESOLUTION_1080P, 2);
+    /* Configure Frame Buffer */
+    stride = CalcStride(Cfmt,
+                        frmbufwr.FrmbufWr.Config.AXIMMDataWidth,
+                        &VidStream);
 
-		/* Configure Frame Buffer */
-		stride = CalcStride(Cfmt,
-							frmbufwr.FrmbufWr.Config.AXIMMDataWidth,
-							&VidStream);
+    ConfigFrmbuf(stride, Cfmt, &VidStream);
 
-		ConfigFrmbuf(stride, Cfmt, &VidStream);
-
-		tpg_config();
-		CheckVidoutLock();
-    }
+    tpg_config();
 
     while(1)
     {
-
         asm("NOP");
     }
 
