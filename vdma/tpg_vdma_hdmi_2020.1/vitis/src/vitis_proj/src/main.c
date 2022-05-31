@@ -110,33 +110,58 @@ void vdma_config(void)
 
     /* Configure the Write interface (S2MM)*/
     // S2MM Control Register
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x30, 0x8B);
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x30, 0x8B);
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x30, 0x04); // reset
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x30, 0x08); // genlock
     //S2MM Start Address 1
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xAC, FRAME_BUFFER_1 + offset0);
     //S2MM Start Address 2
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xB0, FRAME_BUFFER_2 + offset0);
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xB0, FRAME_BUFFER_2 + offset0);
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xAC + 4, FRAME_BUFFER_2 + offset0);
     //S2MM Start Address 3
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xB4, FRAME_BUFFER_3 + offset0);
-    //S2MM Frame delay / Stride register
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xA8, stride0*bytePerPixels);
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xAC + 8, FRAME_BUFFER_3 + offset0);
+//    //S2MM Start Address 4
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xB8, FRAME_BUFFER_4 + offset0);
+//     //S2MM Start Address 5
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xBC, FRAME_BUFFER_5 + offset0);
+//    //S2MM Start Address 6
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xC0, FRAME_BUFFER_6 + offset0);
+//    //S2MM Start Address 7
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xC4, FRAME_BUFFER_7 + offset0);
+//    //S2MM Start Address 8
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xC8, FRAME_BUFFER_8 + offset0);
+//    //S2MM Start Address 9
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xCC, FRAME_BUFFER_9 + offset0);
+//    //S2MM Start Address 10
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xD0, FRAME_BUFFER_10 + offset0);
+    // ...
     // S2MM HSIZE register
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xA4, width0*bytePerPixels);
+    //S2MM Frame delay / Stride register
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xA8, stride0*bytePerPixels);
+    //S2MM Control Register
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x30, 0x03);
     // S2MM VSIZE register
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0xA0, height0);
 
     /* Configure the Read interface (MM2S)*/
     // MM2S Control Register
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x00, 0x8B);
+//    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x00, 0x8B);
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x00, 0x04); // reset
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x00, 0x08); // genlock
     // MM2S Start Address 1
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x5C, FRAME_BUFFER_1 + offset1);
     // MM2S Start Address 2
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x60, FRAME_BUFFER_2 + offset1);
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x5C + 4, FRAME_BUFFER_2 + offset1);
     // MM2S Start Address 3
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x64, FRAME_BUFFER_3 + offset1);
-    // MM2S Frame delay / Stride register
-    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x58, stride1*bytePerPixels);
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x5C + 8, FRAME_BUFFER_3 + offset1);
+    // ...
     // MM2S HSIZE register
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x54, width1*bytePerPixels);
+    // MM2S Frame delay / Stride register
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x58, stride1*bytePerPixels);
+    //S2MM Control Register
+    Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x00, 0x03);
     // MM2S VSIZE register
     Xil_Out32(XPAR_AXI_VDMA_0_BASEADDR + 0x50, height1);
 }
