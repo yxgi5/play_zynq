@@ -426,7 +426,8 @@ void vdma_config_4(void)
 
     /* Configure the Read interface (MM2S)*/
     // MM2S Control Register
-    Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x00, 0x8B);
+//    Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x00, 0x8B);
+    Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x00, 0x83); // there should be no genlock as there is no S2MM
     // MM2S Start Address 1
     Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x5C, FRAME_BUFFER_1 + offset1);
     // MM2S Start Address 2
@@ -439,16 +440,14 @@ void vdma_config_4(void)
     Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x54, width1 * bytePerPixels);
     // MM2S VSIZE register
     Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x50, height1);
-
-    Xil_Out32(XPAR_AXI_VDMA_4_BASEADDR + 0x00, 0x8B);
 }
 
 void vdma_config(void)
 {
-//	vdma_config_0();
-//	vdma_config_1();
-//	vdma_config_2();
-//	vdma_config_3();
+	vdma_config_0();
+	vdma_config_1();
+	vdma_config_2();
+	vdma_config_3();
 	vdma_config_4();
 }
 
