@@ -508,8 +508,13 @@ static int ConfigFrmbuf(u32 StrideInInBytes,
   }
 
   /* Enable Interrupt */
-  XVFrmbufRd_InterruptEnable(&frmbufrd, XVFRMBUFRD_IRQ_DONE_MASK);
-  XVFrmbufWr_InterruptEnable(&frmbufwr, XVFRMBUFRD_IRQ_DONE_MASK);
+//  XVFrmbufRd_InterruptEnable(&frmbufrd, XVFRMBUFRD_IRQ_DONE_MASK);
+//  XVFrmbufWr_InterruptEnable(&frmbufwr, XVFRMBUFWR_IRQ_DONE_MASK);
+
+
+  /* Enable Auto Restart */
+  XVFrmbufRd_InterruptDisable(&frmbufrd, XVFRMBUFRD_IRQ_DONE_MASK);
+  XVFrmbufWr_InterruptDisable(&frmbufwr, XVFRMBUFWR_IRQ_DONE_MASK);
 
   /* Start Frame Buffers */
   XVFrmbufWr_Start(&frmbufwr);
@@ -565,13 +570,13 @@ int main(void)
 
     clkwiz_vtc_cfg();
 
-    Status = SetupInterrupts();
-	if (Status == XST_FAILURE)
-	{
-		xil_printf("ERROR:: Interrupt Setup Failed\r\n");
-		xil_printf("ERROR:: Test could not be completed\r\n");
-		return(1);
-	}
+//    Status = SetupInterrupts();
+//	if (Status == XST_FAILURE)
+//	{
+//		xil_printf("ERROR:: Interrupt Setup Failed\r\n");
+//		xil_printf("ERROR:: Test could not be completed\r\n");
+//		return(1);
+//	}
 
 	Status = XVFrmbufRd_Initialize(&frmbufrd, XPAR_V_FRMBUF_RD_0_DEVICE_ID);
     if(Status != XST_SUCCESS)
@@ -587,8 +592,8 @@ int main(void)
         return (1);
     }
 
-    /* Enable exceptions. */
-    Xil_ExceptionEnable();
+//    /* Enable exceptions. */
+//    Xil_ExceptionEnable();
 
     XVFrmbufRd_SetCallback(&frmbufrd, XVFRMBUFRD_HANDLER_DONE, XVFrameBufferRdCallback,
           (void *)&frmbufrd);
