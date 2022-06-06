@@ -44,6 +44,7 @@ stats.txt
 *.bz2
 *.gz
 *.tar
+.Xil
 
 #
 # Top-level generic files
@@ -51,8 +52,13 @@ stats.txt
 
 vitis/.Xil
 vitis/sdk_workspace
+vitis/Packages
+vitis/output
 vivado/.Xil
 vivado/vivado_proj
 vivado/bd/myproj
 vivado/runhls.tcl
+vivado/Packages
+vivado/NA
+vivado/ip_cache/*
 __pycache__
