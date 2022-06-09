@@ -48,6 +48,11 @@
 #define FRMBUF_IDLE_TIMEOUT (1000000)
 #define NUM_FORMATS 26
 
+#if defined (USE_REG_ACCESS)
+#define WIDTH_IN 960
+#define HEIGHT_IN 540
+#endif
+
 //#define USR_FRAME_BUF_BASEADDR     	(DDR_BASEADDR + (0x20000000))
 
 //mapping between memory and streaming video formats
@@ -154,9 +159,29 @@ u32 volatile *gpio_hlsIpReset;
  *****************************************************************************/
 void resetIp(void)
 {
-
+#if !defined (USE_REG_ACCESS)
   /* Stop Frame Buffer and wait for IDLE */
   XVFrmbufWr_Stop(&frmbufwr);
+  XVFrmbufRd_Stop(&frmbufwr);
+#else
+  u32 cnt = 0;
+  u32 Register;
+  Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x00, 0);
+  Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x00, 0);
+  Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x00, 0x20);
+  Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x00, 0x20);
+  do
+  {
+  	Register=Xil_In32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0);
+  	cnt++;
+  } while((CHB(Register,BIT32(6))==0) && (cnt < 1000000));
+  cnt = 0;
+  do
+  {
+  	Register=Xil_In32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0);
+  	cnt++;
+  } while((CHB(Register,BIT32(6))==1) && (cnt < 1000000));
+#endif
 
   xil_printf("\r\nReset HLS IP \r\n");
   *gpio_hlsIpReset = 0;  //reset IPs
@@ -205,8 +230,11 @@ void tpg_config(void)
     }
 
     //Configure the TPG
+#if !defined (USE_REG_ACCESS)
     tpg_cfg(&tpg_inst0, VidStreamIn.Timing.VActive, VidStreamIn.Timing.HActive, VidStreamIn.ColorFormatId, bckgndId);
-
+#else
+	tpg_cfg(&tpg_inst0, HEIGHT_IN, WIDTH_IN, colorFmtIn, bckgndId);
+#endif
     //Configure the moving box of the TPG0
     tpg_box(&tpg_inst0, 25, 1);
 
@@ -483,11 +511,13 @@ static int ConfigFrmbuf(u32 StrideInInBytes,
   int Status;
 
   /* Stop Frame Buffers */
+#if defined (RESET_IP_EN)
   XVFrmbufRd_Stop(&frmbufrd);
   XVFrmbufWr_Stop(&frmbufwr);
   resetIp();
   XVFrmbufWr_WaitForIdle(&frmbufwr);
   XVFrmbufRd_WaitForIdle(&frmbufrd);
+#endif
 
   /* Configure Frame Buffers */
   Status = XVFrmbufRd_SetMemFormat(&frmbufrd, StrideOutInBytes, CfmtOut, StreamOutPtr);
@@ -600,6 +630,7 @@ int main(void)
 
     clkwiz_vtc_cfg();
 
+#if !defined (USE_REG_ACCESS)
 //    Status = SetupInterrupts();
 //	if (Status == XST_FAILURE)
 //	{
@@ -632,11 +663,11 @@ int main(void)
 //    /* Enable exceptions. */
 //    Xil_ExceptionEnable();
 
-    XVFrmbufRd_SetCallback(&frmbufrd, XVFRMBUFRD_HANDLER_DONE, XVFrameBufferRdCallback,
-          (void *)&frmbufrd);
-
-    XVFrmbufWr_SetCallback(&frmbufwr, XVFRMBUFWR_HANDLER_DONE, XVFrameBufferWrCallback,
-          (void *)&frmbufwr);
+//    XVFrmbufRd_SetCallback(&frmbufrd, XVFRMBUFRD_HANDLER_DONE, XVFrameBufferRdCallback,
+//          (void *)&frmbufrd);
+//
+//    XVFrmbufWr_SetCallback(&frmbufwr, XVFRMBUFWR_HANDLER_DONE, XVFrameBufferWrCallback,
+//          (void *)&frmbufwr);
 
     /* Setup default streams */
     VidStreamIn.PixPerClk  = frmbufwr.FrmbufWr.Config.PixPerClk;
@@ -644,7 +675,9 @@ int main(void)
     VidStreamOut.PixPerClk  = frmbufrd.FrmbufRd.Config.PixPerClk;
     VidStreamOut.ColorDepth = frmbufrd.FrmbufRd.Config.MaxDataWidth;
 
+#if defined (RESET_IP_EN)
     resetIp();
+#endif
 
     CfmtIn = XVIDC_CSF_MEM_RGB8;
     CfmtOut = XVIDC_CSF_MEM_RGB8;
@@ -684,6 +717,56 @@ int main(void)
                             &VidStreamOut);
 
     ConfigFrmbuf(strideOut, CfmtIn, &VidStreamIn, strideOut, CfmtOut, &VidStreamOut);
+#else
+
+
+    u32 Register;
+    u32 cnt = 0;
+#if defined (RESET_IP_EN)
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x00, 0);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x00, 0);
+
+    resetIp();
+
+    do
+    {
+    	Register=Xil_In32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0);
+    	cnt++;
+    } while((CHB(Register,BIT32(2))!=1) && (cnt < 1000000));
+    cnt = 0;
+    do
+    {
+    	Register=Xil_In32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0);
+    	cnt++;
+    } while((CHB(Register,BIT32(2))!=1) && (cnt < 1000000));
+#endif
+
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x10, WIDTH_IN);
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x18, HEIGHT_IN);
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x20, 1920*3);
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x28, XVIDC_CSF_MEM_RGB8);
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x30, XVFRMBUFWR_BUFFER_BASEADDR); // Addr%(2*PPC*4Bytes)==0
+    Register=Xil_In32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x08);
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x08, Register & (~0x01));
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x04, 0);
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x00, 0x80);
+    Register=Xil_In32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x00);
+
+
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x10, 1920);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x18, 1080);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x20, 1920*3);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x28, XVIDC_CSF_MEM_RGB8);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x30, XVFRMBUFRD_BUFFER_BASEADDR); // Addr%(2*PPC*4Bytes)==0
+    Register=Xil_In32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x08);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x08, Register & (~0x01));
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x04, 0);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x00, 0x80);
+    Register=Xil_In32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x00);
+
+    Xil_Out32(XPAR_V_FRMBUF_WR_0_S_AXI_CTRL_BASEADDR + 0x00, (Register & 0x80) | 0x01);
+    Xil_Out32(XPAR_V_FRMBUF_RD_0_S_AXI_CTRL_BASEADDR + 0x00, (Register & 0x80) | 0x01);
+#endif
 
     tpg_config();
 
