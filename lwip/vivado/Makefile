@@ -35,7 +35,7 @@
 #******************************************************************************
 #uname_O := $(shell sh -c 'uname -o 2>/dev/null || echo not')
 
-RTL_SRC ?= 
+RTL_SRC ?= hdl
 BD_SRC ?= bd/system.tcl
 XDC_SRC ?= xdc/system.xdc
 IP_SRC ?= ip_repo
