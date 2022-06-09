@@ -88,6 +88,36 @@ VideoFormats ColorFormats[NUM_FORMATS] =
   {XVIDC_CSF_MEM_Y16,        XVIDC_CSF_YONLY, 16}
 };
 
+/* Assign Mode ID Enumeration. First entry Must be > XVIDC_VM_CUSTOM */
+typedef enum {
+	XVIDC_VM_1280x3840_30_P = (XVIDC_VM_CUSTOM + 1),
+	XVIDC_VM_320x960_30_P,
+	XVIDC_VM_1920x2160_30_P,
+	XVIDC_VM_960x1080_30_P,
+	XVIDC_VM_960x540_60_P,
+    XVIDC_CM_NUM_SUPPORTED
+} XVIDC_CUSTOM_MODES;
+
+/* Create entry for each mode in the custom table */
+const XVidC_VideoTimingMode XVidC_MyVideoTimingMode[(XVIDC_CM_NUM_SUPPORTED - (XVIDC_VM_CUSTOM + 1))] =
+{
+    { XVIDC_VM_1280x3840_30_P, "1280x3840@30Hz", XVIDC_FR_30HZ,
+        {1280, 110, 40, 220, 1650, 1,
+        		3840, 5, 5, 20, 3870, 0, 0, 0, 0, 1} },
+    { XVIDC_VM_320x960_30_P, "320x960@30Hz", XVIDC_FR_30HZ,
+        {320, 10, 10, 10, 350, 1,
+        		960, 5, 5, 10, 980, 0, 0, 0, 0, 1} },
+    { XVIDC_VM_1920x2160_30_P, "1920x2160@30Hz", XVIDC_FR_30HZ,
+		{1920, 10, 10, 10, 1950, 1,
+				2160, 5, 5, 10, 2180, 0, 0, 0, 0, 1} },
+	{ XVIDC_VM_960x1080_30_P, "960x1080@30Hz", XVIDC_FR_30HZ,
+		{960, 10, 10, 10, 990, 1,
+				1080, 5, 5, 10, 1100, 0, 0, 0, 0, 1} },
+    { XVIDC_VM_960x540_60_P, "960x540@60Hz", XVIDC_FR_60HZ,
+		{960, 10, 10, 10, 990, 1,
+				540, 5, 5, 10, 560, 0, 0, 0, 0, 1} }
+};
+
 #if defined (__MICROBLAZE__)
 XIntc intc;
 #else
@@ -175,7 +205,7 @@ void tpg_config(void)
     }
 
     //Configure the TPG
-    tpg_cfg(&tpg_inst0, 480, 720, colorFmtIn, bckgndId);
+    tpg_cfg(&tpg_inst0, VidStreamIn.Timing.VActive, VidStreamIn.Timing.HActive, VidStreamIn.ColorFormatId, bckgndId);
 
     //Configure the moving box of the TPG0
     tpg_box(&tpg_inst0, 25, 1);
@@ -578,6 +608,13 @@ int main(void)
 //		return(1);
 //	}
 
+    Status = XVidC_RegisterCustomTimingModes(XVidC_MyVideoTimingMode, (XVIDC_CM_NUM_SUPPORTED - (XVIDC_VM_CUSTOM + 1)));
+    if(Status != XST_SUCCESS)
+	{
+		xil_printf("ERROR:: Register Custom Timing Modes failed\r\n");
+		return (1);
+	}
+
 	Status = XVFrmbufRd_Initialize(&frmbufrd, XPAR_V_FRMBUF_RD_0_DEVICE_ID);
     if(Status != XST_SUCCESS)
     {
@@ -613,7 +650,9 @@ int main(void)
     CfmtOut = XVIDC_CSF_MEM_RGB8;
     VidStreamIn.ColorFormatId = XVIDC_CSF_RGB;
     VidStreamOut.ColorFormatId = XVIDC_CSF_RGB;
-    VidStreamIn.VmId = XVIDC_VM_720x480_60_P;
+//    VidStreamIn.VmId = XVIDC_VM_720x480_60_P;
+//    VidStreamIn.VmId = XVIDC_VM_320x960_30_P;
+    VidStreamIn.VmId = XVIDC_VM_960x540_60_P;
     VidStreamOut.VmId = XVIDC_VM_1080_60_P;
 
     VideoFormats ColorFormat={XVIDC_CSF_MEM_RGB8, XVIDC_CSF_RGB, 8};
