@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source /opt/Xilinx/Vitis/2020.2/settings64.sh
+#source /opt/Xilinx/Vivado/2020.2/settings64.sh
+source setenv.sh
 
 top=$PWD
 
