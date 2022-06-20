@@ -85,9 +85,9 @@ fi
 if [ $RM_LVL -ge 3 ]; then
 #echo "hahah3"
     if [ $RM_METHOD -eq 0 ]; then
-        rm -rf ./ip_cache
+        rm -rf ./ip_cache/*
     else
-        gio trash ./ip_cache
+        gio trash ./ip_cache/*
     fi
 fi
 

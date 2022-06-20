@@ -10,7 +10,8 @@
 
 CSC, Scale, Deinterlace all in one.
 
-vpss full fledged has a buildin vdma!
+vpss(full-fledged) has a buildin-vdma!
 
-VPSS functions CSC, Scale, Deinterlace, PIP. How about PIP usage?
+vpss(full-fledged) before custom-vdma is NOT going to work correctly! replace with simpler options. eg. scale-only+csc
 
+vpss(full-fledged) after custom-vdma works!
