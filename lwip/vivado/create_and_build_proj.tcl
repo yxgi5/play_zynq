@@ -1,3 +1,16 @@
+################################################################
+# Check if script is running in correct Vivado version.
+################################################################
+#set scripts_vivado_version "2018.1 2018.2 2018.3 2019.1 2019.2 2020.1 2020.2 2021.1"
+#set current_vivado_version [version -short]
+#
+#if { [string first $current_vivado_version $scripts_vivado_version] == -1 } {
+#   puts "The version $current_vivado_version is not supported"
+#   catch {common::send_msg_id "BD_TCL-109" "ERROR" "This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."}
+#
+#   return 1
+#}
+
 # Configuration - Can be modified by the user
 set project_name vivado_proj
 set BD_name system
