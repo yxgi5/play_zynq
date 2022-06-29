@@ -10,7 +10,7 @@
 
 tpg: 1080p, RGB888
 
-vpss out: 1080p60, YUV422
+vpss out: 1080p60, YUV422(XVIDC_CSF_YCBCR_422)
 
 注意 create_proj.tcl 加载 ip_repo 的相对路径
 

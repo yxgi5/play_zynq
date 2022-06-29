@@ -117,7 +117,7 @@ void XV_ConfigTpg(XV_tpg *InstancePtr)
   xil_printf("the width is %d.\r\n",XV_tpg_Get_width(pTpg));
 
 //  XV_tpg_Set_colorFormat(pTpg, XVIDC_CSF_RGB);
-  XV_tpg_Set_colorFormat(pTpg, XVIDC_CSF_YCRCB_444);
+  XV_tpg_Set_colorFormat(pTpg, XVIDC_CSF_YCBCR_444);
   XV_tpg_Set_bckgndId(pTpg, XTPG_BKGND_COLOR_BARS);
   //XV_tpg_Set_bckgndId(pTpg, Pattern);
   XV_tpg_Set_ovrlayId(pTpg, 0);

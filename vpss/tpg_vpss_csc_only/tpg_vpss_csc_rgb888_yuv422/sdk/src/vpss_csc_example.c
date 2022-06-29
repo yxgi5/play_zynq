@@ -40,7 +40,7 @@ XAxiVdma     vdma;
 
 //Video In parameter
 int Width = 1920, Height = 1080;
-//XVidC_ColorFormat colorFmtIn = XVIDC_CSF_YCRCB_422;
+//XVidC_ColorFormat colorFmtIn = XVIDC_CSF_YCBCR_422;
 XVidC_ColorFormat colorFmtIn = XVIDC_CSF_RGB;
 #define VDMA_ID          		XPAR_AXIVDMA_0_DEVICE_ID
 #define VDMA_BASE_ADDR 			0x08000000
@@ -171,7 +171,7 @@ int main()
 	//Set the input stream
 	StreamOut.VmId           = resId;
 	StreamOut.Timing         = *TimingPtr;
-	StreamOut.ColorFormatId  = XVIDC_CSF_YCRCB_422;
+	StreamOut.ColorFormatId  = XVIDC_CSF_YCBCR_422;
 	StreamOut.ColorDepth     = VprocCfgPtr->ColorDepth;
 	StreamOut.PixPerClk      = VprocCfgPtr->PixPerClock;
 	StreamOut.FrameRate      = XVIDC_FR_60HZ;
