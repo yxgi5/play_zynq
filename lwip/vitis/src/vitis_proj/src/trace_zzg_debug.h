@@ -2,13 +2,13 @@
  * trace_zzg_debug.h
  *
  *  Created on: Dec 21, 2018
- *      Author: alex
+ *      Author: Andreas Zhang
  */
 
 #ifndef TRACE_ZZG_DEBUG_H_
 #define TRACE_ZZG_DEBUG_H_
 
-#define _DEBUG_TRACE_ZZG_ 1
+#define _DEBUG_TRACE_ZZG_ 3
 #if 0 != _DEBUG_TRACE_ZZG_
 //	#include "stdio.h"
 	#include "xil_printf.h"

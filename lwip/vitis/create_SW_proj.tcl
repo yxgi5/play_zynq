@@ -124,6 +124,7 @@ domain active ${domain_name}
 #bsp listparams -os
 #bsp listparams -proc
 #bsp listparams -lib xilisf
+bsp setlib -name xilffs
 #bsp setlib -name lwip211 -ver 1.3
 bsp setlib -name lwip211
 bsp listparams -lib lwip211
