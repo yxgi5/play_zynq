@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source /opt/Xilinx/Vivado/2020.1/settings64.sh
+#source /opt/Xilinx/Vivado/xxx/settings64.sh
+source setenv.sh
 
 exit | source clean.sh -b -d
 

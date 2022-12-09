@@ -1,6 +1,4 @@
 #
-# Vitis v2020.1 (64-bit)
-#
 # create_SW_proj.tcl: Tcl script for re-creating project
 #
 
@@ -48,6 +46,9 @@ getws
 #puts "platform create -name ${platform_name} -hw ${hardware_name} -proc ${processor_name} -os ${os_name}"
 #platform create -name ${platform_name} -hw ${hardware_name} -proc ${processor_name} -os ${os_name}
 #platform write
+#puts "platform create -name ${platform_name} -hw ${hardware_name} -arch ${arch}"
+#platform create -name ${platform_name} -hw ${hardware_name} -arch ${arch}
+#platform write
 puts "platform create -name ${platform_name} -hw ${hardware_name}"
 platform create -name ${platform_name} -hw ${hardware_name}
 
@@ -80,6 +81,12 @@ domain create -name ${domain_name} -os ${os_name} -proc ${processor_name}
 #platform active
 # Add the specified directory to the platform repository
 repo -add-platforms ${project_path}/${platform_name}
+platform generate -domains
+platform active ${platform_name}
+domain active ${domain_name}
+#platform write
+
+
 # Set active domain
 #domain active ${domain_name}
 # Get active domain name
@@ -109,13 +116,19 @@ repo -add-platforms ${project_path}/${platform_name}
 #domain active {zynqmp_pmufw}
 #bsp config stdin psu_uart_1
 #bsp config stdout psu_uart_1
-#domain active ${domain_name}
+
+domain active ${domain_name}
 #bsp config stdin axi_uartlite_0
 #bsp config stdout axi_uartlite_0
+#bsp config stdin processer_ss_axi_uartlite_0
+#bsp config stdout processer_ss_axi_uartlite_0
 
 #bsp listparams -os
 #bsp listparams -proc
 #bsp listparams -lib xilisf
+#bsp setlib -name xilffs
+#bsp config fs_interface 2
+#bsp setlib -name lwip211 -ver 1.3
 #bsp setlib -name lwip211
 #bsp listparams -lib lwip211
 #bsp config mem_size 134217728
@@ -126,6 +139,7 @@ repo -add-platforms ${project_path}/${platform_name}
 ##bsp config pbuf_pool_size 4096
 #bsp config tcp_snd_buf 65536
 #bsp config tcp_wnd 8192
+#bsp listparams -lib lwip211
 
 #importprojects ${project_path}/${platform_name}
 
@@ -139,7 +153,8 @@ bsp setdriver -ip psu_dp -driver dppsu -ver 1.2
 bsp regenerate
 
 #puts "Build platform project"
-platform generate
+platform write
+#platform generate
 
 #creating empty application
 #sdk createapp -name ${project_name}_app -hwproject hw_0 -proc ps7_cortexa9_0 -os standalone -lang C -app {Empty Application} -bsp ${project_name}_bsp
@@ -176,6 +191,7 @@ platform generate
 #puts "app create -name ${project_name2} -platform ${platform_name} -domain ${domain_name} -proc ${processor_name} -os ${os_name} -template {Empty Application}"
 #app create -name ${project_name2} -platform ${platform_name} -domain ${domain_name} -proc ${processor_name} -os ${os_name} -template {Empty Application}
 puts "app create -name ${project_name} -platform ${platform_name} -domain ${domain_name} -proc ${processor_name} -os ${os_name} -template {Empty Application}"
+#app create -name hello -platform ${platform_name} -domain ${domain_name} -proc ${processor_name} -os ${os_name} -template {Hello World}
 app create -name ${project_name} -platform ${platform_name} -domain ${domain_name} -proc ${processor_name} -os ${os_name} -template {Empty Application}
 
 #importe the app src files for old SDK
@@ -183,6 +199,8 @@ app create -name ${project_name} -platform ${platform_name} -domain ${domain_nam
 
 #app config -name ${bootloader1_name} define-compiler-symbols FSBL_DEBUG
 #app config -name ${bootloader2_name} define-compiler-symbols FSBL_DEBUG
+#app config -name ${project_name} -add libraries m
+app config -name ${project_name} -set linker-misc {-Wl,-Map,${ProjName}.map}
 
 #importe the app src files
 puts "importe the app src files"

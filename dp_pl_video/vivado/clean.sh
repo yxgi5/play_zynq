@@ -53,11 +53,23 @@ if [ $RM_LVL -ge 1 ]; then
         rm -rf ./*.jou
         rm -rf ./*.log
         rm -rf ./Packages
+        rm -rf ./NA
+		rm -rf ./vivado_proj/.Xil
+        rm -rf ./vivado_proj/*.jou
+        rm -rf ./vivado_proj/*.log
+        rm -rf ./vivado_proj/Packages
+        rm -rf ./vivado_proj/NA
     else
         gio trash ./.Xil
         gio trash ./*.jou
         gio trash ./*.log
         gio trash ./Packages
+        gio trash ./NA
+		gio trash ./vivado_proj/.Xil
+        gio trash ./vivado_proj/*.jou
+        gio trash ./vivado_proj/*.log
+        gio trash ./vivado_proj/Packages
+        gio trash ./vivado_proj/NA
     fi
 fi
 
@@ -73,9 +85,9 @@ fi
 if [ $RM_LVL -ge 3 ]; then
 #echo "hahah3"
     if [ $RM_METHOD -eq 0 ]; then
-        rm -rf ./ip_cache
+        rm -rf ./ip_cache/*
     else
-        gio trash ./ip_cache
+        gio trash ./ip_cache/*
     fi
 fi
 

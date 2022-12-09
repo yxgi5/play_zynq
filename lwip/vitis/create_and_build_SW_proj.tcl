@@ -120,14 +120,17 @@ domain active ${domain_name}
 #domain active ${domain_name}
 #bsp config stdin axi_uartlite_0
 #bsp config stdout axi_uartlite_0
+#bsp config stdin processer_ss_axi_uartlite_0
+#bsp config stdout processer_ss_axi_uartlite_0
 
 #bsp listparams -os
 #bsp listparams -proc
 #bsp listparams -lib xilisf
 bsp setlib -name xilffs
+#bsp config fs_interface 2
 #bsp setlib -name lwip211 -ver 1.3
 bsp setlib -name lwip211
-bsp listparams -lib lwip211
+#bsp listparams -lib lwip211
 #bsp config mem_size 134217728
 #bsp config memp_n_pbuf 4096
 #bsp config memp_n_tcp_pcb 1024
@@ -136,6 +139,7 @@ bsp listparams -lib lwip211
 ##bsp config pbuf_pool_size 4096
 #bsp config tcp_snd_buf 65536
 #bsp config tcp_wnd 8192
+#bsp listparams -lib lwip211
 
 #importprojects ${project_path}/${platform_name}
 
@@ -196,6 +200,7 @@ app create -name ${project_name} -platform ${platform_name} -domain ${domain_nam
 #app config -name ${bootloader1_name} define-compiler-symbols FSBL_DEBUG
 #app config -name ${bootloader2_name} define-compiler-symbols FSBL_DEBUG
 #app config -name ${project_name} -add libraries m
+app config -name ${project_name} -set linker-misc {-Wl,-Map,${ProjName}.map}
 
 #importe the app src files
 puts "importe the app src files"
