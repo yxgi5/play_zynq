@@ -7,7 +7,7 @@ set ip_cache_path [pwd]/ip_cache
 set current_vivado_version [version -short]
 
 # Create a new project
-create_project $project_name ./$project_name -part xc7z020clg484-2
+create_project $project_name ./$project_name -part xc7z020clg484-2s
 set_property target_language Verilog [current_project]
 
 # Create 'sources_1' fileset (if not found)
@@ -64,7 +64,7 @@ make_wrapper -files [get_files ./$project_name/$project_name.srcs/sources_1/bd/$
 
 # Add the wrapper to the fileset
 set obj [get_filesets sources_1]
-if { [string first $current_vivado_version "2020.2 2021.1"] != -1 } {
+if { [string first $current_vivado_version "2020.2 2021.1 2021.2 2022.1"] != -1 } {
 	#set files [list "[file normalize [glob "./$project_name/$project_name.gen/sources_1/bd/$BD_name/hdl/${BD_name}_wrapper.v"]]"]
     set files [list "[file normalize [glob "./$project_name/$project_name.gen/sources_1/bd/$BD_name/hdl/*_wrapper*"]]"]
 } elseif { [string first $current_vivado_version "2018.1 2018.2 2018.3 2019.1 2019.2 2020.1"] != -1 } {

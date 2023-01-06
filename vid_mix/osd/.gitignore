@@ -1,0 +1,71 @@
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# command after changing this file, to see if there are
+# any tracked files which get ignored after the change.
+#
+# Normal rules
+#
+.*
+*.o
+*.o.*
+*.a
+*.s
+*.ko
+*.so
+*.so.dbg
+*.mod.c
+*.i
+*.lst
+*.symtypes
+*.order
+*.elf
+*.bin
+*.gz
+*.bz2
+*.lzma
+*.xz
+*.lz4
+*.lzo
+*.patch
+*.gcno
+modules.builtin
+Module.symvers
+*.dwo
+*.jou
+*.log
+stats.txt
+*.7z
+*.rar
+*.zip
+*.bz2
+*.gz
+*.tar
+.Xil
+
+#
+# Top-level generic files
+#
+
+vitis/.Xil
+vitis/sdk_workspace
+vitis/Packages
+vitis/output
+vivado/.Xil
+vivado/vivado_proj
+vivado/bd/myproj
+vivado/runhls.tcl
+vivado/Packages
+vivado/NA
+vivado/ip_cache/*
+__pycache__
+
+# except for .gitkeep
+!.gitkeep
+# except for .gitignore
+!.gitignore
+
+

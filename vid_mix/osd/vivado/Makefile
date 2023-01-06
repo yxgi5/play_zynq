@@ -35,7 +35,7 @@
 #******************************************************************************
 #uname_O := $(shell sh -c 'uname -o 2>/dev/null || echo not')
 
-RTL_SRC ?= 
+RTL_SRC ?= hdl
 BD_SRC ?= bd/system.tcl
 XDC_SRC ?= xdc/system.xdc
 IP_SRC ?= ip_repo
@@ -80,7 +80,8 @@ project: $(BD_SRC) $(XDC_SRC)
 #	@ [ -a ./ip_cache ] && echo exists || echo not exists
 #	@ if [ -a ./ip_cache ]; then echo exists; else echo not exists; fi;
 #	@ if ! [ -a ./ip_cache ]; then echo not exists; else echo exists; fi;
-	@ if ! [ -a ip_cache ]; then echo ip_cache does not exists; mkdir ip_cache; touch ip_cache/.gitkeep; else echo ip_cache does exist; fi;
+#	@ [ ! -a ./ip_cache ] && echo ip_cache does not exists; mkdir ip_cache; touch ip_cache/.gitkeep; || echo ip_cache does exist;
+	@ if ! [ -a ./ip_cache ]; then echo ip_cache does not exists; mkdir ip_cache; touch ip_cache/.gitkeep; else echo ip_cache does exist; fi;
 	@ if [ -a $(PROJ_PATH) ]; then echo -e project folder does exist; else \
 	vivado -mode batch -source scripts/create_proj.tcl -tclargs "$(PROJ_PATH)" "$(PROJ_NAME)" "$(PART)" "$(BD_SRC)" "$(XDC_SRC)" "$(IP_SRC)" \
 	"$(RTL_SRC)" "$(INC_DIR0)"  "${BOARD}"; rm -rf *.jou .Xil *.log; \
