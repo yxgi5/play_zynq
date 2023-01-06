@@ -7,7 +7,7 @@ set ip_cache_path [pwd]/ip_cache
 set current_vivado_version [version -short]
 
 # Create a new project
-create_project $project_name ./$project_name -part xc7z020clg484-2s
+create_project $project_name ./$project_name -part xc7z020clg484-2
 set_property target_language Verilog [current_project]
 
 # Create 'sources_1' fileset (if not found)
