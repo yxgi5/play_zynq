@@ -5,10 +5,11 @@
 
 
 # Board info
+```
 Zynqmp device: xczu3eg-sfvc784-1-i
 DDR: MT40A512M16LY-062E x4 2400Mbps (total 4GB-64bit)
 Quad-SPI FLASH: MT25QU256ABA1EW9 x1
-
+```
 
 # MAX96717 vs MAX96717F
 717 support GMSL2 up to 6Gbps，717F only support GMSL2 3Gbps
