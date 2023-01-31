@@ -1,5 +1,9 @@
 # vdma 64bit mode demo
 
+![MM2S_Start_Addresses](doc/MM2S_Start_Addresses.jpg)
+![S2MM_Start_Addresses](doc/S2MM_Start_Addresses.jpg)
+
+
 # Board info
 Zynqmp device: xczu3eg-sfvc784-1-i
 DDR: MT40A512M16LY-062E x4 2400Mbps (total 4GB-64bit)
