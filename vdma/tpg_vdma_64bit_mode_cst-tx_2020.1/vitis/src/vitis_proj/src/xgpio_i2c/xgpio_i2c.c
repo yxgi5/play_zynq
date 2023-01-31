@@ -30,7 +30,7 @@
 
 #define  XGPIO_ID  XPAR_XGPIO_I2C_0_AXI_GPIO_0_DEVICE_ID
 XGpio XGpioInst;
-XGpio XGpioInst1;
+//XGpio XGpioInst1;
 
 XGpio_I2C_Cfg XGpio_I2C_CfgTable[I2C_NO_BUTT] =
 {
@@ -116,7 +116,7 @@ void i2c_start(i2c_no i2c)
 //	CLB(ret,BIT32(sda));
 //	CLB(ret,BIT32(scl));
 //	XGpio_SetDataDirection(&XGpioInst, 1, ret);
-//	//设置 gpio端口 为输出
+//	//set gpio pin as output
 //	//XGpio_SetDataDirection(&XGpioInst, 1, (OUTPUT<<sda|OUTPUT<<scl));
 //
 //	ret = XGpio_DiscreteRead(&XGpioInst, 1);
@@ -301,7 +301,7 @@ void i2c_send_byte(i2c_no i2c, u8 txd)
 	XGpio_SetDataDirection(&XGpioInst, 1, ret);
 	//XGpio_SetDataDirection(&XGpioInst, 1, (OUTPUT<<sda|OUTPUT<<scl));
 	ret = XGpio_DiscreteRead(&XGpioInst, 1);
-	XGpio_DiscreteWrite(&XGpioInst, 1, (CLB(ret,BIT32(scl))));
+	XGpio_DiscreteWrite(&XGpioInst, 1, (CLB(ret,BIT32(scl))));//pull lo to start transmission
 
     for(t=0; t<8; t++)
     {
@@ -337,9 +337,8 @@ void i2c_send_byte(i2c_no i2c, u8 txd)
 	STB(ret,BIT32(sda));
 	CLB(ret,BIT32(scl));
 	XGpio_SetDataDirection(&XGpioInst, 1, ret);
-    //XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl));
+    //XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl)); //set SDA pin as input
 }
-
 
 u8  i2c_recv_byte(i2c_no i2c)
 {
@@ -354,7 +353,7 @@ u8  i2c_recv_byte(i2c_no i2c)
 	STB(ret,BIT32(sda));
 	CLB(ret,BIT32(scl));
 	XGpio_SetDataDirection(&XGpioInst, 1, ret);
-	//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl));
+	//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl)); //set SDA pin as input
 
 	ret = XGpio_DiscreteRead(&XGpioInst, 1);
 	XGpio_DiscreteWrite(&XGpioInst, 1, (CLB(ret,BIT32(scl))));
@@ -407,7 +406,7 @@ u8  i2c_recv_ack(i2c_no i2c, stretch_mode st_mode)
 	STB(ret,BIT32(sda));
 	CLB(ret,BIT32(scl));
 	XGpio_SetDataDirection(&XGpioInst, 1, ret);
-	//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl));
+	//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl)); //set SDA pin as input
 
 	ret = XGpio_DiscreteRead(&XGpioInst, 1);
 	XGpio_DiscreteWrite(&XGpioInst, 1, (CLB(ret,BIT32(scl))));
@@ -428,13 +427,13 @@ u8  i2c_recv_ack(i2c_no i2c, stretch_mode st_mode)
 		STB(ret,BIT32(sda));
 		STB(ret,BIT32(scl));
 		XGpio_SetDataDirection(&XGpioInst, 1, ret);
-		//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|INPUT<<scl));
+		//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|INPUT<<scl)); //set SCL pin as input
 
 		while(CHB(XGpio_DiscreteRead(&XGpioInst, 1), BIT32(scl)) == 0)
 		{
 		  ucErrTime++;
 		  usleep(1);
-		  if(ucErrTime>1000000)
+		  if(ucErrTime>100000)
 		  {
 			ucErrTime = 0;
 			break;
@@ -462,7 +461,7 @@ u8  i2c_recv_ack(i2c_no i2c, stretch_mode st_mode)
 		STB(ret,BIT32(sda));
 		CLB(ret,BIT32(scl));
 		XGpio_SetDataDirection(&XGpioInst, 1, ret);
-		//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl));
+		//XGpio_SetDataDirection(&XGpioInst, 1, (INPUT<<sda|OUTPUT<<scl)); //set SCL pin as output
 	}
 	else
 	{
@@ -470,7 +469,7 @@ u8  i2c_recv_ack(i2c_no i2c, stretch_mode st_mode)
 	}
 	ret = XGpio_DiscreteRead(&XGpioInst, 1);
 	XGpio_DiscreteWrite(&XGpioInst, 1, (CLB(ret,BIT32(scl))));
-	//XGpio_DiscreteWrite(&XGpioInst, 1, (0<<scl));
+	//XGpio_DiscreteWrite(&XGpioInst, 1, (0<<scl));//pull lo SCL
 	usleep(2);
 
 	if(st_mode)
@@ -486,7 +485,7 @@ u8  i2c_recv_ack(i2c_no i2c, stretch_mode st_mode)
 	CLB(ret,BIT32(sda));
 	CLB(ret,BIT32(scl));
 	XGpio_SetDataDirection(&XGpioInst, 1, ret);
-	//XGpio_SetDataDirection(&XGpioInst, 1, (OUTPUT<<sda|OUTPUT<<scl));
+	//XGpio_SetDataDirection(&XGpioInst, 1, (OUTPUT<<sda|OUTPUT<<scl)); //set SDA pin as output
 
 	ret = XGpio_DiscreteRead(&XGpioInst, 1);
 	STB(ret, BIT32(sda));
