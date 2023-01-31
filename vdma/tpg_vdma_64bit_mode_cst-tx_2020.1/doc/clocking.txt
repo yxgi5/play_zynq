@@ -1,0 +1,29 @@
+
+
+1920×1080@60
+2200×1125×60=148500000
+
+1920×1280@30
+2080×1375×30=85800000
+
+   name      vav,  vfp,  vsw,  vbp,  vsp,  hav,  hfp,  hsw,  hbp,  hsp
+{ "1080P",  1080,    4,    5,   36,    1, 1920,   88,   44,  148,    1 }, // VIDEO_RESOLUTION_1080P
+{ "FHDPLUS",1280,    5,   10,   80,    1, 1920,   48,   32,   80,    1 }, // VIDEO_RESOLUTION_FHDPLUS
+
+
+
+tx:
+aixs_clk*bpp*ppc>=lane_rate*lane_num>=width*hight*fps*bpp
+aixs_clk1>=width*hight*fps/ppc,
+lane_rate>=width*hight*fps*bpp/lane_num
+aixs_clk2>=lane_rate*lane_num/(bpp*ppc)=width*hight*fps/ppc
+lane_rate<=aixs_clk*bpp*ppc/lane_num
+
+
+
+1920x1280@30_RAW12_1ppc_4lane
+aixs_clk1>=2080*1375*30/1=85.8MHz
+lane_rate>=1920*1280*30*12/4=221184000~=222MHz
+aixs_clk2>=1920*1280*30/1=73728000~=74MHz
+use aixs_clk==300M, lane_rate<=aixs_clk*bpp*ppc/lane_num=300x12x1/4=900(MHz)
+lane_rate use 400MHz
