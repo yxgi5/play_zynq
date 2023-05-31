@@ -79,7 +79,7 @@ set files [list "[file normalize [glob "./$project_name/$project_name.srcs/sourc
 add_files -norecurse -fileset $obj $files
 update_compile_order -fileset sources_1
 #update_compile_order -fileset sim_1
-
+exit
 # Generate the output products
 generate_target all [get_files ./$project_name/$project_name.srcs/sources_1/bd/$BD_name/$BD_name.bd]
 create_ip_run [get_files -of_objects [get_fileset sources_1] ./$project_name/$project_name.srcs/sources_1/bd/$BD_name/$BD_name.bd]

@@ -7,18 +7,18 @@ mkdir -p ../flash
 echo -e "the_ROM_image:\n{\n$PWD/download.bit\n}\n" > ../flash/bootimage.bif
 bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi 
 
-cd -
-cd ./sdk_workspace/vitis_proj/_ide/bitstream
-source /opt/Xilinx/SDK/2018.3/settings64.sh
-mkdir -p ../flash
-echo -e "the_ROM_image:\n{\n$PWD/../../Debug/vitis_proj.elf\n}\n" > ../flash/bootimage.bif
-echo "bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi"
-bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi
+#cd -
+#cd ./sdk_workspace/vitis_proj/_ide/bitstream
+#source /opt/Xilinx/SDK/2018.3/settings64.sh
+#mkdir -p ../flash
+#echo -e "the_ROM_image:\n{\n$PWD/../../Debug/vitis_proj.elf\n}\n" > ../flash/bootimage.bif
+#echo "bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi"
+#bootgen -arch fpga -image ../flash/bootimage.bif -w -o ../flash/BOOT.bin -interface spi
 
 cd -
 mkdir -p output
 rm -rf output/*
 cp ./sdk_workspace/fsbl/_ide/flash/BOOT.bin ./output/fsbl.bin
-cp ./sdk_workspace/vitis_proj/_ide/flash/BOOT.bin ./output/app.bin
-
-
+cp ./sdk_workspace/vitis_proj/Debug/vitis_proj.elf ./output/app.bin
+du -b ./output/app.bin | awk '{print substr($1,$2)}' | xargs -I {} printf "%x\n" {} > ./output/app.txt
+du -b ./output/fsbl.bin | awk '{print substr($1,$2)}' | xargs -I {} printf "%x\n" {} > ./output/fsbl.txt
